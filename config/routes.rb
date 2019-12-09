@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'orders/check'
+  get 'orders/thanks'
   get 'products/top'
   # devise_for :users
 
@@ -22,6 +24,8 @@ devise_for :users, controllers: {
 
 resources :users
 resources :products
+resources :carts
+resources :orders
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
