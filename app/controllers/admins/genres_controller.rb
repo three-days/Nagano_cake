@@ -1,4 +1,7 @@
 class Admins::GenresController < ApplicationController
+
+layout "admin"
+
   def index
   end
 
