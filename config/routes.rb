@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'products/top'
   # devise_for :users
 
 namespace :admin do
