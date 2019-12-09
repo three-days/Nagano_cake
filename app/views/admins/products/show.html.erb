@@ -1,2 +1,9 @@
-<h1>Admins::Products#show</h1>
-<p>Find me in app/views/admins/products/show.html.erb</p>
+<h1><strong>商品 詳細画面</strong></h1>
+
+<%= attachment_image_tag image, :image %>
+        <%= product_id %>
+        <%= link_to prodact_name, admins_product_path(admins_product) %>
+        <%= tax_excluded %>
+        <%= genre_name %>
+        <%= sale_status %>
+      <% end %>
