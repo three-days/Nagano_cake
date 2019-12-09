@@ -3,13 +3,12 @@
 <p>新規作成ボタン</p>
 
 
-<p>   <% @admins_products.each do |admins_product| %>
-        <%= product_id %>
-        <%= link_to prodact_name, admins_product_path(admins_product) %>
-        <%= tax_excluded %>
-        <%= genre_name %>
-        <%= sale_status %>
+<p>   <% @admins_products.each do |p| %>
+        <%= p.id %>
+        <%= link_to p.product_name, admins_product_path(p.id) %>
+        <%= p.tax_excluded %>
+        <%= p.genre.genre_name %>
+        <%= p.sale_status %>
       <% end %>
-</p>
     <%= paginate @admins_products, class: "paginate" %>
-
+</p>
