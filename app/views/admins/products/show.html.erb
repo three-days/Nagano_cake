@@ -1,0 +1,10 @@
+<h1><strong>商品 詳細画面</strong></h1>
+
+<%= attachment_image_tag @admins_product, :image, :fill, 100, 100, format: 'jpeg', fallback: "freecake.jpeg" %>
+<h3>商品名       <strong><%= @admins_product.product_name %></strong></h3>
+<h3>商品説明       <strong><%= @admins_product.product_description %></strong></h3>
+<h3>ジャンル        <strong><%= @genre.genre_name %></strong></h3>
+<h3>税込価格（税抜価格）        <strong> （<%= @admins_product.tax_excluded %>）</strong> 円</h3>
+<h3>販売ステータス        <strong><%= @admins_product.sale_status %></strong></h3>
+
+<%= link_to "編集する", edit_admins_product_path(@admins_product) %>

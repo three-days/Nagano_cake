@@ -1,0 +1,14 @@
+
+<h1><strong>会員詳細画面</strong></h1>
+
+
+<h3>顧客ID       <%= @admins_user.id %><%= @admins_user.leave_status %></h3>
+<h3>氏名       <%= @admins_user.family_name_kanji %><%= @admins_user.first_name_kanji %></h3>
+<h3>フリガナ    <%= @admins_user.family_name_kana %><%= @admins_user.first_name_kana %></h3>
+<h3>郵便番号       <%= @admins_user.postal_code %></h3>
+<h3>住所        <%= @admins_user.user_address %></h3>
+<h3>電話番号    <%= @admins_user.tele_number %></h3>
+<h3>メールアドレス    <%= @admins_user.email %></h3>
+
+<%= link_to "編集する", edit_admins_user_path(@admins_user) %>
+<%= link_to "注文履歴一覧を見る", admins_order_path(@admins_order) %>
