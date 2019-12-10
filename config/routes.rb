@@ -1,18 +1,34 @@
 Rails.application.routes.draw do
+
   get 'orders/check'
   get 'orders/thanks'
   get 'products/top'
-  # devise_for :users
 
-namespace :admin do
-  get '/', :to => 'admin#top'
+
+resources :users
+resources :products
+resources :carts
+resources :orders
+
+
+
+
+namespace :admins do
+    root "top#index"
+    resources :products
+    resources :users, only:[:index, :show, :edit, :update, :destroy]
+    resources :orders, only:[:index, :show, :update]
+    resources :order_products, only:[:update]
+    resources :genres, only:[:index, :create, :update, :destroy]
+
 end
+devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
 
-  devise_for :admin_users, path: :admin, controllers: {
-    sessions: 'admin/admin_users/sessions',
-    passwords: 'admin/admin_users/passwords',
-    registrations: 'admin/admin_users/registrations'
-  }
+
 
 devise_for :users, controllers: {
   sessions:      'users/sessions',
@@ -21,11 +37,12 @@ devise_for :users, controllers: {
 }
 
 
-
-resources :users
-resources :products
-resources :carts
-resources :orders
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
+
+
+
+
+
+

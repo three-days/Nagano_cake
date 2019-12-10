@@ -8,7 +8,7 @@
 
 
 
-AdminUser.create!(
+Admin.create!(
    email: 'admin@gmail.com',
    password: '000000',
    reset_password_token: '555555',
