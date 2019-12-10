@@ -1,7 +1,7 @@
 <h1><strong>商品一覧画面</strong></h1>
 
-<p>新規作成ボタン</p>
-
+<%= link_to "+", new_admins_product_path %>
+ 
 
 <p>   <% @admins_products.each do |p| %>
         <%= p.id %>
