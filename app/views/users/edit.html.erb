@@ -1,1 +1,33 @@
 <!-- 会員情報編集ページ -->
+<h2>登録情報編集</h2>
+
+<%= form_for(@user) do |f| %>
+<%= f.submit '退会する' %>
+<p>氏名</p>
+
+<%= f.text_field :family_name_kanji %>
+<%= f.text_field :first_name_kanji %>
+<p>カナ</p>
+
+<%= f.text_field :family_name_kana %>
+<%= f.text_field :first_name_kana %>
+
+<p>郵便番号</p>
+
+<%= f.text_field :postal_code %>
+
+<p>住所</p>
+
+<%= f.text_field :user_address %>
+
+<p>電話番号</p>
+
+<%= f.text_field :tele_number %>
+
+<p>メールアドレス</p>
+
+<%= f.text_field :email %>
+
+<%= f.submit '編集内容を保存する' %>
+
+<% end %>
