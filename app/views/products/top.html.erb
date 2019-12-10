@@ -17,4 +17,19 @@
 		</div>
 	</div>
 </nav>
-<%= link_to '商品', new_cart_path %>
+
+           <% @products.each do |product| %>
+            <%= link_to '商品', new_cart_path %>
+
+
+           <%= product.product_name %>
+           <%= product.tax_excluded %>
+           <% end %>
+
+
+
+       <tbody>
+
+  </tbody>
+
+
