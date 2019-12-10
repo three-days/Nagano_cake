@@ -80,6 +80,6 @@ gem 'devise'
 
 gem 'ransack'
 
-gem 'activeadmin'
-
 gem 'paranoia'
+
+gem 'enum_help'

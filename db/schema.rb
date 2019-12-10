@@ -10,23 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_07_104307) do
+ActiveRecord::Schema.define(version: 2019_12_09_070754) do
 
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.integer "resource_id"
-    t.string "author_type"
-    t.integer "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
-  end
-
-  create_table "admin_users", force: :cascade do |t|
+  create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -34,10 +20,8 @@ ActiveRecord::Schema.define(version: 2019_12_07_104307) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "admin_email", null: false
-    t.string "admin_password", null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "carts", force: :cascade do |t|
@@ -103,19 +87,17 @@ ActiveRecord::Schema.define(version: 2019_12_07_104307) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.string "family_name_kanji"
+    t.string "first_name_kanji"
+    t.string "family_name_kana"
+    t.string "first_name_kana"
+    t.integer "postal_code"
+    t.string "user_address"
+    t.integer "tele_number"
+    t.boolean "leave_status"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "family_name_kanji", null: false
-    t.string "first_name_kanji", null: false
-    t.string "family_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "postal_code", null: false
-    t.string "user_address", null: false
-    t.string "tele_number", null: false
-    t.string "user_email", null: false
-    t.string "user_password", null: false
-    t.boolean "leave_status", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
