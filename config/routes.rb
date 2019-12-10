@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'orders/check'
+  get 'orders/thanks'
+  get 'products/top'
+
+
+resources :users
+resources :products
+resources :carts
+resources :orders
+
 
 
 

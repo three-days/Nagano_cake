@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">
+				ながのCAKE
+			</a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbarEexample3">
+			<form class="navbar-form navbar-right" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="検索キーワード">
+				</div>
+				<button type="submit" class="btn btn-default">検索</button>
+				<p class="navbar-text navbar-right">ようこそ <a href="#" class="navbar-link">ゲスト</a> さん。</p>
+			</form>
+		</div>
+	</div>
+</nav>
+
+           <% @products.each do |product| %>
+            <%= link_to '商品', new_cart_path %>
+
+
+           <%= product.product_name %>
+           <%= product.tax_excluded %>
+           <% end %>
+
+
+
+       <tbody>
+
+  </tbody>
+
+

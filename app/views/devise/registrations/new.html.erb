@@ -1,10 +1,13 @@
+
 <!-- サインインページ -->
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+
     <%= f.label :氏名 %><br />
     <%= f.text_field :family_name_kanji, autofocus: true, autocomplete: "family_name_kanji" %>
     <%= f.text_field :first_name_kanji, autofocus: true, autocomplete: "first_name_kanji" %>
@@ -14,6 +17,7 @@
     <%= f.label :氏名（フリガナ） %><br />
     <%= f.text_field :family_name_kanji, autofocus: true, autocomplete: "family_name_kana" %>
     <%= f.text_field :first_name_kanji, autofocus: true, autocomplete: "first_name_kana" %>
+
   </div>
 
   <div class="field">
@@ -35,6 +39,7 @@
   </div>
 
   <div class="field">
+
     <%= f.label :郵便番号 %><br />
     <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
   </div>
@@ -48,6 +53,7 @@
     <%= f.label :住所 %><br />
     <%= f.text_field :user_address, autofocus: true, autocomplete: "user_address" %>
   </div>
+
   
 
   <div class="actions">
