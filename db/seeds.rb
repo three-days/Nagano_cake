@@ -73,7 +73,6 @@ Order.create!(
 )
 
 
-
 OrderProduct.create!(
    order_id: '1',
    product_id: '1',
@@ -83,6 +82,5 @@ OrderProduct.create!(
    created_at: "2019-06-09 05:58:56",
    updated_at: "2019-06-09 05:58:57"
 )
-
 
 
