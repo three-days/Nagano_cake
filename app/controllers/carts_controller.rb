@@ -11,23 +11,14 @@ class CartsController < ApplicationController
     @cart.user_id= current_user.id
     @cart.save
     redirect_to carts_path
-
   end
 
-    # カート追加用の記述
-  # def add_to_cart
-  #     product = Product.find(params[:id])
-  #     @cart.add_product(product)
-  #     redirect_to(:action => 'display_cart')
-  # end
-
-   #商品詳細画面の「この商品をカートに入れる」ボタンクリック時のアクション
-  # def add
-  #   session[:cart] ||= Cart.new
-  #   session[:cart].add(Catalog.find(params[:id]))
-  #   @cart = session[:cart]
-  #   render :action => 'cart.html.erb'
-  # end
+  def update
+    @cart = Cart.find(params[:id])
+    @cart.user_id= current_user.id
+    @cart.update(cart_params)
+    redirect_to carts_path
+  end
 
   def destroy
     @cart = Cart.find(params[:id])
