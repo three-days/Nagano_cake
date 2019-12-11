@@ -81,3 +81,5 @@ gem 'devise'
 gem 'ransack'
 
 gem 'paranoia'
+
+gem 'enum_help'

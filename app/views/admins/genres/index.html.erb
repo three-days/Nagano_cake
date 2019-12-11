@@ -1,0 +1,44 @@
+<h1>ジャンル管理画面</h1>
+
+
+  <%= form_for @genre, :url => { :controller => :genres, :action => :create } do |f| %>
+     <% if @genre.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+         <h3><%= @genre.errors.count %>error prohibited this obj from being saved:</h3>
+         <ul>
+          <% @genre.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+         </ul>
+        </div>
+     <% end %>
+
+        <h3>ジャンル      <%= f.text_field :genre_name %></h3>
+        <%= f.submit '追加', class: "btn btn-primary btn-block" %>
+   <% end %>
+
+
+
+     <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @genres.each do |genre| %>
+             <tr>
+
+            form_for?
+              <td><%= genre_name %></td>
+              <td>< "無効にする", book_path(book), class: "btn btn-danger" %></td>
+            有効にする切り替え
+               <td><  "編集する", class: "btn btn-danger" %></td>
+               変更を保存
+             </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>

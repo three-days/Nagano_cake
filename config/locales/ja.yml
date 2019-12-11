@@ -1,0 +1,11 @@
+ja:
+  enums:
+    product:
+      sale_status:
+        sales: "販売中"
+        stopped: "販売停止中"
+
+    user:
+      leave_status:
+        alive: "退会済みにする"
+        dead: "入会状態に戻す"

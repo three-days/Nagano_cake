@@ -1,16 +1,39 @@
 Rails.application.routes.draw do
+
+  get 'orders/check'
+  get 'orders/thanks'
   get 'products/top'
-  # devise_for :users
+  # カートに入れる用ルーティング
+  post '/add_product' => 'carts#add_product'
+  post '/update_item' => 'carts#update_product'
+  delete '/delete_product' => 'carts#delete_product'
 
-namespace :admin do
-  get '/', :to => 'admin#top'
+
+
+resources :products
+resources :carts
+resources :carts, only: [:index]
+resources :orders
+
+
+
+
+namespace :admins do
+    root "top#index"
+    resources :products
+    resources :users, only:[:index, :show, :edit, :update, :destroy]
+    resources :orders, only:[:index, :show, :update]
+    resources :order_products, only:[:update]
+    resources :genres, only:[:index, :create, :update, :destroy]
+
 end
+devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
 
-  devise_for :admin_users, path: :admin, controllers: {
-    sessions: 'admin/admin_users/sessions',
-    passwords: 'admin/admin_users/passwords',
-    registrations: 'admin/admin_users/registrations'
-  }
+
 
 devise_for :users, controllers: {
   sessions:      'users/sessions',
@@ -20,7 +43,16 @@ devise_for :users, controllers: {
 
 
 
-resources :users
 
+resource :users
+resources :deliverys
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
+
+
+
+
+
+
