@@ -13,5 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+header{
+ color: white;
+}
+ .main {
+  margin-top: 51px;
+ }
+
+.title_field {
+	width: 260px;
+}
+.body_field{
+	width: 260px;
+}
+.login_buttun {
+	color: #666;
+	width: 500px;
+}
+.signin_buttum {
+	color: #666;
+	width: 500px;
+}
+.btn_field {
+	width: 260px;
+}
