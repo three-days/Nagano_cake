@@ -19,8 +19,7 @@ namespace :admins do
     resources :users, only:[:index, :show, :edit, :update, :destroy]
     resources :orders, only:[:index, :show, :update]
     resources :order_products, only:[:update]
-    resources :genres, only:[:index, :create, :update, :destroy]
-
+    resources :genres, only:[:index, :create, :edit, :update]
 end
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',

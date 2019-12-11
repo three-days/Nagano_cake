@@ -36,9 +36,11 @@
               <td><%= p.tax_included %></td>
               <td><%= p.number  %></td>
               <td> 単価＊小計  %></td>
-             <%= form_for @admins_order_product, :url => { :controller => :orders, :action => :update } do |f| %>
+             <%= form_for @order_product, :url => { :controller => :orders, :action => :update } do |f| %>
               <td><%= f.select :production_status, OrderProduct.production_statuses_i18n.keys.map { |k| [OrderProduct.production_statuses_i18n[k], k]} %></td>
+             <%= f.submit '更新', class: "btn btn-primary btn-block" %>
              <% end %>
+
              </tr>
             <% end %>
 
