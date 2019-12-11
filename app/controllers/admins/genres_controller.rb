@@ -21,7 +21,7 @@ layout "admin"
   end
 
 
-  def book_params
+  def genre_params
     params.require(:genre).permit(:genre_name)
   end
 
