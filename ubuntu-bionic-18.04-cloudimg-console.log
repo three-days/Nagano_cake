@@ -1,6 +1,7 @@
 [    000000] Linux version .1.0-72geeric (ilddlc01-ad6-026(gccversion 7.4.0 (Ubunu 7.4.0-1ubuntu1~18.04.1)) #81-Ubuntu SMP ueNov 26 12:20:02 UTC 2019 (Untu 4.15.0-72.81-generic 45.18)
 [   .00000 Cmmad ine: BOOIMAGEboot/vmlinuz-4.15.0-72-generic root=UUID=dba4d46f-4a27-41aa-b1b1-4098643d2c4e ro console=tty1 consoletyS0
-[  0.0000] KERNL uppted cpus:[   0.00000  Intel GenuineIntel
+[  0.0000] KERNL uppted cpus:
+[   0.00000  Intel GenuineIntel
 [    0.000000]  AMD AuthenicAMD
 [    000000]  Cetaur CtaurHauls
 [   000000] x6/pu: Supporting XSE featur 0001: 'x87 floating pooint regstrs'
@@ -24,7 +25,8 @@
 [   0.00000] e820: lst_pfn = 0x3fff0 max_arch_pfn = 0x400000000
 [    0.000000] MTRR: Disabled
 [    0.000000 x/PAT: MRRs disbld, skiping P initializati too.
-[  0.00000 CPU MTRRall blank - virtualizd syem.[    0.0000] x8/PAT: Conigraton[0-7: WB  WT  UC- UC  WB  WT  U- UC  
+[  0.00000 CPU MTRRall blank - virtualizd syem.
+[    0.0000] x8/PAT: Conigraton[0-7: WB  WT  UC- UC  WB  WT  U- UC
 [  0.000000] found SP P-table at [me0x0009ff00x09ffff]
 [   .0000] Scnning 1 areas for low memory corrupton
 [  0.0000] RAMDISK: [mem 0x356700-0xcaaff
@@ -33,19 +35,24 @@
 [   0.00000] ACPI: XSDT 0x000000003FF0030 00003C v0 VBOX  BOXXST 000001ASL 00000)
 [  0.0000] ACI:FACP 0x000000003FFF00F0 0000F4 (v04 VBOX   VBOXFACP 00000001 ASL  00000061)
 [    0.000000] ACPI: DSDT 0x000000003FFF0470 0021FF (v02 VBOX   VBOXBIOS 00000002 INTL 20100528
-[    0.0000] CPI: FCS0x0000003FF0200 00040[    0.00000] ACPI: FACS 0x000000003FFF0200 00000
+[    0.0000] CPI: FCS0x0000003FF0200 00040
+[    0.00000] ACPI: FACS 0x000000003FFF0200 00000
 [  0.0000 API: PI 00000000FF0240 00005C (02 VBOX  BOXAC 0000001AS  000001)
-[   .00000 ACP SSD 0000000003FFF02A0 0001CC v01 BO   VOXCPT 00002 TL 2000528)[   .00000 No NU conigration fund
+[   .00000 ACP SSD 0000000003FFF02A0 0001CC v01 BO   VOXCPT 00002 TL 2000528)
+[   .00000 No NU conigration fund
    000000] Fing a noe t [me 0x000000000000000-0x000000003feffff]
 [    0.000000] NODE_DATA(0) allocated [mem 0x3ffc5000-0x3ffeffff]
     .0000 kvm-clock: cpu 0, msr 0:3ff44001, primary cpu clock
-[    0.000000] kvm-clock: Using msrs 4b56d0 and 4b5d00[    0.000000] kvm-clock: using sched ofse of5460768 cycles[   0.0000 cloksourc: kvm-coc: mask:xfffffffffffff ma_cycle: x1cd424dffb, max_idle_s:88190591483 ns
+[    0.000000] kvm-clock: Using msrs 4b56d0 and 4b5d00
+[    0.000000] kvm-clock: using sched ofse of5460768 cycles
+[   0.0000 cloksourc: kvm-coc: mask:xfffffffffffff ma_cycle: x1cd424dffb, max_idle_s:88190591483 ns
 [   0.00000] Zone ranes
 [    000000  DMA    [mem x00000000010-0x0000000ffffff]
 [  0.0000]  DA32    em 00000000010000-000000003ffefff]
 [  0.00000]  Normal   emty
 [    0.000000]   Device   empy
-[   00000] Movae zone tat for ech node[    0.00000 Ely mmoy node rngs
+[   00000] Movae zone tat for ech node
+[    0.00000 Ely mmoy node rngs
     00000]  nod  0:[mm 0x000000001000-x0000000009efff]
 [    0000000]   node   0: [mem 0x0000000000100000-0x000000003ffeffff]
 [    0.000000] Reserved but unavailable: 98 pages
@@ -64,7 +71,8 @@
 [    0.000000] Booting arvirtalzed knel on KVM
 [    0.000000] clockouce: refne-jiffis: ask: 0xffffffff max_ccls:0xffffff,max_idle_ns: 7645519600211568 ns
 [   0.00000] anomget_randm_yt calld from tart_krnel+0x99/0x4fd with crng_init=0
-[    0.000000] setup_percpu: NR_CPUS:8192 nr_cpumask_bits:2 nr_cpu_ids:2 nr_node_is:1[    0.000000] percpu: Embddd 4pages/cpu s4756 r19 d2872 u10856
+[    0.000000] setup_percpu: NR_CPUS:8192 nr_cpumask_bits:2 nr_cpu_ids:2 nr_node_is:1
+[    0.000000] percpu: Embddd 4pages/cpu s4756 r19 d2872 u10856
    0.0000] PV qspinlock hash table entries: 256 (order: 0, 4096 bytes)
 [    0.000000] Built 1 zonelis, mbiity groupngon.  Total pages: 25713
 [   0.00000 Plicy zone: MA32
@@ -196,7 +204,8 @@
 [   9589pn PP PIni
 [  2968]np: PnPAC: un3 vies
 
-[   9586] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idlens207024s   3353517] NET:Restedprotocol family 2
+[   9586] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idlens207024s
+   3353517] NET:Restedprotocol family 2
 [    33825 T etaisd shab eris: 819(order: 4, 6553 bes
 [  48471] P ndastae trs:812 orer5,13072 bytes)
 [    5.269419] TCP: Hash tables configured (established 8192 bind 8192)
@@ -397,7 +406,8 @@ Welcome to [1mUbuntu 18.04.3 LTS[0m!
          Starting Remount[   40.533874] EXT4-fs (sda1): re-mounted. Opts: (null)
  Root and Kernel File Systems...
          Mounting POSIX Message Queue File System...
-         Starting Load Kernel Modules...[   40.783957] Loading iSCSI transport class v2.0-870.
+         Starting Load Kernel Modules...
+[   40.783957] Loading iSCSI transport class v2.0-870.
 
 [[0;32m  OK  [0m] Listening on [   40.827933] iscsi: registered transport (tcp)
 udev Control Soc[   40.918881] random: crng init done
@@ -591,7 +601,8 @@ cket.
 [   56.467775] cloud-init[1311]: Cloud-init v. 19.2-36-g059d049c-0ubuntu2~18.04.1 finished at Tue, 10 Dec 2019 02:12:33 +0000. Datasource DataSourceNoCloud [seed=/dev/sdb][dsmode=net].  Up 56.37 seconds
 [[0;32m  OK  [0m] Started Execute cloud user/final scripts.
 [[0;32m  OK  [0m] Reached target Cloud-init target.
-
+
+
 Ubuntu 18.04.3 LTS ubuntu-bionic ttyS0
 
 ubuntu-bionic login: 
