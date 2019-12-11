@@ -13,7 +13,7 @@
         </div>
      <% end %>
 
-        <h3>ジャンル      <%= f.text_field :genre_name %></h3>
+        <h3><%= f.label :ジャンル %><br><%= f.text_field :genre_name %></h3>
         <%= f.submit '追加', class: "btn btn-primary btn-block" %>
    <% end %>
 
@@ -28,14 +28,14 @@
           </tr>
         </thead>
         <tbody>
-            <% @genres.each do |genre| %>
+            <% @genres.each do |p| %>
              <tr>
 
-            form_for?
-              <td><%= genre_name %></td>
+              <td><%= p.genre_name %></td>
               <td>< "無効にする", book_path(book), class: "btn btn-danger" %></td>
             有効にする切り替え
-               <td><  "編集する", class: "btn btn-danger" %></td>
+               <td><%= link_to "編集する", edit_admins_genre_path(p),
+                class: "btn btn-danger" %></td>
                変更を保存
              </tr>
             <% end %>

@@ -10,7 +10,13 @@ layout "admin"
     @admins_order = Order.find(params[:id])
     @user = @admins_order.user
     @order_products = @admins_order.order_products
+    @order_product = @admins_order.order_product
   end
+
+    def ajax
+        @order_product = OrderProduct.find(params[:id])
+        @variation = @product.variations.find_by(color: @selected_color)
+    end
 
   def update
     @admins_order = User.find(params[:id])

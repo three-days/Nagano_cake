@@ -1,0 +1,3 @@
+
+
+                <%= f.select :production_status, OrderProduct.production_statuses_i18n.keys.map { |k| [OrderProduct.production_statuses_i18n[k], k]} %>
