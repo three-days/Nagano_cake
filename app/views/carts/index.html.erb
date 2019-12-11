@@ -1,42 +1,61 @@
-      <table class="table">
+ <div class="container-fluid bg-info">
+      <table class="table table-bordered">
         <h4>ショッピングカート</h4>
           <thead>
             <tr>
+              <th></th>
               <th>商品名</th>
               <th>単価（税抜き）</th>
               <th>数量</th>
               <th>小計</th>
-              <th>&nbsp;</th>
+              <th></th>
             </tr>
           </thead>
 
 
 <!-- 合計金額の出し方は仮の状態です -->
-　<tbody>
+  <tbody>
 　　<% sum = 0 %>
            <% @carts.each do |cart| %>
-                  <tr>
-           <td><%= cart.product.product_name %></td>
-           <td><%= cart.product.tax_excluded %></td>
-           <td><%= cart.product_number %></td>
-           <td>
-            <%= calc = cart.product.tax_excluded * cart.product_number %>
-           </td>
-           <td><%= link_to '削除する', cart, method: :delete %></td>
-                  </tr>
-            <% sum = sum + calc %>
+             <tr>
+              <td>
+              <div><%= attachment_image_tag cart.product, :image_id, :fill, 50, 50, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %></div>
+              </td>
+              <td>
+              <%= cart.product.product_name %>
+              </td>
+              <td>
+              <%= cart.product.tax_excluded %>
+              </td>
+              <td>
+              <%= form_for cart do |f| %>
+                   <%= f.select :product_number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"]] ,class:"form-control" %>
+                   <%=f.submit "数量の変更を確定", class: "btn btn-primary" %>
+
+              <% end %>
+              </td>
+              <td>
+              <%= calc = cart.product.tax_excluded * cart.product_number %>
+              </td>
+              <td>
+              <%= link_to '削除する', cart, method: :delete, class: "btn btn-danger" %>
+              </td>
+             </tr>
+             <% sum = sum + calc %>
            <% end %>
+
+
+           <td></td>
+           <td></td>
+           <td></td>
+           <td>合計金額</td>
+           <td><%= sum %></td>
   </tbody>
 
-          <thead>
-            <tr>
-              <th>合計金額</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-　　　　　　　<td><%= sum %></td>
-　　　　　　　</tr>
-          <td><%= link_to '情報入力に進む', new_order_path %></td>
-  　　    </tbody>
-        </table>
+  <tfoot>
+    <td>
+      <%= link_to '情報入力に進む', new_order_path, class: "btn btn-primary" %>
+    </td>
+  </tfoot>
+
+</div>
