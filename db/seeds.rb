@@ -10,23 +10,13 @@
 
 Admin.create!(
    email: 'admin@gmail.com',
-   password: '000000',
-   reset_password_token: '555555',
-   reset_password_sent_at: "2019-06-09 05:58:54",
-   remember_created_at: "2019-06-09 06:58:55",
-   created_at: "2019-06-09 05:58:56",
-   updated_at: "2019-06-09 05:58:57",
-)
+   password: '000000'
+  )
 
 
 User.create!(
    email: 'test1@gmail.com',
    password: '111111',
-   reset_password_token: '444444',
-   reset_password_sent_at: "2019-06-09 05:58:54",
-   remember_created_at: "2019-06-09 06:58:55",
-   created_at: "2019-06-09 05:58:56",
-   updated_at: "2019-06-09 05:58:57",
    family_name_kanji: '山田',
    first_name_kanji: '太郎',
    family_name_kana: 'ヤマダ',
@@ -34,8 +24,9 @@ User.create!(
    postal_code: '1111111',
    user_address: 'tokyo',
    tele_number: '0120999333',
-   leave_status: '0'
+   leave_status: 0
 )
+
 
 Genre.create!(
    genre_name: 'ケーキ',
@@ -55,36 +46,32 @@ Product.create!(
 )
 
 Cart.create!(
-   user_id: '1',
-   product_id: '1',
-   product_number: '1',
-   created_at: "2019-06-09 05:58:56",
-   updated_at: "2019-06-09 05:58:57"
+   user_id: 1,
+   product_id: 1,
+   product_number: 1
 )
 
 
 Delivery.create!(
-   user_id: '1',
+   user_id: 1,
    delivery_address: 'kyoto',
    delivery_name: 'bubuduke',
-   delivery_postal_code: '2222222',
-   created_at: "2019-06-09 05:58:56",
-   updated_at: "2019-06-09 05:58:57"
+   delivery_postal_code: '2222222'
 )
 
+
 Order.create!(
-   user_id: '1',
-   total_charge: '1880',
+   user_id: 1,
+   total_charge: 1880,
    purchase_date: "2019-06-09 05:58:56",
-   payment_methods: '1',
-   order_status: '1',
-   postage: '800',
+   payment_methods: 1,
+   order_status: 1,
+   postage: 800,
    destination_address: 'osaka',
    destination_name: 'nandeya',
-   destination_postal_code: '3333333',
-   created_at: "2019-06-09 05:58:56",
-   updated_at: "2019-06-09 05:58:57"
+   destination_postal_code: '3333333'
 )
+
 
 
 OrderProduct.create!(
@@ -96,5 +83,6 @@ OrderProduct.create!(
    created_at: "2019-06-09 05:58:56",
    updated_at: "2019-06-09 05:58:57"
 )
+
 
 

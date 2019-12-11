@@ -1,46 +1,25 @@
-<h1>商品 新規登録画面</h1>
-    <%= form_for @admins_product, :url => { :controller => :admins_product, :action => :create } do |f| %>
-     <% if @admins_product.errors.any? %>
-        <div id="error_explanation" class="alert alert-danger">
-         <h3><%= @admins_product.errors.count %>error prohibited this obj from being saved:</h3>
-         <ul>
-          <% @admins_product.errors.full_messages.each do |message| %>
-           <li><%= message %></li>
-          <% end %>
-         </ul>
-        </div>
-       <% end %>
+<h1>会員編集画面</h1>
 
-        <%= f.attachment_field :image %>
-        <h3>商品名       <%= f.text_field :product_name %></h3>
-        <h3>商品説明      <%= f.text_area :product_description %></h3>
-        <h3>ジャンル      <%= f.select :genre_name %></h3>
-        <h3>税込価格（税抜価格）     （<%= f.number_box :tax_excluded %>）円</h3>
-        <h3>販売ステータス       <%= f.select :sale_status %></h3>
-        <%= f.submit '新規登録', class: "btn btn-primary btn-block" %>
-    <% end %>
-
-
-<h1>商品 編集画面</h1>
-
-
-
-    <%= form_for @admins_user, :url => { :controller => :admins_user, :action => :update } do |f| %>
+<h3>会員ID  <%= @admins_user.id %>
+</h3>
+    <%= form_for @admins_user, :url => { :controller => :users, :action => :update } do |f| %>
      <% if @admins_user.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
-         <h3><%= @admins_product.errors.count %>error prohibited this obj from being saved:</h3>
+         <h3><%= @admins_user.errors.count %>error prohibited this obj from being saved:</h3>
          <ul>
-          <% @admins_product.errors.full_messages.each do |message| %>
+          <% @admins_user.errors.full_messages.each do |message| %>
            <li><%= message %></li>
           <% end %>
          </ul>
         </div>
        <% end %>
-        <%= f.attachment_field :image %>
-        <h3>商品名       <%= f.text_field :product_name %></h3>
-        <h3>商品説明      <%= f.text_area :product_description %></h3>
-        <h3>ジャンル      <%= f.select :genre_name %></h3>
-        <h3>税込価格（税抜価格）     （<%= f.number_box :tax_excluded %>）円</h3>
-        <h3>販売ステータス       <%= f.select :sale_status %></h3>
-        <%= f.submit '変更を保存', class: "btn btn-primary btn-block" %>
+        <h3>氏名       <%= f.text_field :family_name_kanji %> <%= f.text_area :first_name_kanji %></h3>
+        <h3>フリガナ       <%= f.text_field :family_name_kana %> <%= f.text_area :first_name_kana %></h3>
+        <h3>郵便番号     <%= f.text_field :postal_code %></h3>
+        <h3>住所      <%= f.text_field :user_address %></h3>
+        <h3>電話番号     （<%= f.number_field :tele_number %>）円</h3>
+        <h3>メールアドレス       <%= f.text_field :email %></h3>
+        <h3>退会状態       <%= f.select :leave_status, User.leave_statuses_i18n.keys.map { |k| [User.leave_statuses_i18n[k], k]} %></h3>
+        <%= f.submit '変更を保存する', class: "btn btn-primary btn-block" %>
+
     <% end %>
