@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
   def index
-  	@carts = Cart.all
-  	# @carts = current_user.carts
+    @carts = current_user.carts
   end
   def show
   	@carts = Cart.all
@@ -33,10 +32,10 @@ class CartsController < ApplicationController
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy
-    redirect_to "carts/new"
+    redirect_to carts_path
   end
   private
    def cart_params
-    params.require(:cart).permit(:product_id)
+    params.require(:cart).permit(:product_id, :product_number)
   end
 end
