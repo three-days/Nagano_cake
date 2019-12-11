@@ -16,7 +16,7 @@ def after_sign_in_path_for(resource)
   when Admin
     admins_root_path
   when User
-    users_root_path
+    users_path
   end
 end
 

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'products/top'
 
 
-resources :users
 resources :products
 resources :carts
 resources :orders
@@ -39,7 +38,7 @@ devise_for :users, controllers: {
 
 
 
-resources :users
+resource :users
 resources :deliverys
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

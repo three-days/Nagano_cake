@@ -3,39 +3,40 @@
 <h1>toppo</h1>
 <table class="table table-striped">
 		<h2>登録情報</h2>
-		 <tr><%= link_to '編集する',edit_user_path %>
-		 <%= link_to 'パスワードを変更する',user_path %></tr>
+		 <!-- <tr> link_to '編集する',edit_user %> -->
+		 <!-- link_to 'パスワードを変更する',user_p %></tr> -->
 		<tr>
 			<th>氏名</th>
-			<td><%= @users.family_name_kanji %>
-				<%= @users.first_name_kanji %>
+			<td><%= @user.family_name_kanji %>
+				<%= @user.first_name_kanji %>
 			</td>
 		</tr>
 		<tr>
 			<th>カナ</th>
-			<td><%= @users.family_name_kana %>
-				<%= @users.first_name_kana %>
+			<td><%= @user.family_name_kana %>
+				<%= @user.first_name_kana %>
 			</td>
 		</tr>
 		<tr>
 			<th>郵便番号</th>
-			<td><%= @users.postal_code %></td>
+			<td><%= @user.postal_code %></td>
 		</tr>
 		<tr>
 			<th>住所</th>
-			<td><%= @users.user_address %></td>
+			<td><%= @user.user_address %></td>
 		</tr>
 		<tr>
 			<th>電話番号</th>
-			<td><%= @users.tele_number %></td>
+			<td><%= @user.tele_number %></td>
 		</tr>
 		<tr>
 			<th>メールアドレス</th>
-			<td><%= @users.email %></td>
+			<td><%= @user.email %></td>
 		</tr>
 		<h2>配送先</h2>
 		<%= link_to '一覧を見る',delivery_path(current_user.id) %>
 		<h2>注文履歴</h2>
 		<%= link_to '一覧を見る',delivery_path(current_user.id) %>
+		
 </table>
 
