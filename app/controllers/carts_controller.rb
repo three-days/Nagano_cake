@@ -34,6 +34,9 @@ class CartsController < ApplicationController
     @cart.destroy
     redirect_to carts_path
   end
+
+
+
   private
    def cart_params
     params.require(:cart).permit(:product_id, :product_number)

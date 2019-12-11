@@ -54,15 +54,6 @@ Delivery.create!(
 )
 
 
-
-OrderProduct.create!(
-   order_id: 1,
-   product_id: 1,
-   number: 1,
-   tax_included: 1080,
-   production_status: 1
-)
-
 Order.create!(
    user_id: 1,
    total_charge: 1880,
@@ -75,3 +66,10 @@ Order.create!(
    destination_postal_code: '3333333'
 )
 
+OrderProduct.create!(
+   order_id: 1,
+   product_id: 1,
+   number: 1,
+   tax_included: 1080,
+   production_status: 1
+)
