@@ -3,11 +3,17 @@ Rails.application.routes.draw do
   get 'orders/check'
   get 'orders/thanks'
   get 'products/top'
+  # カートに入れる用ルーティング
+  post '/add_product' => 'carts#add_product'
+  post '/update_item' => 'carts#update_product'
+  delete '/delete_product' => 'carts#delete_product'
+
 
 
 resources :users
 resources :products
 resources :carts
+resources :carts, only: [:index]
 resources :orders
 
 
