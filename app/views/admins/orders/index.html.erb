@@ -12,14 +12,15 @@
         <tbody>
             <% @admins_orders.each do |p| %>
              <tr>
-              <td><%= link_to p.purchase_date admins_order_path(p.id)  %></td>
-              <td><%= p.family_name_kanji %><%= p.first_name_kanji %></td>
-              <td><%= p.email  %></td>
-              <td><%= p.production_status  %></td>
+              <td><%= link_to p.purchase_date, admins_order_path(p.id)  %></td>
+              <td><%= p.user.family_name_kanji %><%= p.user.first_name_kanji %></td>
+              <td><%= p.user.email  %></td>
               <td><%= p.order_status  %></td>
+              <td><%= p.order_products.last.production_status  %></td>
+
              </tr>
             <% end %>
         </tbody>
       </table>
     </div>
-        <%= paginate @admins_products, class: "paginate" %>
+        <%= paginate @admins_orders, class: "paginate" %>
