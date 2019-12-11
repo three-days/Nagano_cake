@@ -22,10 +22,11 @@
             <% @products.each do |product| %>
                   <%= product.product_name %>
                   <%= product.tax_excluded %>
+
               <%= form_for( Cart.new(product_id: product.id)) do|f|  %>
-                  <%= f.select :product_number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"]] ,class:"form-control" %>
-                 <%= f.hidden_field :product_id %>
-                 <%= f.submit "カートに入れる" %>
+                   <%= f.select :product_number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"]] ,class:"form-control" %>
+                  <%= f.hidden_field :product_id %>
+                  <%= f.submit "カートに入れる" %>
               <% end %>
            <% end %>
 
