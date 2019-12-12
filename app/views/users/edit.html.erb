@@ -1,6 +1,9 @@
 <!-- 会員情報編集ページ -->
 <h2>登録情報編集</h2>
 
+<% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+<% end %>
 <%= form_for(@user) do |f| %>
 <%= f.submit '退会する' %>
 <p>氏名</p>
