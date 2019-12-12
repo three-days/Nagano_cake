@@ -5,7 +5,7 @@
 <h3>商品説明       <strong><%= @admins_product.product_description %></strong></h3>
 <h3>ジャンル        <strong><%= @genre.genre_name %></strong></h3>
 <h3>税込価格（税抜価格）        <strong>  <%= addTax(@admins_product.tax_excluded,1.1) %> （<%= @admins_product.tax_excluded %>）</strong> 円</h3>
-<h3>販売ステータス        <strong><%= @admins_product.sale_status %></strong></h3>
+<h3>販売ステータス        <strong><%= @admins_product.sale_status_i18n %></strong></h3>
 
 <%= link_to "編集する", edit_admins_product_path(@admins_product) %>
 

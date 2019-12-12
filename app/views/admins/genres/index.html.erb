@@ -24,6 +24,7 @@
           <tr>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +32,12 @@
              <tr>
               <td><%= p.genre_name %></td>
               <td><%= link_to '編集する', edit_admins_genre_path(p.id), class: "btn btn-success" %></td>
+                   <% if p.deleted_at.nil? %>
+                    <td>有効</td>
+                   <% else %>
+                    <td>無効</td>
+                   <% end %>
+              </td>
              </tr>
             <% end %>
         </tbody>

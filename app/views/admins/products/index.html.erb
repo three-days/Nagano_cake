@@ -8,7 +8,7 @@
         <%= link_to p.product_name, admins_product_path(p.id) %>
         <%= p.tax_excluded %>
         <%= p.genre.genre_name %>
-        <%= p.sale_status %>
+        <%= p.sale_status_i18n %>
       <% end %>
     <%= paginate @admins_products, class: "paginate" %>
 </p>
