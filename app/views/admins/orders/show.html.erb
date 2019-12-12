@@ -1,7 +1,7 @@
 <h1>注文詳細画面</h1>
 <h3><strong>購入者</strong><%= @user.family_name_kanji %><%= @user.first_name_kanji %></h3>
 <h3><strong>配送先</strong><%= @user %></h3>
-<h3><strong>支払方法</strong><%= @admins_order.payment_methods %></h3>
+<h3><strong>支払方法</strong><%= @admins_order.payment_methods_i18n %></h3>
 
   <%= form_for @admins_order, :url => { :controller => :orders, :action => :update } do |f| %>
    <% if @admins_order.errors.any? %>
@@ -35,18 +35,16 @@
               <td><%= p.product.product_name  %></td>
               <td><%= p.tax_included %></td>
               <td><%= p.number  %></td>
-              <td> 単価＊小計  %></td>
+              <td><%= p.tax_included * p.number  %></td>
+
+
+            <% end %>
+
              <%= form_for @order_product, :url => { :controller => :orders, :action => :update } do |f| %>
               <td><%= f.select :production_status, OrderProduct.production_statuses_i18n.keys.map { |k| [OrderProduct.production_statuses_i18n[k], k]} %></td>
              <%= f.submit '更新', class: "btn btn-primary btn-block" %>
              <% end %>
-
-             </tr>
-            <% end %>
-
-
-
-
+            </tr>
 
         </tbody>
       </table>
