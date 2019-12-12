@@ -16,8 +16,6 @@ resources :carts, only: [:index]
 resources :orders
 
 
-
-
 namespace :admins do
     root "top#index"
     resources :products
@@ -48,8 +46,8 @@ devise_for :users, controllers: {
 
 
 resource :users
-resources :deliverys
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+resources :deliverys, only:[:index, :new, :create, :edit, :show, :update, :destory]
+  # For details on the DSL availa
 end
 
 
