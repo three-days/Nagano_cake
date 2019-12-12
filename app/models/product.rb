@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
 	has_many :carts
-	has_many :users, through: :carts
+	has_many :users
 
   has_many :order_products, dependent: :destroy
 
