@@ -37,6 +37,7 @@ Genre.create!(
 Product.create!(
    genre_id: '1',
    image_id: '1',
+   image: image,
    product_name: '長野ケーキ',
    product_description: 'これは長野ケーキです。',
    tax_excluded: '1000',

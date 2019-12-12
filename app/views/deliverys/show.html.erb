@@ -15,7 +15,9 @@
 			<th>宛名</th>
 			<td> <%= f.text_field :delivery_name %></td>
 		</tr>
-		<h3>登録する</h3>
+		<%= f.submit '登録する' %>
+</table>
+<table class="table table-striped">
 		<tr>
 			<th>郵便番号</th>
 			<td> <%= @deliverys.delivery_postal_code %></td>

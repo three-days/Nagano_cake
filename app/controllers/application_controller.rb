@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+before_action :configure_permitted_parameters, if: :devise_controller?
 
 
 def after_sign_up_path_for(resource)
@@ -24,6 +24,11 @@ def after_sign_out_path_for(resource)
     products_top_path # ログアウト後に遷移するpathを設定
 end
 
+protected
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana, :postal_code, :user_address, :tele_number])
+    end
 
 
 end
