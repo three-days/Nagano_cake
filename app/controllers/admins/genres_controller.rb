@@ -4,12 +4,7 @@ layout "admin"
 
   def index
     @genres = Genre.all
-
-      if params[:id].present?
-        @genre = Genre.find(params[:id])
-      else
-        @genre = Genre.new
-      end
+    @genre = Genre.new
   end
 
   def create
@@ -37,9 +32,14 @@ layout "admin"
     @genre = Genre.find(params[:id])
   end
 
+  def destroy
+    @genre = Genre.find(params[:id])
+    @genre.destroy
+    redirect_to admins_genres_path
+  end
 
   def genre_params
-    params.require(:genre).permit(:genre_name)
+    params.require(:genre).permit(:genre_name, :deleted_at)
   end
 
 
