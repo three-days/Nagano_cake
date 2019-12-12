@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_070754) do
+ActiveRecord::Schema.define(version: 2019_12_12_022123) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2019_12_09_070754) do
     t.string "genre_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_genres_on_deleted_at"
   end
 
   create_table "order_products", force: :cascade do |t|

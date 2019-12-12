@@ -24,7 +24,7 @@ namespace :admins do
     resources :users, only:[:index, :show, :edit, :update, :destroy]
     resources :orders, only:[:index, :show, :update]
     resources :order_products, only:[:update]
-    resources :genres, only:[:index, :create, :edit, :update]
+    resources :genres, only:[:index, :create, :edit, :update, :destroy]
 end
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -44,8 +44,8 @@ devise_for :users, controllers: {
 
 
 resource :users
-resources :deliverys
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+resources :deliverys, only:[:index, :new, :create, :edit, :show, :update, :destory]
+  # For details on the DSL availa
 end
 
 

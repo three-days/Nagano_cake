@@ -24,19 +24,13 @@
           <tr>
             <th></th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
             <% @genres.each do |p| %>
              <tr>
-
               <td><%= p.genre_name %></td>
-              <td>< "無効にする", book_path(book), class: "btn btn-danger" %></td>
-            有効にする切り替え
-               <td><%= link_to "編集する", edit_admins_genre_path(p),
-                class: "btn btn-danger" %></td>
-               変更を保存
+              <td><%= link_to '編集する', edit_admins_genre_path(p.id), class: "btn btn-success" %></td>
              </tr>
             <% end %>
         </tbody>

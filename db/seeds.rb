@@ -37,6 +37,7 @@ Genre.create!(
 Product.create!(
    genre_id: '1',
    image_id: '1',
+   image: image,
    product_name: '長野ケーキ',
    product_description: 'これは長野ケーキです。',
    tax_excluded: '1000',
@@ -78,7 +79,7 @@ OrderProduct.create!(
    product_id: '1',
    number: '1',
    tax_included: '1080',
-   production_status: '1',
+   production_status: 1,
    created_at: "2019-06-09 05:58:56",
    updated_at: "2019-06-09 05:58:57"
 )
