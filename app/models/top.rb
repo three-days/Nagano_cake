@@ -1,0 +1,2 @@
+class Top < ApplicationRecord
+end
