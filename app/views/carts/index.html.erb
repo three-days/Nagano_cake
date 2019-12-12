@@ -1,37 +1,36 @@
  <div class="container-fluid bg-info">
-      <table class="table table-bordered">
+    <table class="table table-bordered">
         <h4>ショッピングカート</h4>
           <thead>
             <tr>
-              <th></th>
-              <th>商品名</th>
-              <th>単価（税抜き）</th>
-              <th>数量</th>
-              <th>小計</th>
-              <th></th>
+              <th class="col-xs-2"></th>
+              <th class="col-xs-4">商品名</th>
+              <th class="col-xs-2">単価(税抜)</th>
+              <th class="col-xs-1">数量</th>
+              <th class="col-xs-2">小計</th>
+              <th class="col-xs-1"></th>
             </tr>
           </thead>
 
 
-<!-- 合計金額の出し方は仮の状態です -->
-  <tbody>
-　　<% sum = 0 %>
+
+       <tbody>
+　      　<% sum = 0 %>
            <% @carts.each do |cart| %>
              <tr>
-              <td>
-              <div><%= attachment_image_tag cart.product, :image, :fill, 50, 50, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %></div>
-              </td>
-              <td>
-              <%= cart.product.product_name %>
-              </td>
-              <td>
-              <%= cart.product.tax_excluded %>
-              </td>
-              <td>
-              <%= form_for cart do |f| %>
-                   <%= f.select :product_number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"]] ,class:"form-control" %>
-                   <%=f.submit "数量の変更を確定", class: "btn btn-primary" %>
-
+               <td>
+                <div><%= attachment_image_tag cart.product, :image, :fill, 50, 50, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %></div>
+               </td>
+               <td>
+                <%= cart.product.product_name %>
+               </td>
+               <td>
+                <%= cart.product.tax_excluded %>
+                <%= form_for cart do |f| %>
+               <td>
+                <%= f.select :product_number, [*1..100] ,class:"form-control" %>
+                <%=f.submit "数量を変更", class: "btn btn-primary" %>
+               </td>
               <% end %>
               </td>
               <td>
@@ -45,18 +44,19 @@
            <% end %>
 
 
+
            <td></td>
            <td></td>
            <td></td>
            <td>合計金額</td>
            <td><%= sum %></td>
-  </tbody>
-<div class="row">
-  <tfoot>
-    <td>
-      <%= link_to "情報入力に進む", new_cart_path(current_user), class: "btn btn-primary" %>
-    </td>
-  </tfoot>
+        </tbody>
+        <tfoot>
+        <td>
+          <%= link_to "情報入力に進む", new_cart_path(current_user), class: "btn btn-primary" %>
+        </td>
+       </tfoot>
+    </table>
 </div>
-
+</div>
 </div>
