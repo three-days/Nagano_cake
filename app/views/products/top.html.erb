@@ -22,7 +22,7 @@
                   <td><%= product.tax_excluded %></td>
 
                 <%= form_for( Cart.new(product_id: product.id)) do|f|  %>
-                   <td><%= f.select :product_number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"]] ,class:"form-control" %></td>
+                   <td><%= f.select :product_number, [*1..100] ,class:"form-control" %></td>
                    <%= f.hidden_field :product_id %>
                    <td><%= f.submit "カートに入れる", class: "btn btn-primary" %></td>
                 <% end %>
