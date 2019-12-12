@@ -12,8 +12,7 @@
             <% @admins_users.each do |p| %>
              <tr>
               <td><%= p.id %></td>
-              <td><%= link_to p.family_name_kanji, admins_user_path(p.id)  %></td>
-              <td><%= link_to p.first_name_kanji, admins_user_path(p.id)  %></td>
+              <td><%= link_to p.family_name_kanji, admins_user_path(p.id)  %><%= link_to p.first_name_kanji, admins_user_path(p.id)  %></td>
               <td><%= p.email  %></td>
               <td><%= p.leave_status  %></td>
              </tr>
