@@ -1,16 +1,16 @@
 class Admins::GenresController < ApplicationController
-
+  before_action :authenticate_admin!
 layout "admin"
 
   def index
-    @genres = Genre.all
+    @genres = Genre.all.with_deleted
     @genre = Genre.new
   end
 
   def create
     @genre = Genre.new(genre_params)
    if @genre.save
-    @genres = Genre.all
+    @genres = Genre.all.with_deleted
     redirect_to admins_genres_path
    else
     render :index
@@ -18,9 +18,9 @@ layout "admin"
   end
 
   def update
-   @genre = Genre.find(params[:id])
+   @genre = Genre.with_deleted.find(params[:id])
     if @genre.update(genre_params)
-     @genres = Genre.all
+     @genres = Genre.all.with_deleted
      redirect_to admins_genres_path
     else
      render :index
@@ -29,11 +29,16 @@ layout "admin"
   end
 
   def edit
-    @genre = Genre.find(params[:id])
+    @genre = Genre.with_deleted.find(params[:id])
+  end
+
+  def genre_restore
+    @genre = Genre.only_deleted.find(params[:id]).restore
+    redirect_to admins_genres_path
   end
 
   def destroy
-    @genre = Genre.find(params[:id])
+    @genre = Genre.with_deleted.find(params[:id])
     @genre.destroy
     redirect_to admins_genres_path
   end
