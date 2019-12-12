@@ -20,8 +20,12 @@ def after_sign_in_path_for(resource)
   end
 end
 
-def after_sign_out_path_for(resource)
-    products_top_path # ログアウト後に遷移するpathを設定
+def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :admin
+      new_admin_session_path
+    else
+      products_top_path
+    end
 end
 
 protected
