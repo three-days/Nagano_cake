@@ -45,7 +45,7 @@ devise_for :users, controllers: {
 
 
 
-resource :users
+resources :users, only:[:index, :create, :edit, :show, :update, :destory]
 resources :deliverys, only:[:index, :new, :create, :edit, :show, :update, :destory]
   # For details on the DSL availa
 end
