@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   def new
     @Order = Order.new
+    @carts = current_user.carts
+    @user = current_user
   end
 
   def show

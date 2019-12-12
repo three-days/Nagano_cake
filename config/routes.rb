@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'orders/check'
+
   get 'orders/thanks'
   get 'products/top'
   # カートに入れる用ルーティング
