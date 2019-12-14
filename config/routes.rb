@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-  get 'orders/thanks'
+  get 'carts/thanks'
+  get 'carts/confirm'
   get 'products/top'
   # カートに入れる用ルーティング
   post '/add_product' => 'carts#add_product'
@@ -14,6 +15,7 @@ resources :products
 resources :carts
 resources :carts, only: [:index]
 resources :orders
+
 
 
 namespace :admins do
@@ -45,8 +47,8 @@ devise_for :users, controllers: {
 
 
 
-resources :users, only:[:index, :create, :edit, :show, :update, :destory]
-resources :deliverys, only:[:index, :new, :create, :edit, :show, :update, :destory]
+resources :users, only:[:index, :create, :edit, :show, :update, :destroy]
+resources :deliverys, only:[:index, :new, :create, :edit, :show, :update, :destroy]
   # For details on the DSL availa
 end
 

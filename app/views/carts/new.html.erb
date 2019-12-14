@@ -5,30 +5,56 @@
 
 <h2>支払い方法</h2><br>
 
-<%= form_with(model: @order, local: true) do |form| %>
-  <%= form.radio_button :payment_methods, :Credit %>
-  <%= form.label :payment_methods, "クレジットカード", {value: :Credit, style: "display: inline-block;"} %><br>
-  <%= form.radio_button :payment_methods, :Bank %>
-  <%= form.label :payment_methods, "銀行振込", {value: :Bank, style: "display: inline-block;"} %>
-<% end %>
+order_path(address_id:      )
+
+
+<%= form_with(model: @order, local: true) do |f| %>
+  <%= f.radio_button :payment_methods, :Credit %>
+  <%= f.label :payment_methods, "クレジットカード", {value: :Credit, style: "display: inline-block;"} %><br>
+  <%= f.radio_button :payment_methods, :Bank %>
+  <%= f.label :payment_methods, "銀行振込", {value: :Bank, style: "display: inline-block;"} %>
+
 
   <h3>お届け先</h3>
+  <h4>ご自身の住所</h4>
 
 
-
-  <%= form_with(model: @order, local: true) do |form| %>
-
-  <%= form.radio_button :payment_methods, :Credit %>
+  <%= f.radio_button :payment_methods, :Credit %>
   　　 <p>〒<span><%= @user.postal_code %>
       <%= @user.user_address %><br>
       <%= @user.family_name_kanji %>
         <%= @user.first_name_kanji %></span></p>
 
-  <%= form.radio_button :payment_methods, :Bank %><br>
-  <%= form.select :job_id, [ ["登録配送先",1], ["登録配送先", 2], ["登録配送先", 3 ] ,["登録配送先", 4], ["登録配送先", 5], ["登録配送先", 6] ], prompt: "登録配送先" %><br>
+  <%= f.radio_button :payment_methods, :Bank %><br>
+  <%= f.select :job_id, [ ["@user.user_address",1], ["登録配送先", 2], ["登録配送先", 3 ] ,["登録配送先", 4], ["登録配送先", 5], ["登録配送先", 6] ], prompt: @user.user_address %><br>
 
-  <%= form.radio_button :payment_methods, :Bank %>
+
+
+
+  <%= f.radio_button :payment_methods, :Bank %>
+    <% end %>
+
+
+
+
+
   <p>新規登録先フォーム</p>
-  <% end %>
 
-  <%= link_to '確認画面に進む', new_order_path(current_user), class: "btn btn-primary" %>
+        <%= form_for @delivery, url: deliverys_path do |f| %>
+    <tr>
+      <th>郵便番号</th>
+      <td> <%= f.text_field :delivery_postal_code %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td> <%= f.text_field :delivery_address %></td>
+    </tr>
+    <tr>
+      <th>宛名</th>
+      <td> <%= f.text_field :delivery_name %></td>
+    </tr>
+    <%= f.submit '登録する' %>
+    <% end %>
+
+
+  <%= link_to '確認画面に進む', carts_confirm_path(current_user), class: "btn btn-primary" %>

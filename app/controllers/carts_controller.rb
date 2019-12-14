@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   def new
     @carts = current_user.carts
     @user = current_user
+    @delivery = Delivery.new
 # 　　↓フォームタグの仮置したいための変数
     @order = Order.new
   end
@@ -31,6 +32,11 @@ class CartsController < ApplicationController
     @cart.user_id= current_user.id
     @cart.update(cart_params)
     redirect_to carts_path
+  end
+
+  def confirm
+    @carts = current_user.carts
+    @user = current_user
   end
 
   def destroy

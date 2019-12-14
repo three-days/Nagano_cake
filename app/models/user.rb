@@ -8,6 +8,7 @@ class User < ApplicationRecord
    has_many :products
 
   has_many :orders, dependent: :destroy
+  has_many :deliverys
 
 
   enum leave_status: { alive: false, dead: true }
@@ -24,5 +25,6 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true,format: {with: /\A[ァ-ヶー－]+\z/, message: 'は全角カタカナで入力してください'}
   validates :user_address, presence: true
   validates :tele_number, presence: true
+  acts_as_paranoid
 
 end

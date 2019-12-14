@@ -2,7 +2,7 @@
 <h3>配送先登録/一覧</h3>
 <table class="table table-striped">
 		<h2></h2>
-		<%= form_for @deliverys, url: new_delivery_path do |f| %>
+		<%= form_for @delivery, :url => { :controller => :deliverys, :action => :create } do |f| %>
 		<tr>
 			<th>郵便番号</th>
 			<td> <%= f.text_field :delivery_postal_code %></td>
@@ -16,19 +16,21 @@
 			<td> <%= f.text_field :delivery_name %></td>
 		</tr>
 		<%= f.submit '登録する' %>
+		<% end %>
 </table>
 <table class="table table-striped">
+	<% @deliverys.each do |p| %>
 		<tr>
 			<th>郵便番号</th>
-			<td> <%= @deliverys.delivery_postal_code %></td>
+			<td> <%= p.delivery_postal_code %></td>
 		</tr>
 		<tr>
 			<th>住所</th>
-			<td> <%= @deliverys.delivery_address %></td>
+			<td> <%= p.delivery_address %></td>
 		</tr>
 		<tr>
 			<th>宛名</th>
-			<td> <%= @deliverys.delivery_name %></td>
+			<td> <%= p.delivery_name %></td>
 		</tr>
 		<% end %>
 </table>
