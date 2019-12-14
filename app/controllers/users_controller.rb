@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :authenticate_user!, only: [:show]
+before_action :authenticate_user!, only: [:show, :edit]
 
 	def index
 		@user = current_user
@@ -21,11 +21,13 @@ before_action :authenticate_user!, only: [:show]
 	end
 
 	def destroy
-		@users = current_user
+		@user = current_user
+		@user.destroy
+		redirect_to products_top
 	end
 	private
 	def user_params
-	  params.require(:user).permit(:family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana, :postal_code, :user_address, :tele_number, :email)
+	  params.require(:user).permit(:family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana, :postal_code, :user_address, :tele_number, :email, :deleted_at)
 
 	end
 end
