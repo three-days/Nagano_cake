@@ -9,11 +9,13 @@ class DeliverysController < ApplicationController
 	end
 
 	def create
-		p delivery_params
+		@deliverys = Delivery.all
+
 		@delivery = Delivery.new(delivery_params)
+		@delivery.user_id = current_user.id
         if @delivery.save
         			@delivery = Delivery.select(current_user)
-		@deliverys = Delivery.all
+
 		@delivery = Delivery.new
         	redirect_to delivery_path(current_user)
         else

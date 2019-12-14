@@ -1,6 +1,6 @@
 <div class="container">
     <h4>注文情報確認</h4>
-    <table border="1">
+    <table class="table table-bordered">
         <tr>
             <th>商品名</th>
             <th>単価(税)</th>
@@ -12,8 +12,6 @@
         <tr>
             <td>
                 <div><%= attachment_image_tag cart.product, :image, :fill, 50, 50, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %></div>
-               </td>
-               <td>
                 <%= cart.product.product_name %>
                </td>
                <td>
@@ -21,6 +19,7 @@
                <td>
                 <%= cart.product_number %>
                </td>
+               <td><%= calc = cart.product.tax_excluded * cart.product_number %></td>
 
         </tr>
         <% sum = sum + calc %>
@@ -41,7 +40,7 @@
         <tr>
             <td>請求金額</td>
             <td>
-        
+            <%= sum + 800%>
             </td>
         </tr>
     </table>
@@ -55,3 +54,5 @@
 
     </p>
 </div>
+
+  <%= link_to '購入確定', carts_thanks_path(current_user), class: "btn btn-primary" %>
