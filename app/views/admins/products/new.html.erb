@@ -1,4 +1,5 @@
-<h1>商品 新規登録画面</h1>
+<div class="container">
+  <h1>商品 新規登録画面</h1>
     <%= form_for @admins_product, :url => { :controller => :products, :action => :create } do |f| %>
      <% if @admins_product.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
@@ -17,5 +18,6 @@
         <h3>ジャンル      <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></h3>
         <h3>税込価格（税抜価格）     （<%= f.number_field :tax_excluded %>）円</h3>
         <h3>販売ステータス       <%= f.select :sale_status, Product.sale_statuses_i18n.keys.map { |k| [Product.sale_statuses_i18n[k], k]} %></h3>
-        <%= f.submit '新規登録', class: "btn btn-primary btn-block" %>
+        <%= f.submit '新規登録', class: "btn btn-primary" %>
     <% end %>
+</div>
