@@ -13,9 +13,15 @@ class CartsController < ApplicationController
   	@carts = Cart.all
   	# @carts = current_user.carts
   end
+
   def create
-    @cart = Cart.new(cart_params)
-    @cart.user_id= current_user.id
+    @cart = Cart.find_by(user_id: current_user.id, product_id: params[:cart][:product_id] )
+    if @cart
+      @cart.product_number += params[:cart][:product_number].to_i
+    else
+      @cart = Cart.new(cart_params)
+      @cart.user_id= current_user.id
+    end
     @cart.save
     redirect_to carts_path
   end
@@ -25,6 +31,11 @@ class CartsController < ApplicationController
     @cart.user_id= current_user.id
     @cart.update(cart_params)
     redirect_to carts_path
+  end
+
+  def confirm
+    @carts = current_user.carts
+    @user = current_user
   end
 
   def destroy

@@ -10,7 +10,6 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :destination_address
       t.string :destination_name
       t.string :destination_postal_code
-
       t.timestamps
     end
   end

@@ -1,4 +1,6 @@
 class Admins::ProductsController < ApplicationController
+  before_action :authenticate_admin!
+
 #使用するヘッダー（レイアウト）を指定する旨です。
 layout "admin"
 
