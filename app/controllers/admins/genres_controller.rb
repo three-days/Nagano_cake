@@ -42,7 +42,7 @@ layout "admin"
     @genre.destroy
     redirect_to admins_genres_path
   end
-
+private
   def genre_params
     params.require(:genre).permit(:genre_name, :deleted_at)
   end
