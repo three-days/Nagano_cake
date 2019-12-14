@@ -17,7 +17,7 @@ layout "admin"
   def update
     @admins_order = Order.find(params[:id])
        if @admins_order.update(order_params)
-      redirect_to admins_orders_path, notice: 'You have updated user successfully.'
+      redirect_to admins_orders_path, notice: 'ユーザ情報を更新しました。'
    else
       render :show
     @user = @admins_order.user
