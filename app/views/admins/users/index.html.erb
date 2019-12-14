@@ -14,7 +14,7 @@
               <td><%= p.id %></td>
               <td><%= link_to p.family_name_kanji, admins_user_path(p.id)  %><%= link_to p.first_name_kanji, admins_user_path(p.id)  %></td>
               <td><%= p.email  %></td>
-              <td><%= p.leave_status_i18n  %>から切り替え</td>
+              <td><%= p.leave_status_i18n %></td>
              </tr>
             <% end %>
         </tbody>
