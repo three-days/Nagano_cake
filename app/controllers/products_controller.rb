@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
   	@genres = Genre.all
   # urlにgenre_id(params)がある場合
   	if params[:genre_id]
-  		# Genreのデータベースのテーブルから一致するidを取得
+  		# Genreデータベースのテーブルから一致するidを取得
   		genre = Genre.find(params[:genre_id])
-  		# Genreのデータベースのテーブルから一致するidを取得
+  		# ↓のジャンルに代入
   		@products = genre.products
   	else
-  		 # 投稿すべてを取得
+  		 # genre_idが無いなら投稿すべてを取得
   		@products = Product.all
   	end
   end
@@ -17,5 +17,7 @@ class ProductsController < ApplicationController
     @product.save
   end
   def show
+    @product = Product.find(params[:id])
+    @cart = Cart.new
   end
 end
