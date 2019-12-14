@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2019_12_12_084359) do
     t.integer "postal_code"
     t.string "user_address"
     t.integer "tele_number"
-    t.boolean "leave_status", default: false, null: false
+    t.boolean "leave_status"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -2,9 +2,38 @@
   <div class="row">
 
 
-
         <div class="col-md-4">
+          <table class="table">
+          <thead>
+            <tr>
+              <th>ジャンル検索</th>
 
+            </tr>
+          </thead>
+              <% @genres.each do |genre| %>
+                  <td><%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
+                  <!-- 上のpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
+                  <!-- コントローラーのgenre_idを -->
+
+
+
+<!-- products_top_path(:genre_id => genre.id) -->
+<!--  :genre_id  ==  "genre_id"   -->
+<!-- genre_id:   ==  "genre_id"  =>  -->
+<!-- 前後開ける -->
+<!-- genre_id:　==  "genre_id" -->
+
+<!-- products_top_path(genre_id: genre.id) -->
+
+
+
+
+  <!--             < link_to  %> -->
+
+                </tr>
+
+    <% end %>
+        </table>
         </div>
 
         <div class="col-md-8">

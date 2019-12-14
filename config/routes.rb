@@ -16,6 +16,7 @@ resources :carts, only: [:index]
 resources :orders
 
 
+
 namespace :admins do
     root "top#index"
     resources :products
