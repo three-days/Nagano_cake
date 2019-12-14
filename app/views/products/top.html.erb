@@ -11,8 +11,24 @@
             </tr>
           </thead>
               <% @genres.each do |genre| %>
-                  <td><%= genre.genre_name %></td>
+                  <td><%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
+                  <!-- 上のpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
+                  <!-- コントローラーのgenre_idを -->
 
+
+
+<!-- products_top_path(:genre_id => genre.id) -->
+<!--  :genre_id  ==  "genre_id"   -->
+<!-- genre_id:   ==  "genre_id"  =>  -->
+<!-- 前後開ける -->
+<!-- genre_id:　==  "genre_id" -->
+
+<!-- products_top_path(genre_id: genre.id) -->
+
+
+
+
+  <!--             < link_to  %> -->
 
                 </tr>
 
