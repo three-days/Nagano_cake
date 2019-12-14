@@ -3,7 +3,7 @@
 <table class="table table-striped">
 		<h2>登録情報</h2>
 		 <p><%= link_to '編集する',edit_user_path(current_user.id) %></p>
-		 <p><%= link_to 'パスワードを変更する',edit_user_password_path %></p>
+		 <p><%= link_to 'パスワードを変更する',edit_user_registration_path %></p>
 		<tr>
 			<th>氏名</th>
 			<td><%= @user.family_name_kanji %>

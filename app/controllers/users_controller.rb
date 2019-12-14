@@ -23,7 +23,7 @@ before_action :authenticate_user!, only: [:show, :edit]
 	def destroy
 		@user = current_user
 		@user.destroy
-		redirect_to products_top
+		redirect_to products_top_path
 	end
 	private
 	def user_params
