@@ -1,4 +1,7 @@
-<h1>ジャンル管理画面</h1>
+<div class="container">
+ <h1>ジャンル管理画面</h1>
+  <div class="row">
+   <div class="col-md-4">
 
 
   <%= form_for @genre, :url => { :controller => :genres, :action => :create } do |f| %>
@@ -13,11 +16,10 @@
         </div>
      <% end %>
 
-        <h3><%= f.label :ジャンル %><br><%= f.text_field :genre_name %></h3>
-        <%= f.submit '追加', class: "btn btn-primary btn-block" %>
+        <h3><%= f.label :ジャンル %><br><%= f.text_field :genre_name %>
+          <%= f.submit '追加', class: "btn btn-primary" %>
+        </h3>
    <% end %>
-
-
 
      <table class="table">
         <thead>
@@ -43,3 +45,4 @@
         </tbody>
       </table>
     </div>
+</div>

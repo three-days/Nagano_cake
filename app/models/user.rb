@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :orders, dependent: :destroy
 
+  acts_as_paranoid
 
   enum leave_status: { alive: false, dead: true }
 

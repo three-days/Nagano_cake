@@ -1,6 +1,7 @@
-<h1>ジャンル編集画面</h1>
-
-
+<div class="container">
+ <h1>ジャンル編集画面</h1>
+  <div class="row">
+   <div class="col-md-4">
 
     <%= form_for @genre, :url => { :controller => :genres, :action => :update } do |f| %>
      <% if @genre.errors.any? %>
@@ -15,12 +16,15 @@
      <% end %>
 
         <h3><%= f.text_field :genre_name %></h3>
-        <%= f.submit '更新', class: "btn btn-primary btn-block" %>
-   <% end %>
+        <%= f.submit '更新', class: "btn btn-primary" %>
+        <p></p>
+    <% end %>
 
-   <% if @genre.deleted_at.nil? %>
+    <% if @genre.deleted_at.nil? %>
         <%= link_to "無効にする", admins_genre_path, method: :delete, data:  { confirm: '本当に無効にしますか？' }, class: "btn btn-danger" %>
     <% else %>
         <%= link_to "有効にする", genre_restore_admins_genre_path(@genre), method: :patch %>
-   <% end %>
-
+    <% end %>
+    </div>
+  </div>
+</div>

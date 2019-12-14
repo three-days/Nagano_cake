@@ -3,22 +3,22 @@ class Admins::UsersController < ApplicationController
  layout "admin"
 
   def index
-    @admins_users = User.all
+    @admins_users = User.all.with_deleted
   end
 
   def show
-    @admins_user = User.find(params[:id])
+    @admins_user = User.with_deleted.find(params[:id])
     @orders = @admins_user.orders.page(params[:page]).reverse_order
   end
 
   def edit
-    @admins_user = User.find(params[:id])
+    @admins_user = User.with_deleted.find(params[:id])
   end
 
   def update
     @admins_user = User.find(params[:id])
        if @admins_user.update(user_params)
-      redirect_to admins_user_path(@admins_user.id), notice: 'You have updated user successfully.'
+      redirect_to admins_user_path(@admins_user.id), notice: '更新しました。'
    else
       render :edit
    end
