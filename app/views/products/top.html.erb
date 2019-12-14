@@ -2,9 +2,22 @@
   <div class="row">
 
 
-
         <div class="col-md-4">
+          <table class="table">
+          <thead>
+            <tr>
+              <th>ジャンル検索</th>
 
+            </tr>
+          </thead>
+              <% @genres.each do |genre| %>
+                  <td><%= genre.genre_name %></td>
+
+
+                </tr>
+
+    <% end %>
+        </table>
         </div>
 
         <div class="col-md-8">
