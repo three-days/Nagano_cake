@@ -1,0 +1,402 @@
+[33mcommit b32d138eb449f1da8624e0b965f9b88ca0c926ae[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 68433af 31f6258
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 21:05:57 2019 +0900
+
+    Merge pull request #19 from three-days/sakurai
+    
+    ヘッダー実装
+
+[33mcommit 31f625809bbfbdee42847d9046f06721fec926dc[m
+Merge: 060f04e 68433af
+Author: DAITADOKORO <56250519+DAITADOKORO@users.noreply.github.com>
+Date:   Wed Dec 11 21:05:14 2019 +0900
+
+    Merge branch 'master' into sakurai
+
+[33mcommit 060f04e53491d3d8df19f5270eed3907686a8498[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Wed Dec 11 12:03:25 2019 +0000
+
+    ヘッダー実装
+
+[33mcommit 68433afa2dffac102aa0928c84892db28de5d472[m
+Merge: d61307b 5e5674f
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 21:02:54 2019 +0900
+
+    Merge pull request #18 from three-days/dai2
+    
+    Dai2
+
+[33mcommit 5e5674f49e863848cbb9f3ad9bc82c7c00880414[m
+Merge: f9d4f99 d61307b
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Wed Dec 11 20:50:43 2019 +0900
+
+    before paranoia
+
+[33mcommit f9d4f99ab84453f9f1b80e909020b29b14892e38[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Wed Dec 11 20:46:01 2019 +0900
+
+    before paranoia
+
+[33mcommit d61307bff1c3d1715747940507c95e62f24f323b[m
+Merge: 20d1b99 875af5d
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 20:45:49 2019 +0900
+
+    Merge pull request #17 from three-days/kuma3
+    
+    Kuma3
+
+[33mcommit 875af5d9b8b1721f8f6fcfef748f1f83840cdf70[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Wed Dec 11 19:54:56 2019 +0900
+
+    カートの数量変更機能追加
+
+[33mcommit ddefe592580589a027544e44118cbe2619a4402c[m
+Merge: d1fa0f1 20d1b99
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Wed Dec 11 18:15:29 2019 +0900
+
+    Merge branch 'master' into kuma3
+
+[33mcommit d1fa0f17033af5835ea5209e4fbe2792ca6f6706[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Wed Dec 11 18:03:53 2019 +0900
+
+    レイアウト修正
+
+[33mcommit 20d1b99178d0edbbe196ff9c1f7bccf473512224[m
+Merge: f89b894 f9280e0
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 18:01:35 2019 +0900
+
+    Merge pull request #16 from three-days/dai2
+    
+    started ajax
+
+[33mcommit f9280e09bcc29b6c08471f8ad7f702bc1fcebebd[m
+Merge: 0019b52 f89b894
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 18:01:28 2019 +0900
+
+    Merge branch 'master' into dai2
+
+[33mcommit 0019b52b25489d7bc213f119a10c268c431551dc[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Wed Dec 11 17:37:04 2019 +0900
+
+    started ajax
+
+[33mcommit f89b894f2dc7b4ad60632e016fb5b0478b4562e6[m
+Merge: 7804a5b 36ed057
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 17:14:27 2019 +0900
+
+    Merge pull request #15 from three-days/kuma3
+    
+    Kuma3
+
+[33mcommit 36ed05779a143bf2439fa0b433786b8618c5df96[m
+Merge: 2f82ccb 7804a5b
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 17:14:16 2019 +0900
+
+    Merge branch 'master' into kuma3
+
+[33mcommit 7804a5b03b656500c1c2c20ec6d0d0246f30302f[m
+Merge: 4e7ddd0 9611ef1
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 17:13:29 2019 +0900
+
+    Merge pull request #14 from three-days/sakurai
+    
+    注文履歴一覧、詳細実装
+
+[33mcommit 9611ef1c5632b97eb61447343642a21db07dad7d[m
+Merge: 23d2dea 4e7ddd0
+Author: hgfrtg <56033639+hgfrtg@users.noreply.github.com>
+Date:   Wed Dec 11 17:11:54 2019 +0900
+
+    Merge branch 'master' into sakurai
+
+[33mcommit 2f82ccb140746f05080400cd7f2888ba9c68845e[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Wed Dec 11 17:07:44 2019 +0900
+
+    カートの合計金額機能の追加
+
+[33mcommit 23d2deaeb5f6de379291f92694d728365574e63d[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Wed Dec 11 08:07:18 2019 +0000
+
+    注文履歴一覧、詳細実装
+
+[33mcommit ba2c0d81a002d00ba106f6025958cb1b014d9202[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Wed Dec 11 16:12:03 2019 +0900
+
+    商品ページからカートへの個数選択ボタンを追加
+
+[33mcommit 4e7ddd08ef40cb8878d70d359b6ee0f374c58b85[m
+Merge: 69a713a 07f7f16
+Author: DAITADOKORO <56250519+DAITADOKORO@users.noreply.github.com>
+Date:   Wed Dec 11 14:54:59 2019 +0900
+
+    Merge pull request #13 from three-days/dai2
+    
+    came back
+
+[33mcommit 69a713a50efcad0ecc11ff73177c286a58fc31a5[m
+Merge: b6cb13c 3e9071d
+Author: SAKURAI-S <57223859+SAKURAI-S@users.noreply.github.com>
+Date:   Wed Dec 11 14:51:44 2019 +0900
+
+    Merge pull request #12 from three-days/kuma2
+    
+    カートに入れるボタン実装
+
+[33mcommit 3e9071da2f9600a7e5bab5da9e61f04979d8ec36[m[33m ([m[1;31morigin/kuma2[m[33m, [m[1;32mkuma2[m[33m)[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Wed Dec 11 14:50:11 2019 +0900
+
+    カートに入れるボタン実装
+
+[33mcommit b6cb13c2376e8baf4aedd0d829ba943af3b73f5d[m
+Merge: 06e5431 dc0700b
+Author: DAITADOKORO <56250519+DAITADOKORO@users.noreply.github.com>
+Date:   Wed Dec 11 14:49:32 2019 +0900
+
+    Merge pull request #11 from three-days/sakurai
+    
+    ログイン機能実装
+
+[33mcommit 07f7f16b991615b6e636d1f196aaf79a64734ebd[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Wed Dec 11 14:48:31 2019 +0900
+
+    came back
+
+[33mcommit dc0700b200164ceadf04871c5da7ad54ee55e299[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Wed Dec 11 05:47:52 2019 +0000
+
+    ログイン機能実装
+
+[33mcommit 06e54317a9ecd91798c4a982bcb82fd301971742[m
+Merge: 41ef7aa 03e7652
+Author: DAITADOKORO <56250519+DAITADOKORO@users.noreply.github.com>
+Date:   Tue Dec 10 21:53:26 2019 +0900
+
+    Merge pull request #10 from three-days/kuma2
+    
+    購入ページ
+
+[33mcommit 03e76525323afdd6fe205653bb6fbb5db7d2e8fb[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Tue Dec 10 21:50:25 2019 +0900
+
+    購入ページ
+
+[33mcommit 41ef7aa88c05ec5be6e41a5d9714a51a36ee7628[m
+Merge: 93ee4a1 0c843b7
+Author: hgfrtg <56033639+hgfrtg@users.noreply.github.com>
+Date:   Tue Dec 10 21:30:42 2019 +0900
+
+    Merge pull request #9 from three-days/feature-products
+    
+    Feature products
+
+[33mcommit 0c843b7911890c7a3fab39d99368caa9fd01cb42[m[33m ([m[1;31morigin/feature-products[m[33m)[m
+Merge: 2f39653 93ee4a1
+Author: hgfrtg <56033639+hgfrtg@users.noreply.github.com>
+Date:   Tue Dec 10 21:30:27 2019 +0900
+
+    Merge branch 'master' into feature-products
+
+[33mcommit 2f39653d4c2c87614688a29f39e1db23ae3d8527[m
+Merge: bdebe2d c04aed2
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Tue Dec 10 21:24:48 2019 +0900
+
+    finished merge
+
+[33mcommit 93ee4a1dde858ddae7430822c9abd3cc4f2c9acf[m
+Merge: c04aed2 5735b83
+Author: DAITADOKORO <56250519+DAITADOKORO@users.noreply.github.com>
+Date:   Tue Dec 10 21:13:21 2019 +0900
+
+    Merge pull request #7 from three-days/sakurai
+    
+    Sakurai
+
+[33mcommit 5735b83f567c7537c68fb82de685ed6654999dad[m[33m ([m[1;31morigin/sakurai[m[33m)[m
+Merge: 5331f13 c04aed2
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Tue Dec 10 12:08:55 2019 +0000
+
+    userページ一時的に終わり
+
+[33mcommit c04aed2254082eeb86ef22f45ef21cdccc7259fe[m
+Merge: 385466b 6ab9fb2
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Tue Dec 10 20:57:44 2019 +0900
+
+    Merge branch 'daiadmin'
+
+[33mcommit 6ab9fb2fe5480b9869fe009cd03f04c85e1a16d6[m[33m ([m[1;31morigin/daiadmin[m[33m)[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Tue Dec 10 20:47:09 2019 +0900
+
+    changing admin_product
+
+[33mcommit bdebe2d6ea213ece1a0feb7da9191201671b85ef[m[33m ([m[1;32mfeature-products[m[33m)[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Tue Dec 10 20:40:50 2019 +0900
+
+    カートページの引用機能を追加
+
+[33mcommit 5331f13b35c3eaff966ff415a12688bf87cc38ae[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Tue Dec 10 10:04:38 2019 +0000
+
+    userページ一時的に終わり
+
+[33mcommit cf546a52a05d852e5eee35f3fc9aff9711276052[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Mon Dec 9 20:53:35 2019 +0900
+
+    finished admins_products_index
+
+[33mcommit 80077c014a6ce0d9154493da842ea9d774ea673b[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Mon Dec 9 19:53:24 2019 +0900
+
+    tyuudan
+
+[33mcommit 769f830cb25fc3a87787cf875016b04d7b95e13d[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Mon Dec 9 19:53:15 2019 +0900
+
+    カート、注文ページの仮作成
+
+[33mcommit debfbeff0bc425f4d32de1e356afbf480c6a8a74[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Mon Dec 9 10:49:21 2019 +0000
+
+    ９日分
+
+[33mcommit 6bc02ba6102577f6602a5ce1535e0797c7f54d53[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Mon Dec 9 18:48:02 2019 +0900
+
+    finished admin_header
+
+[33mcommit 922ef055d0b1975f46b4e775d253ef8c524664e0[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Mon Dec 9 18:41:47 2019 +0900
+
+    仮の商品ページ
+
+[33mcommit 3c5fcf515b4fad9fcfb0ac93ba5ca9a55d5946b6[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Mon Dec 9 17:43:11 2019 +0900
+
+    finished admin_controller first-step
+
+[33mcommit bbbeeb6a9a11311eb262deff3aa74f61ebb59a93[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Mon Dec 9 08:39:37 2019 +0000
+
+    サインイン実装遷移まだ
+
+[33mcommit 9177d40da8df4d3a068d9ea6917445063855f87d[m
+Author: hgfrtg <jrbevknf@outlook.com>
+Date:   Mon Dec 9 17:33:23 2019 +0900
+
+    Bootstrap適応(assets)フォルダ系
+
+[33mcommit 36ad89c31e28dc9d957e61ea04d35d218b6c4fff[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Mon Dec 9 16:48:41 2019 +0900
+
+    changed admins_controller
+
+[33mcommit c7997828249eec8c19b5eb042fd08849b9001d9d[m[33m ([m[1;32mkuma[m[33m)[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Mon Dec 9 07:28:00 2019 +0000
+
+    途中でした
+
+[33mcommit 8147ce75913eeaf9ee556c2c06165597682cd865[m
+Merge: 385466b 41e250b
+Author: hgfrtg <56033639+hgfrtg@users.noreply.github.com>
+Date:   Mon Dec 9 13:48:08 2019 +0900
+
+    Merge pull request #2 from three-days/daiadmin
+    
+    Daiadmin
+
+[33mcommit 41e250b4f4f2be7bf4e465b257581b3ce534512e[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Mon Dec 9 13:39:19 2019 +0900
+
+    changing admin_controller
+
+[33mcommit 7dd69fe19f9d1baa71d85abea449d2ae936e8615[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Mon Dec 9 12:56:04 2019 +0900
+
+    start admin_controller
+
+[33mcommit e5c80045ed3f24233f250d2ad166bce75fcec90b[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Sun Dec 8 21:48:03 2019 +0900
+
+    created admin_user
+
+[33mcommit ee6d0f6435cbde335a3c0c1f31723dd8a936538e[m
+Author: DAITADOKORO <bangasa0101@gmail.com>
+Date:   Sun Dec 8 21:14:55 2019 +0900
+
+    deleted activeadmin
+
+[33mcommit 385466bd47bcd59d58b6699f4e9b9c234aee65d3[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Sat Dec 7 10:45:13 2019 +0000
+
+    テーブル全作成
+
+[33mcommit 51c0549e47e4b22f7f80802eae2bc27cc9409a72[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Sat Dec 7 10:08:05 2019 +0000
+
+    管理者、ユーザーテーブル終わり
+
+[33mcommit f05db61b5474aa1f25106664a63b77e5e3475ce6[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Sat Dec 7 09:38:49 2019 +0000
+
+    カラム追加
+
+[33mcommit 522a38100ff95fd75c13472a32c2025d74e054a1[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Sat Dec 7 08:27:34 2019 +0000
+
+    ユーザーテーブル追加
+
+[33mcommit 13dd6cf7a02232835782dbdb62253c19bec5b857[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Sat Dec 7 08:00:30 2019 +0000
+
+    gemfile記載
+
+[33mcommit 0090a8c221ab2696ea69213a98a6cc02e8fd3d70[m
+Author: SAKURAI-S <japan.coffee.pm@gmail.com>
+Date:   Sat Dec 7 07:23:03 2019 +0000
+
+    first commit

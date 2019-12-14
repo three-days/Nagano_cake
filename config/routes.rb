@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'orders/check'
+
   get 'orders/thanks'
   get 'products/top'
   # カートに入れる用ルーティング
@@ -45,7 +45,7 @@ devise_for :users, controllers: {
 
 
 
-resource :users
+resources :users, only:[:index, :create, :edit, :show, :update, :destory]
 resources :deliverys, only:[:index, :new, :create, :edit, :show, :update, :destory]
   # For details on the DSL availa
 end
