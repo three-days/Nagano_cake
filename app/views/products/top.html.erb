@@ -31,7 +31,7 @@
             	<td>
                  <div><%= attachment_image_tag product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '50x50' %></div>
               </td>
-                  <td><%= product.product_name %></td>
+                  <td><%=link_to product.product_name, product_path(product) %></td>
                   <td><%= product.tax_excluded %></td>
                 <%= form_for( Cart.new(product_id: product.id)) do|f|  %>
                    <td><%= f.select :product_number, [*1..100] ,class:"form-control" %></td>

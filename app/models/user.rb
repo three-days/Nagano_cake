@@ -7,6 +7,7 @@ class User < ApplicationRecord
    has_many :products
 
   has_many :orders, dependent: :destroy
+  has_many :deliverys
 
 
   enum leave_status: { alive: false, dead: true }
