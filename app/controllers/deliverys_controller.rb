@@ -1,7 +1,7 @@
-class DeliverysController < ApplicationController
+class DeliveriesController < ApplicationController
 	def show
 		@delivery = Delivery.select(current_user)
-		@deliverys = Delivery.all
+		@deliveries = Delivery.all
 		@delivery = Delivery.new
 	end
 

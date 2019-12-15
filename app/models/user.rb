@@ -8,7 +8,7 @@ class User < ApplicationRecord
    has_many :products
 
   has_many :orders, dependent: :destroy
-  has_many :deliverys
+  has_many :deliveries
 
   acts_as_paranoid
 

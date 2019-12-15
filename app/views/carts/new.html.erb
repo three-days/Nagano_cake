@@ -5,9 +5,6 @@
 
 <h2>支払い方法</h2><br>
 
-order_path(address_id:      )
-
-
 <%= form_with(model: @order, local: true) do |f| %>
   <%= f.radio_button :payment_methods, :Credit %>
   <%= f.label :payment_methods, "クレジットカード", {value: :Credit, style: "display: inline-block;"} %><br>
@@ -19,42 +16,27 @@ order_path(address_id:      )
   <h4>ご自身の住所</h4>
 
 
-  <%= f.radio_button :payment_methods, :Credit %>
+  <%= f.radio_button :destination_address, :You %>
+  <%= f.label :destination_address, "ご自身の住所", { value: :You, style: "display: inline-block;"} %>
   　　 <p>〒<span><%= @user.postal_code %>
       <%= @user.user_address %><br>
       <%= @user.family_name_kanji %>
         <%= @user.first_name_kanji %></span></p>
 
-  <%= f.radio_button :payment_methods, :Bank %><br>
-  <%= f.select :job_id, [ ["@user.user_address",1], ["登録配送先", 2], ["登録配送先", 3 ] ,["登録配送先", 4], ["登録配送先", 5], ["登録配送先", 6] ], prompt: @user.user_address %><br>
+  <%= f.radio_button :destination_address, :Known %>
+  <%= f.label :destination_address, "登録先住所から選択", { value: :Known, style: "display: inline-block;"} %><br>
+  <%= f.collection_select :delivery_address, current_user.deliveries, :id, :delivery_address %><br>
 
+  <%= f.radio_button :destination_address, :Newone %>
+  <%= f.label :destination_address, "新しいお届け先",  value: :Newone %><br>
 
-
-
-  <%= f.radio_button :payment_methods, :Bank %>
-    <% end %>
-
-
-
-
-
-  <p>新規登録先フォーム</p>
-
-        <%= form_for @delivery, url: deliverys_path do |f| %>
-    <tr>
-      <th>郵便番号</th>
-      <td> <%= f.text_field :delivery_postal_code %></td>
-    </tr>
-    <tr>
-      <th>住所</th>
-      <td> <%= f.text_field :delivery_address %></td>
-    </tr>
-    <tr>
-      <th>宛名</th>
-      <td> <%= f.text_field :delivery_name %></td>
-    </tr>
+  <%= f.fields_for :deliveries do |deli| %>
+    郵便番号<%= deli.text_field :delivery_postal_code %>
+    住所<%= deli.text_field :delivery_address %>
+    宛名<%= deli.text_field :delivery_name %>
+    <%= deli.hidden_field :delivery_id %>
     <%= f.submit '登録する' %>
-    <% end %>
-
-
+  <% end %>
   <%= link_to '確認画面に進む', carts_confirm_path(current_user), class: "btn btn-primary" %>
+<% end %>
+</div>
