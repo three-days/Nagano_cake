@@ -15,10 +15,14 @@
               <td><%= p.id %></td>
               <td><%= link_to p.family_name_kanji, admins_user_path(p.id)  %><%= link_to p.first_name_kanji, admins_user_path(p.id)  %></td>
               <td><%= p.email  %></td>
-              <td><%= p.leave_status_i18n %></td>
+                <% if p.deleted_at.nil? %>
+                 <td>入会中</td>
+                <% else %>
+                 <td>退会状態</td>
+                <% end %>
              </tr>
             <% end %>
         </tbody>
       </table>
     </div>
-</
+</div>

@@ -12,10 +12,6 @@ class User < ApplicationRecord
 
   acts_as_paranoid
 
-  enum leave_status: { alive: false, dead: true }
-
-
-
   validates :email,uniqueness: true, presence: true
   validates :family_name_kanji, presence: true
   validates :first_name_kanji, presence: true

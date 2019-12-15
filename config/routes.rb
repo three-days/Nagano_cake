@@ -21,7 +21,11 @@ resources :orders
 namespace :admins do
     root "top#index"
     resources :products
-    resources :users, only:[:index, :show, :edit, :update, :destroy]
+    resources :users, only:[:index, :show, :edit, :update, :destroy] do
+      member do
+        patch 'user_restore'
+      end
+    end
     resources :orders, only:[:index, :show, :update]
     resources :order_products, only:[:update]
     resources :genres, only:[:index, :create, :edit, :update, :destroy] do

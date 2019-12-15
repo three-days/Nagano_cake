@@ -18,7 +18,12 @@
         <h3>住所      <%= f.text_field :user_address %></h3>
         <h3>電話番号     <%= f.number_field :tele_number %></h3>
         <h3>メールアドレス       <%= f.text_field :email %></h3>
-        <h3>退会状態       <%= f.select :leave_status, User.leave_statuses_i18n.keys.map { |k| [User.leave_statuses_i18n[k], k]} %></h3>
+        <h3>退会状態
+        <% if @admins_user.deleted_at.nil? %>
+        <%= link_to "退会状態にする", admins_user_path, method: :delete, data:  { confirm: '本当に退会させますか？' }, class: "btn btn-danger" %>
+    <% else %>
+        <%= link_to "入会状態にする", user_restore_admins_user_path(@admins_user), method: :patch, class: "btn btn-primary" %>
+    <% end %>
         <%= f.submit '変更を保存する', class: "btn btn-primary" %>
 
     <% end %>

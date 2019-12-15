@@ -2,7 +2,13 @@
   <h1><strong>会員詳細画面</strong></h1>
 
 
-  <h3>顧客ID       <%= @admins_user.id %><strong><%= @admins_user.leave_status_i18n %></strong></h3>
+  <h3>顧客ID       <%= @admins_user.id %><strong>
+    <% if @admins_user.deleted_at.nil? %>
+      <td>有効会員</td>
+    <% else %>
+      <td>無効会員</td>
+    <% end %>
+  </strong></h3>
   <h3>氏名       <%= @admins_user.family_name_kanji %><%= @admins_user.first_name_kanji %></h3>
   <h3>フリガナ    <%= @admins_user.family_name_kana %><%= @admins_user.first_name_kana %></h3>
   <h3>郵便番号       <%= @admins_user.postal_code %></h3>
