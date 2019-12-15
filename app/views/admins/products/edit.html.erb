@@ -2,7 +2,6 @@
  <h1>商品 編集画面</h1>
   <div class="row">
     <div class="col-md-3">
-       <%= attachment_image_tag @admins_product, :image, :fill, 200, 200, format: 'jpeg', fallback: "freecake.jpeg" %>
        <%= form_for @admins_product, :url => { :controller => :products, :action => :update } do |f| %>
         <% if @admins_product.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
@@ -14,6 +13,7 @@
          </ul>
         </div>
        <% end %>
+        <%= attachment_image_tag @admins_product, :image, :fill, 200, 200, format: 'jpeg', fallback: "freecake.jpeg" %>
         <%= f.attachment_field :image %>
     </div>
    <div class="form-group">

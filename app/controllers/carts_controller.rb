@@ -37,6 +37,13 @@ class CartsController < ApplicationController
   def confirm
     @carts = current_user.carts
     @user = current_user
+
+#if文で
+#def payment_methods
+#
+#end
+
+    @order = @carts.order
   end
 
   def destroy

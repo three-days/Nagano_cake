@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
   def new
     # カートnewに移動中
-    # @Order = Order.new
-    # @carts = current_user.carts
-    # @user = current_user
+    @Order = Order.new
+    @order.deliveries.build
+    @carts = current_user.carts
+    @user = current_user
+    @deliveries = current_user.deliveries
   end
 
   def show
@@ -18,13 +20,22 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @Order = Order.new(Order_params)
+    @order = current_user.orders.build(order_params)
+    @order.save
   end
 
   def check
   end
 
   def thanks
+  end
+
+  def destroy
+
+  end
+private
+  def order_params
+    params.require(:order).permit(:user_id, :total_charge, :purchase_date, :payment_methods, :order_status, :postage, :destination_address, :destination_name, :destination_postal_code, deliveries_attributes: [:content])
   end
 
 end

@@ -8,13 +8,9 @@ class User < ApplicationRecord
    has_many :products
 
   has_many :orders, dependent: :destroy
-  has_many :deliverys
+  has_many :deliveries
 
   acts_as_paranoid
-
-  enum leave_status: { alive: false, dead: true }
-
-
 
   validates :email,uniqueness: true, presence: true
   validates :family_name_kanji, presence: true

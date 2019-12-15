@@ -6,8 +6,6 @@
 <% end %>
 <%= form_for(@user) do |f| %>
         <%= link_to "退会する", user_path, method: :delete, data:  { confirm: '本当に退会しますか？' }, class: "btn btn-danger" %>
- <!-- f.submit '退会する' %> -->
-<%= f.select :leave_status, User.leave_statuses_i18n.keys.map { |k| [User.leave_statuses_i18n[k], k]} %>
 <p>氏名</p>
 
 <%= f.text_field :family_name_kanji %>

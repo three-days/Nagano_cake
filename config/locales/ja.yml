@@ -4,10 +4,6 @@ ja:
       sale_status:
         sales: "販売中"
         stopped: "売り切れ"
-    user:
-      leave_status:
-        alive: "入会中"
-        dead: "退会済"
     order_product:
       production_status:
         notcreate: "制作待ち"
