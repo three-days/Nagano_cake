@@ -25,7 +25,7 @@
 
   <%= f.radio_button :destination_address, :Known %>
   <%= f.label :destination_address, "登録先住所から選択", { value: :Known, style: "display: inline-block;"} %><br>
-  <%= f.collection_select :delivery_address, current_user.deliveries, :id, :delivery_address %>
+  <%= f.collection_select :delivery_address, @deliveries, :id, :delivery_address %>
 <%= f.collection_select :delivery_name, current_user.deliveries, :id, :delivery_name %>
 <%= f.collection_select :delivery_postal_code, current_user.deliveries, :id, :delivery_postal_code %>
 
