@@ -25,16 +25,25 @@ class DeliveriesController < ApplicationController
   end
 
   def edit
-    @deliveries = current_user
+    @delivery = Delivery.find(params[:id])
   end
 
   def update
-    @deliveries = current_user
+    @delivery = Delivery.find(params[:id])
     @delivery.update(delivery_params)
+    @delivery = Delivery.select(current_user)
+    @deliveries = Delivery.all
+    @delivery = Delivery.new
+    redirect_to delivery_path(current_user)
   end
 
-  def update
-    @deliveries = current_user
+  def destroy
+    p = Delivery.find(params[:id])
+    p.destroy
+    @delivery = Delivery.select(current_user)
+    @deliveries = Delivery.all
+    @delivery = Delivery.new
+    redirect_to delivery_path(current_user)
   end
 
 
