@@ -24,41 +24,33 @@ class OrdersController < ApplicationController
     @carts = current_user.carts
     @user = current_user
     @order = Order.new(order_params)
-    @deliveries = current_user.deliveries
-
-sum =
+    @delivery = current_user.delivery
 
     order.total_charge = sum + postage
     order.purchase_date = now
-    order.payment_method = 
-    order.postage = 800
+    order.payment_method =
     order.destination_address = delivery.delivery_address
     order.destination_name = delivery.delivery_name
     order.distination_postal_code = delivery.delivery_postal_code
 
     current_user.carts.each do |t|
       order_product.number = t.product_number
-      order_product.tax_included = 
-      order_product.production_status =
     end
-    @order.save
-    redirect_to order_thanks_path
+    order_product.tax_included = product.tax_excluded * 1.1
+
+    if @order.save
+      Cart.all.destroy
+      redirect_to order_thanks_path
+    else
+      render :index
+
+def total_charge
+  @order = 
+  @total_charge = 
 
 
 
 
-
-
-    product_params['type'].each do |t|
-    product.name = product_params['name']
-    product.about = product_params['about']
-    product.type = t
-    product.save
-  end
-
-
-
-    @order.save
 
 
   end
