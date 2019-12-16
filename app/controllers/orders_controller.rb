@@ -21,7 +21,46 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.build(order_params)
+    @carts = current_user.carts
+    @user = current_user
+    @order = Order.new(order_params)
+    @deliveries = current_user.deliveries
+
+sum =
+
+    order.total_charge = sum + postage
+    order.purchase_date = now
+    order.payment_method = 
+    order.postage = 800
+    order.destination_address = delivery.delivery_address
+    order.destination_name = delivery.delivery_name
+    order.distination_postal_code = delivery.delivery_postal_code
+
+    current_user.carts.each do |t|
+      order_product.number = t.product_number
+      order_product.tax_included = 
+      order_product.production_status =
+    end
     @order.save
+    redirect_to order_thanks_path
+
+
+
+
+
+
+    product_params['type'].each do |t|
+    product.name = product_params['name']
+    product.about = product_params['about']
+    product.type = t
+    product.save
+  end
+
+
+
+    @order.save
+
+
   end
 
   def check

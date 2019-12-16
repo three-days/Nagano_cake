@@ -29,6 +29,7 @@ class CartsController < ApplicationController
     @cart.save
     redirect_to carts_path
 
+
     # オーダーセーブ仮
     # @order = Order.new(order_params)
     # respond_to do |format|
@@ -40,6 +41,7 @@ class CartsController < ApplicationController
     #     format.html { render :new }
     #   end
     # end
+
   end
 
   def update
