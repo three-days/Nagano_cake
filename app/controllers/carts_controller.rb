@@ -28,18 +28,6 @@ class CartsController < ApplicationController
     @cart.save
     redirect_to carts_path
 
-    # オーダーセーブ仮
-#    @order = Order.new(order_params)
- #   respond_to do |format|
- #     if params[:back]
- #       format.html { render :new }
- #     elsif @order.save
- #       format.html { redirect_to :thanks }
- #     else
-  #      format.html { render :new }
-  #      format.json { render json: @order.errors, status: :unprocessable_entity }
-  #    end
-  #  end
   end
 
   def update
