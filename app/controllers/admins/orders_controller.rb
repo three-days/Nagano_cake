@@ -30,7 +30,7 @@ layout "admin"
 private
 
   def order_params
-    params.require(:order).permit(:user_id, :total_charge, :purchase_date, :payment_methods, :order_status, :postage, :destination_address, :destination_name, :destination_postal_code)
+    params.require(:order).permit(:user_id, :total_charge, :purchase_date, :payment_method, :order_status, :postage, :destination_address, :destination_name, :destination_postal_code)
   end
 
 end

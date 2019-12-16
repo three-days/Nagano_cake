@@ -14,6 +14,6 @@ ja:
         notpay: "入金待ち"
         paid: "入金済み"
         shipped: "発送済み"
-      payment_methods:
+      payment_method:
         cash: "現金払い"
         card: "カード払い"
