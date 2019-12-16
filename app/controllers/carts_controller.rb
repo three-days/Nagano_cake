@@ -28,6 +28,7 @@ class CartsController < ApplicationController
     @cart.save
     redirect_to carts_path
 
+<<<<<<< HEAD
     # オーダーセーブ仮
 <<<<<<< HEAD
 #    @order = Order.new(order_params)
@@ -53,6 +54,8 @@ class CartsController < ApplicationController
     #     format.json { render json: @order.errors, status: :unprocessable_entity }
     #   end
     # end
+>>>>>>> origin
+=======
 >>>>>>> origin
   end
 
