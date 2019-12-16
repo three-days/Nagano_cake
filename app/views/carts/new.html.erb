@@ -5,6 +5,7 @@
 
 <h2>支払い方法</h2><br>
 
+
 <%= form_with(model: @order, local: true, url: carts_confirm_path(current_user)) do |f| %>
 
 
@@ -19,6 +20,7 @@
     <%= f.label :銀行振込, class: "payment_method_label" %>
   </div>
 </div>
+
 
 
   <h3>お届け先</h3>
