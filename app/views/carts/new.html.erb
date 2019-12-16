@@ -6,7 +6,7 @@
 <h2>支払い方法</h2><br>
 
 
-<%= form_with(model: @order, local: true, url: carts_confirm_path(current_user)) do |f| %>
+    <%= form_for(@order,url: carts_confirm_path(current_user)) do |f| %>
 
 
 <div class="field">
@@ -36,6 +36,7 @@
 
 
     <!-- 登録先住所 -->
+
 
   <%= f.radio_button :destination_address, :Known %>
   <%= f.label :destination_address, "登録先住所から選択", { value: :Known, style: "display: inline-block;"} %><br>
@@ -72,3 +73,48 @@
   <%= f.submit '確認画面へ' %>
 <% end %>
 </div>
+
+
+
+
+
+
+
+<!-- テストコード -->
+  <br>
+    <br>
+      <br>
+        <br>
+          <br>
+    <%= form_for(@order,url: carts_confirm_path(current_user)) do |f| %>
+    <label>
+        <%= radio_button_tag("select","user_address") %>ご自身の住所
+    </label>
+          <p>〒<span><%= @user.postal_code %>
+      <%= @user.user_address %><br>
+      <%= @user.family_name_kanji %>
+        <%= @user.first_name_kanji %></span></p>
+
+    <label>
+        <%= radio_button_tag("select","delivery_address") %>登録済住所から選択
+    </label>
+        <%= f.label :user_id %>
+    <%= f.collection_select :user_id, current_user.deliveries,:id, :delivery_address %><br>
+
+    <label>
+        <%= radio_button_tag("select","new_delivery_address") %>新しいお届け先
+    </label>
+
+    <%= f.fields_for(@new_destination) do |deli| %>
+    <p>郵便番号
+        <%= deli.text_field :delivery_postal_code %></p>
+    <p>住所
+        <%= deli.text_field :delivery_address %>
+    </p>
+    <p>宛名
+        <%= deli.text_field :delivery_name %>
+    </p>
+    <% end %>
+    <%= f.submit "確認画面へ進む" %>
+
+    <% end %>

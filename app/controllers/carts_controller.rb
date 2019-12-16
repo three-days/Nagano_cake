@@ -7,6 +7,7 @@ class CartsController < ApplicationController
     @delivery = Delivery.new
 # 　　↓フォームタグの仮置したいための変数
     @order = Order.new
+    @new_destination = Delivery.new
 
   end
   def index
@@ -37,7 +38,6 @@ class CartsController < ApplicationController
     #     format.html { redirect_to :thanks }
     #   else
     #     format.html { render :new }
-    #     format.json { render json: @order.errors, status: :unprocessable_entity }
     #   end
     # end
   end
@@ -53,10 +53,28 @@ class CartsController < ApplicationController
     @carts = current_user.carts
     @user = current_user
     @order = Order.new(order_params)
-    @deliveries = current_user.deliveries
+    @new_destination = Delivery.new
 
+# <!-- テストコード -->
+      if params[:select] == "user_address"
+        @order.destination_postal_code = current_user.postal_code
+        @order.destination_address = current_user_address
+        @order.destination_name = current_user.family_name_kanji + current_user.first_name_kanji
+      end
 
-  end
+      if  params[:select] == "delivery_address"
+        @delivery =  Delivery.find(params[:order][:user_id])
+        @order.destination_address = @delivery.delivery_address
+      end
+      if  params[:select] == "new_delivery_address"
+        @order.destination_postal_code = @new_destination.delivery_postal_code
+        @order.destination_address = @new_destination.delivery_address
+        @order.destination_name = @new_destination.delivery_name
+      end
+    end
+# ----------------------
+
+    # @deliveries = current_user.deliveries
 
   def destroy
     @cart = Cart.find(params[:id])
