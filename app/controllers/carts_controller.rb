@@ -3,9 +3,11 @@ class CartsController < ApplicationController
   def new
     @carts = current_user.carts
     @user = current_user
+    @deliveries = current_user.deliveries
     @delivery = Delivery.new
 # 　　↓フォームタグの仮置したいための変数
     @order = Order.new
+
   end
   def index
     @carts = current_user.carts
