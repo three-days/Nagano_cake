@@ -5,7 +5,15 @@
 
 <h2>支払い方法</h2><br>
 
-<%= form_with(model: @order, local: true) do |f| %>
+<%= form_with(model: order, local: true) do |f| %>
+
+<!-- 仮置 -->
+<div class="field">
+  <%= form.select :main, Menu.mains.keys, :selected=>Menu.mains[@menu.main] %>
+  <%= f.select :payment_methods, Order.payment_methods.keys, :selected=>Order.payment_methods[@order.payment_method], {prompt: '選択してください'}, class: 'form-control btn btn-info' %>
+</div>
+
+<!-- -------- -->
   <%= f.radio_button :payment_methods, :Credit %>
   <%= f.label :payment_methods, "クレジットカード", {value: :Credit, style: "display: inline-block;"} %><br>
   <%= f.radio_button :payment_methods, :Bank %>
