@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'carts/thanks'
   get 'carts/confirm'
+  post 'carts/confirm'
   get 'products/top'
   # カートに入れる用ルーティング
   post '/add_product' => 'carts#add_product'

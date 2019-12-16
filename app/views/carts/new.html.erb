@@ -5,45 +5,62 @@
 
 <h2>支払い方法</h2><br>
 
-<%= form_with(model: order, local: true) do |f| %>
+<%= form_with(model: @order, local: true, url: carts_confirm_path(current_user)) do |f| %>
 
-<!-- 仮置 -->
+
 <div class="field">
-  <%= form.select :main, Menu.mains.keys, :selected=>Menu.mains[@menu.main] %>
-  <%= f.select :payment_methods, Order.payment_methods.keys, :selected=>Order.payment_methods[@order.payment_method], {prompt: '選択してください'}, class: 'form-control btn btn-info' %>
+  <span class="payment_method_engine">支払い方法</span><br>
+  <div class="radio-inline">
+    <%= f.radio_button :payment_method, :cash, checked: "checked" %>
+    <%= f.label :クレジットカード, class: "payment_method_label" %>
+  </div><br>
+  <div class="radio-inline">
+    <%= f.radio_button :payment_method, :card %>
+    <%= f.label :銀行振込, class: "payment_method_label" %>
+  </div>
 </div>
-
-<!-- -------- -->
-
-  <%= f.radio_button :payment_methods, :Credit %>
-  <%= f.label :payment_methods, "クレジットカード", {value: :Credit, style: "display: inline-block;"} %><br>
-  <%= f.radio_button :payment_methods, :Bank %>
-  <%= f.label :payment_methods, "銀行振込", {value: :Bank, style: "display: inline-block;"} %>
 
 
   <h3>お届け先</h3>
   <h4>ご自身の住所</h4>
 
+<!-- ユーザーの住所 -->
 
-  <%= f.radio_button :destination_address, :You %>
+  <%= f.radio_button :destination_address, :You, checked: "checked" %>
   <%= f.label :destination_address, "ご自身の住所", { value: :You, style: "display: inline-block;"} %>
-  　　 <p>〒<span><%= @user.postal_code %>
+      <p>〒<span><%= @user.postal_code %>
       <%= @user.user_address %><br>
       <%= @user.family_name_kanji %>
         <%= @user.first_name_kanji %></span></p>
 
+
+    <!-- 登録先住所 -->
+
   <%= f.radio_button :destination_address, :Known %>
   <%= f.label :destination_address, "登録先住所から選択", { value: :Known, style: "display: inline-block;"} %><br>
-  <%= f.collection_select :delivery_address, @deliveries, :id, :delivery_address %>
-<%= f.collection_select :delivery_name, current_user.deliveries, :id, :delivery_name %>
-<%= f.collection_select :delivery_postal_code, current_user.deliveries, :id, :delivery_postal_code %>
+  <%= f.collection_select :destination_address, @deliveries, :id, :delivery_address %>
+<%= f.collection_select :destination_name, current_user.deliveries, :id, :delivery_name %>
+<%= f.collection_select :destination_postal_code, current_user.deliveries, :id, :delivery_postal_code %>
 
   <br>
+  <!-- 新しいお届け先 -->
 
   <%= f.radio_button :destination_address, :Newone %>
   <%= f.label :destination_address, "新しいお届け先",  value: :Newone %><br>
 
+
+
   <%= f.fields_for :deliveries do |deli| %>
+    <% if @delivery.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+         <h3><%= @delivery.errors.count %>error prohibited this obj from being saved:</h3>
+         <ul>
+          <% @delivery.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+         </ul>
+        </div>
+     <% end %>
     郵便番号<%= deli.text_field :delivery_postal_code %>
     住所<%= deli.text_field :delivery_address %>
     宛名<%= deli.text_field :delivery_name %>
@@ -51,5 +68,6 @@
     <%= f.submit '登録する' %>
   <% end %>
   <%= link_to '確認画面に進む', carts_confirm_path(current_user), class: "btn btn-primary" %>
+  <%= f.submit '確認画面へ' %>
 <% end %>
 </div>
