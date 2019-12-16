@@ -62,7 +62,7 @@ Order.create!(
    user_id: 1,
    total_charge: 1880,
    purchase_date: "2019-06-09",
-   payment_methods: 1,
+   payment_method: 1,
    order_status: 1,
    postage: 800,
    destination_address: 'osaka',
