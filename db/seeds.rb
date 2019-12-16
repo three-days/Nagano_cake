@@ -24,11 +24,13 @@ User.create!(
    postal_code: '1111111',
    user_address: 'tokyo',
    tele_number: '0120999333',
-   leave_status: 0
 )
 
+
 Genre.create!(
-   genre_name: 'ケーキ'
+   genre_name: 'ケーキ',
+   created_at: "2019-06-09 05:58:56",
+   updated_at: "2019-06-09 05:58:57"
 )
 
 Product.create!(
@@ -36,7 +38,9 @@ Product.create!(
    product_name: '長野ケーキ',
    product_description: 'これは長野ケーキです。',
    tax_excluded: 1000,
-   sale_status: 1
+   sale_status: 0,
+   created_at: "2019-06-09 05:58:56",
+   updated_at: "2019-06-09 05:58:57"
 )
 
 Cart.create!(
@@ -54,24 +58,27 @@ Delivery.create!(
 )
 
 
-
-OrderProduct.create!(
-   order_id: 1,
-   product_id: 1,
-   number: 1,
-   tax_included: 1080,
-   production_status: 1
-)
-
 Order.create!(
    user_id: 1,
    total_charge: 1880,
-   purchase_date: "2019-06-09 05:58:56",
-   payment_methods: 1,
+   purchase_date: "2019-06-09",
+   payment_method: 1,
    order_status: 1,
    postage: 800,
    destination_address: 'osaka',
    destination_name: 'nandeya',
    destination_postal_code: '3333333'
 )
+
+
+OrderProduct.create!(
+   order_id: 1,
+   product_id: 1,
+   number: 1,
+   tax_included: 1080,
+   production_status: 1,
+   created_at: "2019-06-09 05:58:56",
+   updated_at: "2019-06-09 05:58:57"
+)
+
 

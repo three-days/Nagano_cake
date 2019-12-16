@@ -19,7 +19,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer  :postal_code
       t.string   :user_address
       t.integer  :tele_number
-      t.boolean  :leave_status
 
       ## Rememberable
       t.datetime :remember_created_at

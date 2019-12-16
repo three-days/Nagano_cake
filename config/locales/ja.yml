@@ -3,9 +3,17 @@ ja:
     product:
       sale_status:
         sales: "販売中"
-        stopped: "販売停止中"
-
-    user:
-      leave_status:
-        alive: "退会済みにする"
-        dead: "入会状態に戻す"
+        stopped: "売り切れ"
+    order_product:
+      production_status:
+        notcreate: "制作待ち"
+        creating: "製作中"
+        finished: "制作完了"
+    order:
+      order_status:
+        notpay: "入金待ち"
+        paid: "入金済み"
+        shipped: "発送済み"
+      payment_method:
+        cash: "現金払い"
+        card: "カード払い"

@@ -1,25 +1,25 @@
-<h1>注文一覧画面</h1>
+<div class="container">
+  <h1>注文一覧画面</h1>
      <table class="table">
         <thead>
           <tr>
             <th>購入日時</th>
             <th>購入者</th>
             <th>注文個数</th>
-            <th>制作ステータス</th>
             <th>入金ステータス</th>
           </tr>
         </thead>
         <tbody>
             <% @admins_orders.each do |p| %>
              <tr>
-              <td><%= link_to p.purchase_date admins_order_path(p.id)  %></td>
-              <td><%= p.family_name_kanji %><%= p.first_name_kanji %></td>
-              <td><%= p.email  %></td>
-              <td><%= p.production_status  %></td>
-              <td><%= p.order_status  %></td>
+              <td><%= link_to p.purchase_date, admins_order_path(p.id)  %></td>
+              <td><%= p.user.family_name_kanji %><%= p.user.first_name_kanji %></td>
+              <td><%= p.user.email  %></td>
+              <td><%= p.order_status_i18n  %></td>
              </tr>
             <% end %>
         </tbody>
       </table>
     </div>
-        <%= paginate @admins_products, class: "paginate" %>
+        <%= paginate @admins_orders, class: "paginate" %>
+</div>

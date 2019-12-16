@@ -1,42 +1,47 @@
-<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">
-				ながのCAKE
-			</a>
-		</div>
-		
-		<div class="collapse navbar-collapse" id="navbarEexample3">
-			<form class="navbar-form navbar-right" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="検索キーワード">
-				</div>
-				<button type="submit" class="btn btn-default">検索</button>
-				<p class="navbar-text navbar-right">ようこそ <a href="#" class="navbar-link">ゲスト</a> さん。</p>
-			</form>
-		</div>
-	</div>
-</nav>
+<div class="container-fluid bg-success">
+  <div class="row">
 
-           <% @products.each do |product| %>
+ <p><%= link_to 'パスワードを変更する',edit_user_password_path %></p>
+        <div class="col-md-4">
+          <table class="table">
+          <thead>
+            <tr>
+              <th>ジャンル検索</th>
 
-           <%= product.genre_id %>
-           <%= product.product_name %>
-           <%= product.tax_excluded %>
-           <%= link_to 'カートに入れる', carts_path %>
+            </tr>
+          </thead>
 
-           <%= form_for( Cart.new(product_id: product.id)) do|f|  %>
-           <%= f.hidden_field :product_id %>
-           <%= f.submit "カートに入れる" %>
-           <% end %>
+          <tbody>
+              <% @genres.each do |genre| %>
+                  <td><%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
+                  <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
+                  <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
+                  <!-- products/top?genre_id=1 -->
+          </tbody>
+
+    <% end %>
+        </table>
+        </div>
+
+        <div class="col-md-8">
+           <table class="table">
+　　　　　　　　　<!--カート送信ボタンのコード -->
+            <% @products.each do |product| %>
+            <tr>
+            	<td>
+                 <div><%= attachment_image_tag product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '50x50' %></div>
+              </td>
+                  <td><%=link_to product.product_name, product_path(product) %></td>
+                  <td><%= product.tax_excluded %></td>
+                <%= form_for( Cart.new(product_id: product.id)) do|f|  %>
+                   <td><%= f.select :product_number, [*1..100] ,class:"form-control" %></td>
+                   <%= f.hidden_field :product_id %>
+                   <td><%= f.submit "カートに入れる", class: "btn btn-primary" %></td>
+                <% end %>
+            <% end %>
+           </table>
+        </div>
 
 
-           <% end %>
-
-
-
-       <tbody>
-
-  </tbody>
-
-
+  </div>
+</div>

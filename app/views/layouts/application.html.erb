@@ -10,16 +10,58 @@
   </head>
 
   <body>
-    <header>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+    <nav>
+     <ul class="left nav navbar-nav navbar-left">
+      <li><%= link_to "長野ケーキ", admins_root_path %></li>
+        <% if user_signed_in? %>
+          <li class="">
+            <%= link_to current_user.family_name_kanji %>
+          </li>
+          <li class="">
+            <%= link_to current_user.first_name_kanji %>
+          </li>
+        <% end %>
+     </ul>
+    </nav>
+         <nav>
+          <ul class="nav navbar-nav navbar-right">
+             <% if user_signed_in? %>
 
-       <!-- link_to "商品一覧", admins_products_path %> -->
-       <!-- link_to "会員一覧", admins_users_path %> -->
-       <!-- link_to "注文履歴一覧", admins_orders_path %> -->
-      <!-- link_to "ジャンル管理", admins_genres_path %> -->
-<h2>バーーーか</h2>
-       <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+               <li class="">
+                  <%= link_to ' 商品一覧',products_top_path %>
+               </li>
+               <li class="">
+                  <%= link_to ' マイページ',users_path %>
+               </li>
+               <li class="">
+                 <%= link_to ' カート', carts_path %>
+               </li>
+               <li class="">
+                 <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+               </li>
+             <% else %>
+               <li class="">
+                 <%= link_to ' 商品一覧',products_top_path %>
+               </li>
+               <li class="">
+                 <%= link_to ' Sign up', new_user_registration_path %>
+               </li>
+               <li class="">
+                  <%= link_to 'Login', new_user_session_path %>
+               </li>
+             <% end %>
+            </ul>
+          </nav>
+      </div>
     </header>
-    <!-- /header -->
+      <div class="main">
+        <div class="container">
+          <div class="row">
+          </div>
+        </div>
+      </div>
 
     <%= yield %>
   </body>

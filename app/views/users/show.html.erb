@@ -1,9 +1,9 @@
-
+<div class="container">
+<!-- 12月12日閉鎖 -->
 <!-- 会員側のマイページ -->
-<h1>toppo</h1>
 <table class="table table-striped">
 		<h2>登録情報</h2>
-		 <!-- <tr> link_to '編集する',edit_user %> -->
+		 <p><%= link_to '編集する',edit_user_path(current_user.id) %></p>
 		 <!-- link_to 'パスワードを変更する',user_p %></tr> -->
 		<tr>
 			<th>氏名</th>
@@ -36,7 +36,7 @@
 		<h2>配送先</h2>
 		<%= link_to '一覧を見る',delivery_path(current_user.id) %>
 		<h2>注文履歴</h2>
-		<%= link_to '一覧を見る',delivery_path(current_user.id) %>
-		
-</table>
+		<%= link_to '一覧を見る',orders_path %>
 
+</table>
+</div>

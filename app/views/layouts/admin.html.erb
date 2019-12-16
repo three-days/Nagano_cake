@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Admin</title>
+    <title>長野ケーキ：管理者画面</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,16 +10,41 @@
   </head>
 
   <body>
-
     <header>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+   <div class="container">
+    <nav>
+     <ul class="left nav navbar-nav navbar-left">
+      <li><%= link_to "長野ケーキ", admins_root_path %></li>
+     </ul>
+    </nav>
 
-      <%= link_to "商品一覧", admins_products_path %>
-      <%= link_to "会員一覧", admins_users_path %>
-      <%= link_to "注文履歴一覧", admins_orders_path %>
-      <%= link_to "ジャンル管理", admins_genres_path %>
 
-      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-    </header>
+
+
+    <nav>
+     <ul class="nav navbar-nav navbar-right">
+
+      <li><%= link_to "商品一覧", admins_products_path %></li>
+      <li><%= link_to "会員一覧", admins_users_path %></li>
+      <li><%= link_to "注文履歴一覧", admins_orders_path %></li>
+      <li><%= link_to "ジャンル管理", admins_genres_path %></li>
+
+      <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+     </ul>
+    </nav>
+   </div>
+  </nav>
+  <div class="message">
+   <% if notice %>
+　　<p><%= notice %></p>
+    <% end %>
+    <% if alert %>
+       <p><%= alert %></p>
+    <% end %>
+  </div>
+
+ </header>
     <!-- /header -->
 
     <%= yield %>

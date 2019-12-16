@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'orders/check'
-  get 'orders/thanks'
+
+  get 'carts/thanks'
+  get 'carts/confirm'
+  post 'carts/confirm'
   get 'products/top'
   # カートに入れる用ルーティング
   post '/add_product' => 'carts#add_product'
@@ -17,15 +19,21 @@ resources :orders
 
 
 
-
 namespace :admins do
     root "top#index"
     resources :products
-    resources :users, only:[:index, :show, :edit, :update, :destroy]
+    resources :users, only:[:index, :show, :edit, :update, :destroy] do
+      member do
+        patch 'user_restore'
+      end
+    end
     resources :orders, only:[:index, :show, :update]
     resources :order_products, only:[:update]
-    resources :genres, only:[:index, :create, :update, :destroy]
-
+    resources :genres, only:[:index, :create, :edit, :update, :destroy] do
+      member do
+        patch 'genre_restore'
+      end
+    end
 end
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -44,9 +52,9 @@ devise_for :users, controllers: {
 
 
 
-resource :users
-resources :deliverys
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+resources :users, only:[:index, :create, :edit, :show, :update, :destroy]
+resources :deliveries, only:[:index, :new, :create, :edit, :show, :update, :destroy]
+  # For details on the DSL availa
 end
 
 
