@@ -29,6 +29,7 @@ class CartsController < ApplicationController
     redirect_to carts_path
 
     # オーダーセーブ仮
+<<<<<<< HEAD
 #    @order = Order.new(order_params)
  #   respond_to do |format|
  #     if params[:back]
@@ -40,6 +41,19 @@ class CartsController < ApplicationController
   #      format.json { render json: @order.errors, status: :unprocessable_entity }
   #    end
   #  end
+=======
+    # @order = Order.new(order_params)
+    # respond_to do |format|
+    #   if params[:back]
+    #     format.html { render :new }
+    #   elsif @order.save
+    #     format.html { redirect_to :thanks }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @order.errors, status: :unprocessable_entity }
+    #   end
+    # end
+>>>>>>> origin
   end
 
   def update

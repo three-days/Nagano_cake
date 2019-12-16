@@ -12,11 +12,11 @@
 <div class="field">
   <span class="payment_method_engine">支払い方法</span><br>
   <div class="radio-inline">
-    <%= f.radio_button :payment_method, :cash, checked: "checked" %>
+    <%= f.radio_button :payment_method, :card, checked: "checked" %>
     <%= f.label :クレジットカード, class: "payment_method_label" %>
   </div><br>
   <div class="radio-inline">
-    <%= f.radio_button :payment_method, :card %>
+    <%= f.radio_button :payment_method, :cash %>
     <%= f.label :銀行振込, class: "payment_method_label" %>
   </div>
 </div>
@@ -24,12 +24,11 @@
 
 
   <h3>お届け先</h3>
-  <h4>ご自身の住所</h4>
 
 <!-- ユーザーの住所 -->
 
-  <%= f.radio_button :destination_address, :You, checked: "checked" %>
-  <%= f.label :destination_address, "ご自身の住所", { value: :You, style: "display: inline-block;"} %>
+  <%= f.radio_button :destination_address, current_user.postal_code, checked: "checked" %>
+  <%= f.label :destination_address, "ご自身の住所", { style: "display: inline-block;"} %>
       <p>〒<span><%= @user.postal_code %>
       <%= @user.user_address %><br>
       <%= @user.family_name_kanji %>
@@ -68,6 +67,10 @@
     宛名<%= deli.text_field :delivery_name %>
     <%= deli.hidden_field :delivery_id %>
   <% end %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
   <%= f.submit '確認画面へ' %>
 <% end %>
 </div>
