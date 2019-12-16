@@ -27,6 +27,19 @@ class CartsController < ApplicationController
     end
     @cart.save
     redirect_to carts_path
+
+    # オーダーセーブ仮
+    @order = Order.new(order_params)
+    respond_to do |format|
+      if params[:back]
+        format.html { render :new }
+      elsif @order.save
+        format.html { redirect_to :thanks }
+      else
+        format.html { render :new }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
@@ -39,13 +52,10 @@ class CartsController < ApplicationController
   def confirm
     @carts = current_user.carts
     @user = current_user
+    @order = Order.new(order_params)
+    @deliveries = current_user.deliveries
 
-#if文で
-#def payment_methods
-#
-#end
 
-    @order = @carts.order
   end
 
   def destroy
@@ -57,7 +67,11 @@ class CartsController < ApplicationController
 
 
   private
-   def cart_params
+  def cart_params
     params.require(:cart).permit(:product_id, :product_number)
   end
+  def order_params
+    params.require(:order).permit(:user_id, :deliveries_id, :total_charge, :purchase_date, :payment_method, :order_status, :postage, :destination_address, :destination_name, :destination_postal_code, :delivery_postal_code, :delivery_address, :delivery_name)
+  end
+
 end

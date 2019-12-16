@@ -9,8 +9,8 @@
         </tr>
         <% sum = 0 %>
         <% @carts.each do |cart| %>
-        <tr>
-            <td>
+          <tr>
+               <td>
                 <div><%= attachment_image_tag cart.product, :image, :fill, 50, 50, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %></div>
                 <%= cart.product.product_name %>
                </td>
@@ -20,8 +20,7 @@
                 <%= cart.product_number %>
                </td>
                <td><%= calc = cart.product.tax_excluded * cart.product_number %></td>
-
-        </tr>
+           </tr>
         <% sum = sum + calc %>
         <% end %>
     </table>
@@ -45,15 +44,25 @@
         </tr>
     </table>
 
+<%= form_for @order do |f| %>
     <h3>支払方法</h3>
-        <%= @order.payment_methods %>
+        <%= @order.payment_method %>
     <p>
-
     </p>
     <h3>お届け先</h3>
-    <p>〒
+    <p>〒<%= @order.destination_postal_code %>
+        <%= @order.destination_name %>
+        <%= @order.destination_address %>
 
     </p>
+    <div class="actions">
+    <%= f.submit '購入情報入力に戻る', name: 'back' %>
+    </div>
+    <div class="actions">
+    <%= f.submit '購入確定する' %>
+    <% end %>
+  </div>
 </div>
 
-  <%= link_to '購入確定', carts_thanks_path(current_user), class: "btn btn-primary" %>
+
+  <!-- < link_to '購入確定', carts_thanks_path(current_user), class: "btn btn-primary" %> -->
