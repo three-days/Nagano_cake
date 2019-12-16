@@ -67,9 +67,7 @@
     住所<%= deli.text_field :delivery_address %>
     宛名<%= deli.text_field :delivery_name %>
     <%= deli.hidden_field :delivery_id %>
-    <%= f.submit '登録する' %>
   <% end %>
-  <%= link_to '確認画面に進む', carts_confirm_path(current_user), class: "btn btn-primary" %>
   <%= f.submit '確認画面へ' %>
 <% end %>
 </div>
