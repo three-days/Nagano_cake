@@ -9,7 +9,7 @@ class DeliveriesController < ApplicationController
 	end
 
 	def create
-		@deliverys = Delivery.all
+		@deliveries = Delivery.all
 
 		@delivery = Delivery.new(delivery_params)
 		@delivery.user_id = current_user.id
@@ -25,16 +25,16 @@ class DeliveriesController < ApplicationController
 	end
 
 	def edit
-		@deliverys = current_user
+		@deliveries = current_user
 	end
 
 	def update
-		@deliverys = current_user
+		@deliveries = current_user
 		@delivery.update(delivery_params)
 	end
 
 	def update
-		@deliverys = current_user
+		@deliveries = current_user
 	end
 
 

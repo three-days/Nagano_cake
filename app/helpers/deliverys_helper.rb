@@ -1,2 +1,2 @@
-module DeliverysHelper
+module DeliveriesHelper
 end
