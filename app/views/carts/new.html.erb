@@ -28,8 +28,8 @@
 
 <!-- ユーザーの住所 -->
 
-  <%= f.radio_button :destination_address, :You, checked: "checked" %>
-  <%= f.label :destination_address, "ご自身の住所", { value: :You, style: "display: inline-block;"} %>
+  <%= f.radio_button :destination_address, :current_user, checked: "checked" %>
+  <%= f.label :destination_address, "ご自身の住所", { value: :current_user, style: "display: inline-block;"} %>
       <p>〒<span><%= @user.postal_code %>
       <%= @user.user_address %><br>
       <%= @user.family_name_kanji %>
@@ -40,7 +40,7 @@
 
   <%= f.radio_button :destination_address, :Known %>
   <%= f.label :destination_address, "登録先住所から選択", { value: :Known, style: "display: inline-block;"} %><br>
-  <%= f.collection_select :destination_address, @deliveries, :id, :delivery_address %>
+  <%= f.collection_select :destination_address, @delivery, :id, :delivery_address %>
 <%= f.collection_select :destination_name, current_user.deliveries, :id, :delivery_name %>
 <%= f.collection_select :destination_postal_code, current_user.deliveries, :id, :delivery_postal_code %>
 

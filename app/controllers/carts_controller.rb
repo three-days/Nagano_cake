@@ -7,6 +7,15 @@ class CartsController < ApplicationController
     @delivery = Delivery.new
 # 　　↓フォームタグの仮置したいための変数
     @order = Order.new
+    @delivery = Delivery.select(current_user)
+    if    destination_address = current_user.user_address
+        redirect_to carts_confirm_path
+    elsif @delivery = current_user.delivery
+        redirect_to carts_confirm_path
+    else  @delivery = Delivery.new
+          @delivery.save
+        redirect_to carts_confirm_path
+    end
 
   end
   def index
@@ -25,20 +34,23 @@ class CartsController < ApplicationController
       @cart = Cart.new(cart_params)
       @cart.user_id= current_user.id
     end
+
+    @order = Order.new(order_params)
+    respond_to do |format|
     @cart.save
     redirect_to carts_path
 
     # オーダーセーブ仮
-    @order = Order.new(order_params)
-    respond_to do |format|
-      if params[:back]
-        format.html { render :new }
-      elsif @order.save
-        format.html { redirect_to :thanks }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    # @order = Order.new(order_params)
+    # respond_to do |format|
+    #   if params[:back]
+    #     format.html { render :new }
+    #   elsif @order.save
+    #     format.html { redirect_to :thanks }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @order.errors, status: :unprocessable_entity }
+    #   end
     end
   end
 
@@ -52,10 +64,8 @@ class CartsController < ApplicationController
   def confirm
     @carts = current_user.carts
     @user = current_user
-    @order = Order.new(order_params)
-    @deliveries = current_user.deliveries
-
-
+    # @order = Order.new(order_params)
+    @deliveries= current_user.deliverr
   end
 
   def destroy
@@ -73,5 +83,7 @@ class CartsController < ApplicationController
   def order_params
     params.require(:order).permit(:user_id, :deliveries_id, :total_charge, :purchase_date, :payment_method, :order_status, :postage, :destination_address, :destination_name, :destination_postal_code, :delivery_postal_code, :delivery_address, :delivery_name)
   end
-
+  def cart_params
+    params.require(:delivery).permit(:user_id, :delivery_address, :destination_name, :de)
+  end
 end
