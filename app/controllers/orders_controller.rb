@@ -9,10 +9,14 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_products = @order.order_products
+    @order_product = OrderProduct.find(@order.id)
   end
 
   def index
-  	@orders = Order.where(user_id: current_user.id)
+  	# @orders = Order.where(user_id: current_user.id)
+    @orders = Order.all
   end
 
   def show
@@ -43,10 +47,10 @@ class OrdersController < ApplicationController
       redirect_to order_thanks_path
     else
       render :index
-
-def total_charge
-  @order = 
-  @total_charge = 
+    end
+  # def total_charge
+  # @order = 
+  # @total_charge = 
 
 
 
@@ -64,7 +68,7 @@ def total_charge
   def destroy
 
   end
-private
+  private
   def order_params
     params.require(:order).permit(:user_id, :total_charge, :purchase_date, :payment_method, :order_status, :postage, :destination_address, :destination_name, :destination_postal_code, :delivery_postal_code, :delivery_address, :delivery_name, deliveries_attributes: [:content])
   end

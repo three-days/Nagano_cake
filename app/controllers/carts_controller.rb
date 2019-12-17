@@ -94,7 +94,7 @@ class CartsController < ApplicationController
 
 
 
-  private
+private
   def cart_params
     params.require(:cart).permit(:product_id, :product_number)
   end
@@ -104,4 +104,5 @@ class CartsController < ApplicationController
   def cart_params
     params.require(:delivery).permit(:user_id, :delivery_address, :destination_name, :de)
   end
+end
 end
