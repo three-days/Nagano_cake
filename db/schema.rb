@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_12_14_018123) do
     t.integer "product_id"
     t.integer "number"
     t.integer "tax_included"
-    t.integer "production_status"
+    t.integer "production_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2019_12_14_018123) do
     t.integer "total_charge"
     t.datetime "purchase_date"
     t.integer "payment_method"
-    t.integer "order_status"
-    t.integer "postage"
+    t.integer "order_status", default: 0
+    t.integer "postage", default: 800
     t.string "destination_address"
     t.string "destination_name"
     t.string "destination_postal_code"
