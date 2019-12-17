@@ -1,3 +1,4 @@
+
 <div class= "container">
   <h4>購入情報入力</h4>
 
@@ -40,8 +41,6 @@
   <%= f.radio_button :destination_address, :Known %>
   <%= f.label :destination_address, "登録先住所から選択", { value: :Known, style: "display: inline-block;"} %><br>
   <%= f.collection_select :destination_address, @deliveries, :id, :delivery_address %>
-<%= f.collection_select :destination_name, current_user.deliveries, :id, :delivery_name %>
-<%= f.collection_select :destination_postal_code, current_user.deliveries, :id, :delivery_postal_code %>
 
   <br>
   <!-- 新しいお届け先 -->
