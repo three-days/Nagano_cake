@@ -49,15 +49,15 @@
         </tr>
     </table>
 
-<%= form_for @order do |f| %>
+<%= form_for @deliveries do |f| %>
     <h3>支払方法</h3>
-        <%= @order.payment_method %>
+        <%= @delivery.payment_method %>
     <p>
     </p>
     <h3>お届け先</h3>
-    <p>〒<%= @order.destination_postal_code %>
-        <%= @order.destination_name %>
-        <%= @order.destination_address %>
+    <p>〒<%= @delivery.destination_postal_code %>
+        <%= @delivery.destination_name %>
+        <%= @delivery.destination_address %>
 
     </p>
     <div class="actions">

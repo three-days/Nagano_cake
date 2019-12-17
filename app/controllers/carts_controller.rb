@@ -7,6 +7,7 @@ class CartsController < ApplicationController
     @delivery = Delivery.new
 # 　　↓フォームタグの仮置したいための変数
     @order = Order.new
+
     @new_destination = Delivery.new
 
   end
@@ -26,6 +27,9 @@ class CartsController < ApplicationController
       @cart = Cart.new(cart_params)
       @cart.user_id= current_user.id
     end
+
+    @order = Order.new(order_params)
+    respond_to do |format|
     @cart.save
     redirect_to carts_path
 
@@ -39,8 +43,10 @@ class CartsController < ApplicationController
     #     format.html { redirect_to :thanks }
     #   else
     #     format.html { render :new }
+
     #   end
     # end
+
 
   end
 
@@ -54,6 +60,7 @@ class CartsController < ApplicationController
   def confirm
     @carts = current_user.carts
     @user = current_user
+
     @order = Order.new(order_params)
     @new_destination = Delivery.new
 
@@ -78,6 +85,7 @@ class CartsController < ApplicationController
 
     # @deliveries = current_user.deliveries
 
+
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy
@@ -93,5 +101,7 @@ class CartsController < ApplicationController
   def order_params
     params.require(:order).permit(:user_id, :deliveries_id, :total_charge, :purchase_date, :payment_method, :order_status, :postage, :destination_address, :destination_name, :destination_postal_code, :delivery_postal_code, :delivery_address, :delivery_name)
   end
-
+  def cart_params
+    params.require(:delivery).permit(:user_id, :delivery_address, :destination_name, :de)
+  end
 end
