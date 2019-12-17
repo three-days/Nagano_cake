@@ -27,9 +27,6 @@ class CartsController < ApplicationController
       @cart = Cart.new(cart_params)
       @cart.user_id= current_user.id
     end
-
-    @order = Order.new(order_params)
-    respond_to do |format|
     @cart.save
     redirect_to carts_path
 
@@ -62,6 +59,12 @@ class CartsController < ApplicationController
     @user = current_user
 
     @order = Order.new(order_params)
+
+      if params[:choice] == "cash"
+        @order.payment_method = :cash
+      else params[:choice] == "card"
+        @order.payment_method = :card
+      end
 
       if params[:select] == "user_address"
         @order.destination_postal_code = current_user.postal_code
@@ -108,9 +111,4 @@ private
   def delivery_params
     params.require(:delivery).permit(:delivery_address, :delivery_name, :delivery_postal_code)
   end
-  def cart_params
-    params.require(:delivery).permit(:user_id, :delivery_address, :destination_name, :de)
-  end
-
-end
 end

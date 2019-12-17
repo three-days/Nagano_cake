@@ -10,13 +10,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_products = @order.order_products
-    @order_product = OrderProduct.find(@order.id)
   end
 
   def index
   	# @orders = Order.where(user_id: current_user.id)
-    @orders = Order.all
+    @orders = current_user.orders
   end
 
   def show

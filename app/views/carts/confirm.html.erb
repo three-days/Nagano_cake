@@ -58,16 +58,15 @@ text_field_tag
         <%= @order.payment_method_i18n %>
 
 <%= form_for @order do |f| %>
-        <% @order.payment_method %>
     <h3>お届け先</h3>
-    <p>〒<%= @delivery.destination_postal_code %>
-        <%= @delivery.destination_name %>
-        <%= @delivery.destination_address %>
-
+    <p>〒<%= @order.destination_postal_code %>
+        <%= @order.destination_name %>
+        <%= @order.destination_address %>
+        <%= f.hidden_field :payment_method %>
     </p>
-        <p>〒<%= f.text_field :destination_postal_code %>
-        <p>〒<%= f.text_field :destination_name %>
-        <p>〒<%= f.text_field :destination_address %>
+        <p><%= f.hidden_field :destination_postal_code %>
+        <p><%= f.hidden_field :destination_name %>
+        <p><%= f.hidden_field :destination_address %>
     <div class="actions">
     <%= f.submit '購入情報入力に戻る', name: 'back' %>
     </div>
