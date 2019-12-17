@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-
   get 'carts/thanks'
+# getとpostが同時に使用されているのはどうしてですか？
   get 'carts/confirm'
   post 'carts/confirm'
   get 'products/top'
