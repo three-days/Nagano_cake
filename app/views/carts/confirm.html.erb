@@ -11,6 +11,11 @@
 <!-- form_for -->
 
 
+<!-- form_with
+text_field_tag
+この二つでデータの引き渡しをすると、複数のモデルのデータをセーブするのが簡単になるらしい。
+ -->
+
         <% @carts.each do |cart| %>
           <tr>
                <td>
@@ -49,9 +54,11 @@
         </tr>
     </table>
 
+        <h3>支払方法</h3>
+        <%= @order.payment_method_i18n %>
+
 <%= form_for @order do |f| %>
-    <h3>支払方法</h3>
-        <%= @order.payment_method %>
+        <% @order.payment_method %>
     <p>
     </p>
     <h3>お届け先</h3>
@@ -60,6 +67,9 @@
         <%= @order.destination_address %>
 
     </p>
+        <p>〒<%= f.text_field :destination_postal_code %>
+        <p>〒<%= f.text_field :destination_name %>
+        <p>〒<%= f.text_field :destination_address %>
     <div class="actions">
     <%= f.submit '購入情報入力に戻る', name: 'back' %>
     </div>
