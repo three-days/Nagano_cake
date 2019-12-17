@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 
-  get 'orders/thanks'
+  get 'carts/thanks'
+  get 'carts/confirm'
+  post 'carts/confirm'
   get 'products/top'
   # カートに入れる用ルーティング
   post '/add_product' => 'carts#add_product'
@@ -20,7 +22,11 @@ resources :orders
 namespace :admins do
     root "top#index"
     resources :products
-    resources :users, only:[:index, :show, :edit, :update, :destroy]
+    resources :users, only:[:index, :show, :edit, :update, :destroy] do
+      member do
+        patch 'user_restore'
+      end
+    end
     resources :orders, only:[:index, :show, :update]
     resources :order_products, only:[:update]
     resources :genres, only:[:index, :create, :edit, :update, :destroy] do
@@ -47,7 +53,7 @@ devise_for :users, controllers: {
 
 
 resources :users, only:[:index, :create, :edit, :show, :update, :destroy]
-resources :deliverys, only:[:index, :new, :create, :edit, :show, :update, :destroy]
+resources :deliveries, only:[:index, :new, :create, :edit, :show, :update, :destroy]
   # For details on the DSL availa
 end
 

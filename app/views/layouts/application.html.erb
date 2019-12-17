@@ -12,16 +12,23 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <nav class="nav navbar-nav navbar-left ">
-          <span>ながのCAKE</span>
-        </nav>
+    <nav>
+     <ul class="left nav navbar-nav navbar-left">
+      <li><%= link_to "長野ケーキ", admins_root_path %></li>
+        <% if user_signed_in? %>
+          <li class="">
+            <%= link_to current_user.family_name_kanji %>
+          </li>
+          <li class="">
+            <%= link_to current_user.first_name_kanji %>
+          </li>
+        <% end %>
+     </ul>
+    </nav>
          <nav>
           <ul class="nav navbar-nav navbar-right">
              <% if user_signed_in? %>
-               <li class="">
-                  <%= current_user.family_name_kanji %>
-                  <%= current_user.first_name_kanji %>
-               </li>
+
                <li class="">
                   <%= link_to ' 商品一覧',products_top_path %>
                </li>

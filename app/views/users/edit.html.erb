@@ -1,3 +1,5 @@
+<div class="container">
+
 <!-- 会員情報編集ページ -->
 <h2>登録情報編集</h2>
 
@@ -6,8 +8,6 @@
 <% end %>
 <%= form_for(@user) do |f| %>
         <%= link_to "退会する", user_path, method: :delete, data:  { confirm: '本当に退会しますか？' }, class: "btn btn-danger" %>
- <!-- f.submit '退会する' %> -->
-<%= f.select :leave_status, User.leave_statuses_i18n.keys.map { |k| [User.leave_statuses_i18n[k], k]} %>
 <p>氏名</p>
 
 <%= f.text_field :family_name_kanji %>
@@ -36,3 +36,4 @@
 <%= f.submit '編集内容を保存する' %>
 
 <% end %>
+</div>

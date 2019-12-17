@@ -7,4 +7,5 @@ layout "admin"
     @orders = Order.where("purchase_date >= ?", Time.zone.now.beginning_of_day)
     @orders.count
   end
+
 end

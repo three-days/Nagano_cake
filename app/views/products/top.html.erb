@@ -10,27 +10,14 @@
 
             </tr>
           </thead>
+
+          <tbody>
               <% @genres.each do |genre| %>
                   <td><%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
-                  <!-- 上のpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
-                  <!-- コントローラーのgenre_idを -->
-
-
-
-<!-- products_top_path(:genre_id => genre.id) -->
-<!--  :genre_id  ==  "genre_id"   -->
-<!-- genre_id:   ==  "genre_id"  =>  -->
-<!-- 前後開ける -->
-<!-- genre_id:　==  "genre_id" -->
-
-<!-- products_top_path(genre_id: genre.id) -->
-
-
-
-
-  <!--             < link_to  %> -->
-
-                </tr>
+                  <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
+                  <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
+                  <!-- products/top?genre_id=1 -->
+          </tbody>
 
     <% end %>
         </table>
@@ -42,14 +29,10 @@
             <% @products.each do |product| %>
             <tr>
             	<td>
-
                  <div><%= attachment_image_tag product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '50x50' %></div>
-
-
               </td>
-                  <td><%= product.product_name %></td>
+                  <td><%=link_to product.product_name, product_path(product) %></td>
                   <td><%= product.tax_excluded %></td>
-
                 <%= form_for( Cart.new(product_id: product.id)) do|f|  %>
                    <td><%= f.select :product_number, [*1..100] ,class:"form-control" %></td>
                    <%= f.hidden_field :product_id %>

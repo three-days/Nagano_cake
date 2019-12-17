@@ -3,15 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
    has_many :carts
    has_many :products
 
   has_many :orders, dependent: :destroy
+  has_many :deliveries
 
-
-  enum leave_status: { alive: false, dead: true }
-
-
+  acts_as_paranoid
 
   validates :email,uniqueness: true, presence: true
   validates :family_name_kanji, presence: true

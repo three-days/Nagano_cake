@@ -1,9 +1,8 @@
-<h1>会員編集画面</h1>
-
-<h3>会員ID  <%= @admins_user.id %>
-</h3>
-    <%= form_for @admins_user, :url => { :controller => :users, :action => :update } do |f| %>
-     <% if @admins_user.errors.any? %>
+<div class="container">
+  <h1>会員編集画面</h1>
+    <h3>会員ID  <%= @admins_user.id %></h3>
+      <%= form_for @admins_user, :url => { :controller => :users, :action => :update } do |f| %>
+      <% if @admins_user.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
          <h3><%= @admins_user.errors.count %>error prohibited this obj from being saved:</h3>
          <ul>
@@ -13,13 +12,19 @@
          </ul>
         </div>
        <% end %>
-        <h3>氏名       <%= f.text_field :family_name_kanji %> <%= f.text_area :first_name_kanji %></h3>
-        <h3>フリガナ       <%= f.text_field :family_name_kana %> <%= f.text_area :first_name_kana %></h3>
+        <h3>氏名       <%= f.text_field :family_name_kanji %>  <%= f.text_field :first_name_kanji %></h3>
+        <h3>フリガナ       <%= f.text_field :family_name_kana %>  <%= f.text_field :first_name_kana %></h3>
         <h3>郵便番号     <%= f.text_field :postal_code %></h3>
         <h3>住所      <%= f.text_field :user_address %></h3>
         <h3>電話番号     <%= f.number_field :tele_number %></h3>
         <h3>メールアドレス       <%= f.text_field :email %></h3>
-        <h3>退会状態       <%= f.select :leave_status, User.leave_statuses_i18n.keys.map { |k| [User.leave_statuses_i18n[k], k]} %></h3>
-        <%= f.submit '変更を保存する', class: "btn btn-primary btn-block" %>
+        <h3>退会状態
+        <% if @admins_user.deleted_at.nil? %>
+        <%= link_to "退会状態にする", admins_user_path, method: :delete, data:  { confirm: '本当に退会させますか？' }, class: "btn btn-danger" %>
+    <% else %>
+        <%= link_to "入会状態にする", user_restore_admins_user_path(@admins_user), method: :patch, class: "btn btn-primary" %>
+    <% end %>
+        <%= f.submit '変更を保存する', class: "btn btn-primary" %>
 
     <% end %>
+</div>

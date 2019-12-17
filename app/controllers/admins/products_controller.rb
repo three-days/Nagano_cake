@@ -28,8 +28,7 @@ layout "admin"
    if @admins_product.save
     redirect_to admins_product_path(@admins_product.id), notice: 'You have created product successfully.'
    else
-    @admins_products = Product.page(params[:page]).reverse_order
-    render :index
+    render :new
    end
   end
   def update

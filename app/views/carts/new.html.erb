@@ -1,3 +1,4 @@
+
 <div class= "container">
   <h4>購入情報入力</h4>
 
@@ -5,30 +6,117 @@
 
 <h2>支払い方法</h2><br>
 
-<%= form_with(model: @order, local: true) do |f| %>
-  <%= f.radio_button :payment_methods, :Credit %>
-  <%= f.label :payment_methods, "クレジットカード", {value: :Credit, style: "display: inline-block;"} %><br>
-  <%= f.radio_button :payment_methods, :Bank %>
-  <%= f.label :payment_methods, "銀行振込", {value: :Bank, style: "display: inline-block;"} %>
+
+    <%= form_for(@order,url: carts_confirm_path(current_user)) do |f| %>
+
+
+<div class="field">
+  <span class="payment_method_engine">支払い方法</span><br>
+  <div class="radio-inline">
+    <%= f.radio_button :payment_method, :card, checked: "checked" %>
+    <%= f.label :クレジットカード, class: "payment_method_label" %>
+  </div><br>
+  <div class="radio-inline">
+    <%= f.radio_button :payment_method, :cash %>
+    <%= f.label :銀行振込, class: "payment_method_label" %>
+  </div>
+</div>
+
 
 
   <h3>お届け先</h3>
 
+<!-- ユーザーの住所 -->
 
-
-
-
-  <%= f.radio_button :payment_methods, :Credit %>
-  　　 <p>〒<span><%= @user.postal_code %>
+  <%= f.radio_button :destination_address, current_user.postal_code, checked: "checked" %>
+  <%= f.label :destination_address, "ご自身の住所", { style: "display: inline-block;"} %>
+      <p>〒<span><%= @user.postal_code %>
       <%= @user.user_address %><br>
       <%= @user.family_name_kanji %>
         <%= @user.first_name_kanji %></span></p>
 
-  <%= f.radio_button :payment_methods, :Bank %><br>
-  <%= f.select :job_id, [ ["登録配送先",1], ["登録配送先", 2], ["登録配送先", 3 ] ,["登録配送先", 4], ["登録配送先", 5], ["登録配送先", 6] ], prompt: "登録配送先" %><br>
 
-  <%= f.radio_button :payment_methods, :Bank %>
-  <p>新規登録先フォーム</p>
+    <!-- 登録先住所 -->
+
+
+  <%= f.radio_button :destination_address, :Known %>
+  <%= f.label :destination_address, "登録先住所から選択", { value: :Known, style: "display: inline-block;"} %><br>
+  <%= f.collection_select :destination_address, @deliveries, :id, :delivery_address %>
+<%= f.collection_select :destination_name, current_user.deliveries, :id, :delivery_name %>
+<%= f.collection_select :destination_postal_code, current_user.deliveries, :id, :delivery_postal_code %>
+
+  <br>
+  <!-- 新しいお届け先 -->
+
+  <%= f.radio_button :destination_address, :Newone %>
+  <%= f.label :destination_address, "新しいお届け先",  value: :Newone %><br>
+
+
+
+  <%= f.fields_for :deliveries do |deli| %>
+    <% if @delivery.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+         <h3><%= @delivery.errors.count %>error prohibited this obj from being saved:</h3>
+         <ul>
+          <% @delivery.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+         </ul>
+        </div>
+     <% end %>
+    郵便番号<%= deli.text_field :delivery_postal_code %>
+    住所<%= deli.text_field :delivery_address %>
+    宛名<%= deli.text_field :delivery_name %>
+    <%= deli.hidden_field :delivery_id %>
+    <%= f.submit '登録する' %>
   <% end %>
 
-  <%= link_to '確認画面に進む', new_order_path(current_user), class: "btn btn-primary" %>
+  <%= f.submit '確認画面へ' %>
+<% end %>
+</div>
+
+
+
+
+
+
+
+<!-- テストコード -->
+  <br>
+    <br>
+      <br>
+        <br>
+          <br>
+    <%= form_for(@order,url: carts_confirm_path(current_user)) do |f| %>
+    <label>
+        <%= radio_button_tag("select","user_address") %>ご自身の住所
+    </label>
+          <p>〒<span><%= @user.postal_code %>
+      <%= @user.user_address %><br>
+      <%= @user.family_name_kanji %>
+        <%= @user.first_name_kanji %></span></p>
+
+    <label>
+        <%= radio_button_tag("select","delivery_address") %>登録済住所から選択
+    </label>
+        <%= f.label :user_id %>
+    <%= f.collection_select :user_id, current_user.deliveries,:id, :delivery_address %><br>
+
+    <label>
+        <%= radio_button_tag("select","new_delivery_address") %>新しいお届け先
+    </label>
+
+    <%= f.fields_for(@new_destination) do |deli| %>
+    <p>郵便番号
+        <%= deli.text_field :delivery_postal_code %></p>
+    <p>住所
+        <%= deli.text_field :delivery_address %>
+    </p>
+    <p>宛名
+        <%= deli.text_field :delivery_name %>
+    </p>
+    <% end %>
+    <%= f.submit "確認画面へ進む" %>
+
+    <% end %>
+

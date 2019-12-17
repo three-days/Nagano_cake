@@ -1,6 +1,6 @@
 <div class="container">
     <h4>注文情報確認</h4>
-    <table border="1">
+    <table class="table table-bordered">
         <tr>
             <th>商品名</th>
             <th>単価(税)</th>
@@ -8,12 +8,13 @@
             <th>小計</th>
         </tr>
         <% sum = 0 %>
+<!-- form_for -->
+
+
         <% @carts.each do |cart| %>
-        <tr>
-            <td>
-                <div><%= attachment_image_tag cart.product, :image, :fill, 50, 50, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %></div>
-               </td>
+          <tr>
                <td>
+                <div><%= attachment_image_tag cart.product, :image, :fill, 50, 50, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %></div>
                 <%= cart.product.product_name %>
                </td>
                <td>
@@ -21,9 +22,11 @@
                <td>
                 <%= cart.product_number %>
                </td>
-
-        </tr>
+               <td><%= calc = cart.product.tax_excluded * cart.product_number %></td>
+           </tr>
         <% sum = sum + calc %>
+<!-- form_for -->
+
         <% end %>
     </table>
 
@@ -41,17 +44,27 @@
         <tr>
             <td>請求金額</td>
             <td>
-        
+            <%= sum + 800%>
             </td>
         </tr>
     </table>
 
+<%= form_for @deliveries do |f| %>
     <h3>支払方法</h3>
+        <%= @delivery.payment_method %>
     <p>
-
     </p>
     <h3>お届け先</h3>
-    <p>〒
+    <p>〒<%= @delivery.destination_postal_code %>
+        <%= @delivery.destination_name %>
+        <%= @delivery.destination_address %>
 
     </p>
+    <div class="actions">
+    <%= f.submit '購入情報入力に戻る', name: 'back' %>
+    </div>
+    <div class="actions">
+    <%= f.submit '購入確定する' %>
+    <% end %>
+  </div>
 </div>

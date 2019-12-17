@@ -1,0 +1,54 @@
+<div class="container">
+<!-- 会員の配送先一覧 -->
+<h2>配送先登録/一覧</h2>
+<table class="table table-striped">
+    <h2></h2>
+    <%= form_for @delivery, :url => { :controller => :deliveries, :action => :create } do |f| %>
+     <% if @delivery.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+         <h3><%= @delivery.errors.count %>error prohibited this obj from being saved:</h3>
+         <ul>
+          <% @delivery.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+         </ul>
+        </div>
+     <% end %>
+
+    <tr>
+      <th>郵便番号</th>
+      <td> <%= f.text_field :delivery_postal_code %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td> <%= f.text_field :delivery_address %></td>
+    </tr>
+    <tr>
+      <th>宛名</th>
+      <td> <%= f.text_field :delivery_name %></td>
+      <td> </td>
+    </tr>
+    <%= f.submit '登録する' %>
+    <% end %>
+</table>
+<table class="table table-striped">
+  <% @deliveries.each do |p| %>
+    <tr>
+      <th>郵便番号</th>
+      <td> <%= p.delivery_postal_code %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td> <%= p.delivery_address %></td>
+      <td><%= link_to "編集する", edit_delivery_path(p), class: "btn btn-success pull_left" %></td>
+    </tr>
+    <tr>
+      <th>宛名</th>
+      <td> <%= p.delivery_name %></td>
+      <td><%= link_to "削除する", p, method: :delete, date: { confirm: '本当に消しますか？' }, class: "btn btn-danger pull-left" %></td>
+    </tr>
+
+    <% end %>
+</table>
+
+</div>
