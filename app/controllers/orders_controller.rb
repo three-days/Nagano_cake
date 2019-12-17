@@ -9,10 +9,14 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_products = @order.order_products
+    @order_product = OrderProduct.find(@order.id)
   end
 
   def index
-  	@orders = Order.where(user_id: current_user.id)
+  	# @orders = Order.where(user_id: current_user.id)
+    @orders = Order.all
   end
 
   def show
@@ -49,7 +53,6 @@ class OrdersController < ApplicationController
       @order.update(total_charge: sum)
       @carts.delete_all
       redirect_to carts_thanks_path
-
   end
 
 # def total_charge
@@ -77,11 +80,13 @@ class OrdersController < ApplicationController
   def destroy
 
   end
-private
+  private
   def order_params
     params.require(:order).permit(:user_id, :total_charge, :purchase_date, :payment_method, :order_status, :postage, :destination_address, :destination_name, :destination_postal_code, :delivery_postal_code, :delivery_address, :delivery_name)
   end
   def order_product_params
     params.require(:order_product).permit(:order_id, :product_id, :number, :tax_included, :production_status)
   end
+
 end
+
