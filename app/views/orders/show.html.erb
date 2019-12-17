@@ -6,23 +6,43 @@
   <tr><td>配送先</td><td><%= @order.destination_postal_code %>
         	<%= @order.destination_name %>
        	    <%= @order.destination_address %></td></tr>
-  <tr><td>支払方法</td><td>B-2</td></tr>
-  <tr><td>ステータス</td><td>B-2</td></tr>
-</table>
-
-<table class="table table-striped">
-<tr>注文内容</tr>
-<% @order_products.each do |t| %>
-  <tr><th>商品</th><th>列-B</th><th>単価</th><th>個数</th><th>小計</th></tr>
-  <tr><td><%= t.product.product_name %></td><td>B-1</td><td>B-1</td><td>B-1</td><td>B-1</td></tr>
-  <tr><td>A-2</td><td>B-2</td><td>B-1</td><td>B-1</td><td>B-1</td></tr>
-<% end %>
+  <tr><td>支払方法</td><td><%= @order.payment_method_i18n %></td></tr>
+  <tr><td>ステータス</td><td><%= @order.order_status_i18n %></td></tr>
 </table>
 
 <table class="table table-striped">
 <tr>請求情報</tr>
-  <tr><th>商品合計</th><th><%= @order.total_charge %></th></tr>
-  <tr><td>配送料</td><td>B-1</td></tr>
-  <tr><td>ご請求額</td><td>B-2</td></tr>
+  <tr>
+    <th>商品合計</th>
+    <th><%= @order.total_charge - @order.postage %></th>
+  </tr>
+  <tr>
+    <td>配送料</td>
+    <td><%= @order.postage %></td>
+  </tr>
+  <tr>
+    <td>ご請求額</td>
+    <td><%= @order.total_charge %></td>
+  </tr>
+</table>
+
+
+
+<table class="table table-striped">
+<tr>注文内容</tr>
+  <tr>
+    <th>商品</th>
+    <th>単価</th>
+    <th>個数</th>
+    <th>小計</th>
+  </tr>
+<% @order.order_products.each do |t| %>
+  <tr>
+    <td><%= t.product.product_name %></td>
+    <td><%= t.tax_included %></td>
+    <td><%= t.number %></td>
+    <td><%= t.tax_included * t.number %></td>
+  </tr>
+<% end %>
 </table>
 

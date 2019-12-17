@@ -9,19 +9,14 @@
 
     <%= form_for(@order,url: carts_confirm_path(current_user)) do |f| %>
 
-
-<div class="field">
-  <span class="payment_method_engine">支払い方法</span><br>
-  <div class="radio-inline">
-    <%= f.radio_button :payment_method, :card, checked: "checked" %>
-    <%= f.label :クレジットカード, class: "payment_method_label" %>
-  </div><br>
-  <div class="radio-inline">
-    <%= f.radio_button :payment_method, :cash %>
-    <%= f.label :銀行振込, class: "payment_method_label" %>
-  </div>
-</div>
-
+<h4>クレジットカード</h4>
+  <label>
+    <%= radio_button_tag("choice","card",checked: true) %>
+  </label>
+    <h4>現金払い</h4>
+  <label>
+    <%= radio_button_tag("choice","cash") %>
+  </label>
 
 <h2>お届け先</h2>
     <%= form_for(@order,url: carts_confirm_path(current_user)) do |f| %>
@@ -34,7 +29,7 @@
         <%= @user.first_name_kanji %></span></p>
 
     <label>
-        <%= radio_button_tag("select","delivery_address") %>登録済住所から選択
+        <%= radio_button_tag("select","delivery_address",checked: true) %>登録済住所から選択
     </label>
     <%= f.collection_select :user_id, current_user.deliveries,:id, :deli_postal_address_and_name %><br>
 

@@ -12,7 +12,7 @@
         <tbody>
             <% @admins_orders.each do |p| %>
              <tr>
-              <td><%= link_to p.purchase_date, admins_order_path(p.id)  %></td>
+              <td><%= link_to p.purchase_date.strftime("%Y-%m-%d %H:%M"), admins_order_path(p.id)  %></td>
               <td><%= p.user.family_name_kanji %><%= p.user.first_name_kanji %></td>
               <td><%= p.user.email  %></td>
               <td><%= p.order_status_i18n  %></td>
