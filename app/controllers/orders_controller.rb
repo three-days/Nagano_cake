@@ -35,10 +35,10 @@ class OrdersController < ApplicationController
         sum = sum + calc + 800
         order_product.number = cart.product_number
         order_product.save
+      end
       @order.update(total_charge: sum)
       @carts.delete_all
       redirect_to carts_thanks_path
-      end
     end
   end
 

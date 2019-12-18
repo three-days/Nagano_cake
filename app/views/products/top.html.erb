@@ -1,4 +1,4 @@
-<div class="container-fluid bg-success">
+<div class="container">
 
     <p>検索</p>
     <%= form_tag(products_top_path,:method => 'get' ) do %>
@@ -10,7 +10,7 @@
 
 
         <div class="col-md-3">
-          <table class="table">
+          <table class="table table-bordered">
           <thead>
             <tr>
               <th>ジャンル検索</th>
@@ -24,10 +24,9 @@
                   <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
                   <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
                   <!-- products/top?genre_id=1 -->
-                      <% end %>
           </tbody>
 
-
+    <% end %>
         </table>
         </div>
         <div class="col-md-8">
