@@ -33,11 +33,7 @@
               </td>
                   <td><%=link_to product.product_name, product_path(product) %></td>
                   <td><%= product.tax_excluded %></td>
-                <%= form_for( Cart.new(product_id: product.id)) do|f|  %>
-                   <td><%= f.select :product_number, [*1..100] ,class:"form-control" %></td>
-                   <%= f.hidden_field :product_id %>
-                   <td><%= f.submit "カートに入れる", class: "btn btn-primary" %></td>
-                <% end %>
+                
             <% end %>
            </table>
         </div>
