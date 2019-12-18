@@ -11,11 +11,12 @@
 
 <h4>現金払い</h4>
   <label>
-    <%= radio_button_tag("choice","cash",checked: true) %>
+    <%= radio_button_tag("[order][payment_method]","cash",checked: true) %>
   </label>
     <h4>クレジットカード</h4>
   <label>
-    <%= radio_button_tag("choice","card") %>
+    <%= radio_button_tag("[order][payment_method]","card") %>
+
   </label>
 
 <h2>お届け先</h2>
