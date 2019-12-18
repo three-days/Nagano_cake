@@ -1,4 +1,11 @@
 <div class="container-fluid bg-success">
+
+    <p>検索</p>
+    <%= form_tag(products_top_path,:method => 'get' ) do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search', :product_name => nil %>
+    <% end %>
+
   <div class="row">
 
 

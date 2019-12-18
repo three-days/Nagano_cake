@@ -10,6 +10,11 @@ class CartsController < ApplicationController
 
     @new_destination = Delivery.new
 
+# nil? では出来ない模様。blank? だと、 nil? と empty? の合わせ技となる。
+# https://qiita.com/somewhatgood@github/items/b74107480ee3821784e6
+      if @carts.blank?
+        redirect_to products_top_path
+      end
   end
   def index
     @carts = current_user.carts
@@ -83,16 +88,18 @@ class CartsController < ApplicationController
         @order.destination_address = @new_destination.delivery_address
         @order.destination_name = @new_destination.delivery_name
       end
+
+      if @carts.blank?
+        redirect_to products_top_path
+      end
+
 #Delivery.saveできない状態のままになっています。
 #一度deliveryに飛びsaveさせてから戻ってくるやり方。ダサいけど確実。
 #deliveryに飛んでsaveさせるにしても、renderで内部のデータを保持したまま遷移させるやり方が一つ。
 #画面内でdelivery_paramsを駆使しながらああだこうだやってやる方法もある。私は諦めました。
 
 
-      # if @carts.nil?
-      #   render :new
-#       # end
-# カートがカラの時、renderする記述が必要です。
+
 
     end
 
