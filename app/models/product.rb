@@ -12,4 +12,12 @@ class Product < ApplicationRecord
   validates :product_description, presence: true
   validates :tax_excluded, presence: true
 
+# 検索フォーム用の記述。
+    def self.search(search)
+      if search
+        where(['product_name LIKE ?', "%#{search}%"])
+      else
+        all
+      end
+    end
 end

@@ -9,9 +9,10 @@ class ProductsController < ApplicationController
   		@products = genre.products
   	else
   		 # genre_idが無いなら投稿すべてを取得
-  		@products = Product.all
-  	end
+  		@products = Product.search(params[:search])
+    end
   end
+
   def create
     @product = Product.new(product_params)
     @product.save
