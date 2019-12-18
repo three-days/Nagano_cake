@@ -88,6 +88,12 @@ class CartsController < ApplicationController
 #deliveryに飛んでsaveさせるにしても、renderで内部のデータを保持したまま遷移させるやり方が一つ。
 #画面内でdelivery_paramsを駆使しながらああだこうだやってやる方法もある。私は諦めました。
 
+
+      # if @carts.nil?
+      #   render :new
+#       # end
+# カートがカラの時、renderする記述が必要です。
+
     end
 
     # @deliveries = current_user.deliveries

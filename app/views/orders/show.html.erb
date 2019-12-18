@@ -2,7 +2,7 @@
 <h3>注文履歴詳細</h3>
 <table class="table table-striped">
 <tr>注文情報</tr>
-  <tr><th>注文日</th><th><%= @order.purchase_date %></th></tr>
+  <tr><th>注文日</th><th><%= @order.purchase_date.strftime("%Y-%m-%d %H:%M") %></th></tr>
   <tr><td>配送先</td><td><%= @order.destination_postal_code %>
         	<%= @order.destination_name %>
        	    <%= @order.destination_address %></td></tr>
