@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   get 'carts/thanks'
 # getとpostが同時に使用されているのはどうしてですか？
-  get 'carts/confirm'
-  post 'carts/confirm'
+  get 'carts/confirm' => 'carts#confirm',as: 'carts_confirm'
   get 'products/top'
   # カートに入れる用ルーティング
   post '/add_product' => 'carts#add_product'
