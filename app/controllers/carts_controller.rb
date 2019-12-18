@@ -70,7 +70,7 @@ class CartsController < ApplicationController
         @order.destination_address = current_user.user_address
         @order.destination_name = current_user.family_name_kanji + current_user.first_name_kanji
       elsif params[:address_set] == "delivery_address"
-        @delivery =  Delivery.find(params[:order][:user_id])
+        @delivery =  Delivery.find(params[:user_id])
         @order.destination_postal_code = @delivery.delivery_postal_code
         @order.destination_address = @delivery.delivery_address
         @order.destination_name = @delivery.delivery_name
