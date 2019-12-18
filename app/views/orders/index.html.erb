@@ -5,7 +5,7 @@
 	<h3>注文履歴一覧</h3>
 	<tr>
 		<th>注文日</th>
-		<td><%= link_to order.purchase_date, order_path(order.id)  %></td>
+		<td><%= link_to order.purchase_date.strftime("%Y-%m-%d %H:%M"), order_path(order.id)  %></td>
 	</tr>
 	<tr>
 		<th>配送先</th>
