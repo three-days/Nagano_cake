@@ -2,7 +2,7 @@
   <div class="row">
 
 
-        <div class="col-md-4">
+        <div class="col-md-3">
           <table class="table">
           <thead>
             <tr>
@@ -17,27 +17,26 @@
                   <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
                   <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
                   <!-- products/top?genre_id=1 -->
+
           </tbody>
 
     <% end %>
         </table>
         </div>
-
         <div class="col-md-8">
-           <table class="table">
+            <div class="flex_test-box">
 　　　　　　　　　<!--カート送信ボタンのコード -->
             <% @products.each do |product| %>
-            <tr>
-            	<td>
-                 <div><%= attachment_image_tag product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '50x50' %></div>
-              </td>
-                  <td><%=link_to product.product_name, product_path(product) %></td>
-                  <td><%= product.tax_excluded %></td>
-                
+                <div class="flex_test-item">
+                 <%= link_to product_path(product) do %>
+                 <%= attachment_image_tag product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '100x100' %>
+                 <% end %>
+                 </div>
             <% end %>
-           </table>
+            </div>
         </div>
-
-
   </div>
 </div>
+
+
+   
