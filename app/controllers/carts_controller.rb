@@ -63,13 +63,7 @@ class CartsController < ApplicationController
     @carts = current_user.carts
     @user = current_user
 
-    @order = Order.new
-
-      if params[:choice] == "cash"
-        @order.payment_method = :cash
-      else params[:choice] == "card"
-        @order.payment_method = :card
-      end
+    @order = Order.new(order_params)
 
       if params[:address_set] == "user_address"
         @order.destination_postal_code = current_user.postal_code
