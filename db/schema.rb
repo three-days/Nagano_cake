@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2019_12_14_018123) do
     t.string "first_name_kanji"
     t.string "family_name_kana"
     t.string "first_name_kana"
-    t.integer "postal_code"
+    t.string "postal_code"
     t.string "user_address"
     t.integer "tele_number"
     t.datetime "remember_created_at"
