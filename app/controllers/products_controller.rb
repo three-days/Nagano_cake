@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     @product.save
   end
   def show
+    @genres = Genre.all
     @product = Product.find(params[:id])
   end
 end
