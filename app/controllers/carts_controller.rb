@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-
+  before_action :authenticate_user!
   def new
     @carts = current_user.carts
     @user = current_user

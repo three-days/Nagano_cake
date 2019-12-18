@@ -1,4 +1,5 @@
 class DeliveriesController < ApplicationController
+  before_action :authenticate_user!
   def show
     @delivery = Delivery.select(current_user)
     @deliveries = current_user.deliveries

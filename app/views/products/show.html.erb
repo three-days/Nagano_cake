@@ -1,36 +1,37 @@
 <div class="container-fluid bg-success">
 
 <!-- 左側ジャンル検索画面 -->
-<div class="row">
-<div class="col-md-4">
-<table class="table">
-<thead>
-  <tr>
-    <th>ジャンル検索</th>
-  </tr>
-</thead>
-<tbody>
-  <% @genres.each do |genre| %>
-    <td>
-    <%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
-    <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
-    <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
-    <!-- products/top?genre_id=1 -->
-  <% end %>
-</tbody>
- </table>
+             <h1>商品説明</h1>
+  <div class="row">
+     <div class="col-md-4">
+        <table class="table">
+           <thead>
+             <tr>
+               <th>ジャンル検索</th>
+             </tr>
+           </thead>
+           <tbody>
+               <% @genres.each do |genre| %>
+                   <td>
+                      <%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
+                          <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
+                          <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
+                          <!-- products/top?genre_id=1 -->
+                     <% end %>
+            </tbody>
+                                 <% end %>
+            </table>
+            </div>
 
 
-<!-- 右側商品詳細 -->
- <h1>商品説明</h1>
+        <!-- 右側商品詳細 -->
 　　　　　　　　　<!--カート送信ボタンのコード -->
             <tr>
               <div class="col-md-8">
                 <table class="table">
-            	<td>
-                 <div><%= attachment_image_tag @product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '200x200' %></div>
-              </td>
-              </div>
+                   <td>
+                     <div><%= attachment_image_tag @product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '200x200' %></div>
+                   </td>
                   <td><%= @product.product_name %></td>
                   <td><%= @product.product_description %></td>
                   <td><%= @product.tax_excluded %></td>
@@ -42,9 +43,10 @@
                    <td><%= f.submit "カートに入れる", class: "btn btn-primary" %></td>
                 <% end %>
                 <% end %>
+               </div>
            </tr>
            </table>
-
 </div>
+</tr>
 </div>
 </div>
