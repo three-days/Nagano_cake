@@ -58,7 +58,7 @@ class CartsController < ApplicationController
     @carts = current_user.carts
     @user = current_user
 
-    @order = Order.new(order_params)
+    @order = Order.new
 
       if params[:choice] == "cash"
         @order.payment_method = :cash
@@ -66,19 +66,19 @@ class CartsController < ApplicationController
         @order.payment_method = :card
       end
 
-      if params[:select] == "user_address"
+      if params[:address_set] == "user_address"
         @order.destination_postal_code = current_user.postal_code
         @order.destination_address = current_user.user_address
         @order.destination_name = current_user.family_name_kanji + current_user.first_name_kanji
-      elsif params[:select] == "delivery_address"
+      elsif params[:address_set] == "delivery_address"
         @delivery =  Delivery.find(params[:order][:user_id])
         @order.destination_postal_code = @delivery.delivery_postal_code
         @order.destination_address = @delivery.delivery_address
         @order.destination_name = @delivery.delivery_name
-      else params[:select] == "new_delivery_address"
+      else params[:address_set] == "new_delivery_address"
         @new_destination = Delivery.new(delivery_params)
+        @new_destination.user_id = current_user.id
         @new_destination.save
-        @new_destination = Delivery.find(params[:order][:user_id])
         @order.destination_postal_code = @new_destination.delivery_postal_code
         @order.destination_address = @new_destination.delivery_address
         @order.destination_name = @new_destination.delivery_name
@@ -98,6 +98,8 @@ class CartsController < ApplicationController
 
     # @deliveries = current_user.deliveries
 
+  def confirm_check
+  end
 
   def destroy
     @cart = Cart.find(params[:id])
