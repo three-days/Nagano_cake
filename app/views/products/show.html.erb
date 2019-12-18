@@ -1,10 +1,10 @@
-<div class="container-fluid bg-success">
+<div class="container">
 
 <!-- 左側ジャンル検索画面 -->
-             <h1>商品説明</h1>
+
   <div class="row">
-     <div class="col-md-4">
-        <table class="table">
+     <div class="col-md-3">
+        <table class="table table-bordered">
            <thead>
              <tr>
                <th>ジャンル検索</th>
@@ -26,27 +26,39 @@
 
         <!-- 右側商品詳細 -->
 　　　　　　　　　<!--カート送信ボタンのコード -->
-            <tr>
-              <div class="col-md-8">
-                <table class="table">
-                   <td>
-                     <div><%= attachment_image_tag @product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '200x200' %></div>
-                   </td>
-                  <td><%= @product.product_name %></td>
-                  <td><%= @product.product_description %></td>
-                  <td><%= @product.tax_excluded %></td>
+
+              <div class="col-md-3">
+                     <div>
+                      <%= attachment_image_tag @product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '200x200' %>
+                     </div>
+              </div>
+
+                  <dl>
+                   <dt>
+                     <h2 class="text-center"><%= @product.product_name %></h2>
+                   </dt>
+                 </dl>
+
+                 <div class="col-md-6">
+                    <ul class="list-unstyled">
+                      <li><%= @product.product_description %></li>
+                      <li>
+                        <h3><%= @product.tax_excluded %>円</h3>
+                      </li>
+
                 <% if user_signed_in? %>
                 <!-- ログインしていたらカートボタン表示 -->
-                <%= form_for( Cart.new(product_id: @product.id)) do|f|  %>
-                   <td><%= f.select :product_number, [*1..100] ,class:"form-control" %></td>
-                   <%= f.hidden_field :product_id %>
-                   <td><%= f.submit "カートに入れる", class: "btn btn-primary" %></td>
+                    <%= form_for( Cart.new(product_id: @product.id)) do|f|  %>
+                    <li>
+                      <%= f.select :product_number, [*1..100] ,class:"form-control" %>
+                      <%= f.hidden_field :product_id %>
+                      <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+                    </li>
                 <% end %>
                 <% end %>
-               </div>
-           </tr>
-           </table>
-</div>
-</tr>
-</div>
+
+                    </ul>
+                 </div>
+
+    </div>
 </div>
