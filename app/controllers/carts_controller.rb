@@ -77,10 +77,14 @@ class CartsController < ApplicationController
       else params[:address_set] == "new_delivery_address"
         @new_destination = Delivery.new(delivery_params)
         @new_destination.user_id = current_user.id
-        @new_destination.save
-        @order.destination_postal_code = @new_destination.delivery_postal_code
-        @order.destination_address = @new_destination.delivery_address
-        @order.destination_name = @new_destination.delivery_name
+        if @new_destination.save
+            @order.destination_postal_code = @new_destination.delivery_postal_code
+            @order.destination_address = @new_destination.delivery_address
+            @order.destination_name = @new_destination.delivery_name
+        else
+          render :new
+        end
+
       end
 
       if @carts.blank?

@@ -36,7 +36,7 @@
                   <%= link_to ' マイページ',users_path %>
                </li>
                <li class="">
-                 <%= link_to ' カート', carts_path %>
+                 <%= link_to ' カート', carts_path, data: {"turbolinks" => false} %>
                </li>
                <li class="">
                  <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>

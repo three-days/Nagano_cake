@@ -7,6 +7,16 @@
 <h2>支払い方法</h2><br>
 
     <%= form_with url: carts_confirm_path(current_user.id),data: { remote: false }, method: :get do |f| %>
+     <% if @new_destination.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+         <h3><%= @new_destination.errors.count %>error prohibited this obj from being saved:</h3>
+         <ul>
+          <% @new_destination.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+         </ul>
+        </div>
+     <% end %>
 
 
 <h4>現金払い</h4>

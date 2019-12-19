@@ -18,7 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string   :first_name_kana
       t.string   :postal_code
       t.string   :user_address
-      t.integer  :tele_number
+      t.string   :tele_number
 
       ## Rememberable
       t.datetime :remember_created_at
