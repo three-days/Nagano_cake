@@ -1,34 +1,38 @@
 <!-- 注文履歴一覧 -->
 <div class="container">
-	<h3>注文履歴一覧</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>注文日</th>
-          <th>配送先</th>
-          <th>注文商品</th>
-          <th>支払金額</th>
-          <th>注文ステータス</th>
-          <th>注文詳細</th>
-        </tr>
-      </thead>
 
-      <tbody>
-				<% @orders.each do |order| %>
-					<tr>
-						<td><%= link_to order.purchase_date.strftime("%Y-%m-%d %H:%M"), order_path(order.id)  %></td>
-						<td>
-							<%= order.destination_postal_code %><br>
-							<%= order.destination_address %><br>
-		        	<%= order.destination_name %></td>
-		        <td><% order.order_products.each do |order_product| %>
-							<%= order_product.product.product_name %><br>
-						<% end %></td>
-						<td><%= order.total_charge %></td>
-						<td><%= order.order_status_i18n %></td>
-						<td><%= link_to '表示する',order_path(order) %></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
+	<table class="table table-bordered">
+	<% @orders.each do |order| %>
+	<h3>注文履歴一覧</h3>
+	<thead>
+		<tr>
+			<th>注文日</th>
+			<th>配送先</th>
+			<th>注文商品</th>
+			<th>支払金額</th>
+			<th>注文詳細</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+		<th><%= link_to order.purchase_date.strftime("%Y-%m-%d %H:%M"), order_path(order.id)  %></th>
+		<th><%= order.destination_postal_code %>
+        	<%= order.destination_name %>
+       	    <%= order.destination_address %>
+        </th>
+		<th><% order.order_products.each do |order_product| %>
+			<%= order_product.product.product_name %>
+			<% end %>
+		</th>
+		<th>
+		<%= order.total_charge %>
+		</th>
+		<th>
+			<%= link_to '表示する',order_path(order) %>
+		</th>
+		</tr>
+<%= order.order_status_i18n %>
+	</tbody>
+	<% end %>
+	</table>
 </div>
