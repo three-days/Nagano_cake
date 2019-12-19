@@ -2,47 +2,45 @@
  <h1>ジャンル管理画面</h1>
   <div class="row">
    <div class="col-md-4">
-
-
-  <%= form_for @genre, :url => { :controller => :genres, :action => :create } do |f| %>
-     <% if @genre.errors.any? %>
+    <%= form_for @genre, :url => { :controller => :genres, :action => :create } do |f| %>
+      <% if @genre.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
-         <h3><%= @genre.errors.count %>error prohibited this obj from being saved:</h3>
-         <ul>
-          <% @genre.errors.full_messages.each do |message| %>
-           <li><%= message %></li>
-          <% end %>
-         </ul>
-        </div>
-     <% end %>
-
-        <h3><%= f.label :ジャンル %><br><%= f.text_field :genre_name %>
-          <%= f.submit '追加', class: "btn btn-primary" %>
-        </h3>
-   <% end %>
-
-     <table class="table">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-            <% @genres.each do |p| %>
-             <tr>
-              <td><%= p.genre_name %></td>
-              <td><%= link_to '編集する', edit_admins_genre_path(p.id), class: "btn btn-success" %></td>
-                   <% if p.deleted_at.nil? %>
-                    <td>有効</td>
-                   <% else %>
-                    <td>無効</td>
-                   <% end %>
-              </td>
-             </tr>
+          <h3><%= @genre.errors.count %>error prohibited this obj from being saved:</h3>
+          <ul>
+            <% @genre.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
             <% end %>
-        </tbody>
-      </table>
-    </div>
+          </ul>
+        </div>
+      <% end %>
+      <h3>
+        <%= f.label :ジャンル %><br>
+        <%= f.text_field :genre_name %>
+        <%= f.submit '追加', class: "btn btn-primary" %>
+      </h3>
+   <% end %>
+   <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @genres.each do |p| %>
+       <tr>
+        <td><%= p.genre_name %></td>
+        <td><%= link_to '編集する', edit_admins_genre_path(p.id), class: "btn btn-success" %></td>
+          <% if p.deleted_at.nil? %>
+            <td>有効</td>
+          <% else %>
+            <td>無効</td>
+          <% end %>
+        </td>
+       </tr>
+      <% end %>
+    </tbody>
+   </table>
+  </div>
 </div>

@@ -10,16 +10,16 @@
           </tr>
         </thead>
         <tbody>
-            <% @admins_orders.each do |p| %>
-             <tr>
-              <td><%= link_to p.purchase_date.strftime("%Y-%m-%d %H:%M"), admins_order_path(p.id)  %></td>
-              <td><%= p.user.family_name_kanji %><%= p.user.first_name_kanji %></td>
-              <td><%= p.user.email  %></td>
-              <td><%= p.order_status_i18n  %></td>
-             </tr>
-            <% end %>
+          <% @admins_orders.each do |p| %>
+           <tr>
+            <td><%= link_to p.purchase_date.strftime("%Y-%m-%d %H:%M"), admins_order_path(p.id), data: {"turbolinks" => false}  %></td>
+            <td><%= p.user.family_name_kanji %><%= p.user.first_name_kanji %></td>
+            <td><%= p.user.email  %></td>
+            <td><%= p.order_status_i18n  %></td>
+           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
-        <%= paginate @admins_orders, class: "paginate" %>
+  <%= paginate @admins_orders, class: "paginate" %>
 </div>

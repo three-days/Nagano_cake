@@ -16,7 +16,7 @@
   <h3>電話番号    <%= @admins_user.tele_number %></h3>
   <h3>メールアドレス    <%= @admins_user.email %></h3>
 
-  <%= link_to "編集する", edit_admins_user_path(@admins_user), class: "btn btn-primary" %>
-  <%= link_to "注文履歴一覧を見る", admins_orders_path, class: "btn btn-primary" %>
+  <%= link_to "編集する", edit_admins_user_path(@admins_user), data: {"turbolinks" => false}, class: "btn btn-primary" %>
+  <%= link_to "注文履歴一覧を見る", admins_orders_path, data: {"turbolinks" => false}, class: "btn btn-primary" %>
 
 </div>

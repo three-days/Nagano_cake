@@ -2,30 +2,29 @@
  <h1>商品 編集画面</h1>
   <div class="row">
     <div class="col-md-3">
-       <%= form_for @admins_product, :url => { :controller => :products, :action => :update } do |f| %>
+      <%= form_for @admins_product, :url => { :controller => :products, :action => :update } do |f| %>
         <% if @admins_product.errors.any? %>
-        <div id="error_explanation" class="alert alert-danger">
-         <h3><%= @admins_product.errors.count %>error prohibited this obj from being saved:</h3>
-         <ul>
-          <% @admins_product.errors.full_messages.each do |message| %>
-           <li><%= message %></li>
-          <% end %>
-         </ul>
-        </div>
-       <% end %>
-        <%= attachment_image_tag @admins_product, :image, :fill, 200, 200, format: 'jpeg', fallback: "freecake.jpeg" %>
-        <%= f.attachment_field :image %>
+          <div id="error_explanation" class="alert alert-danger">
+           <h3><%= @admins_product.errors.count %>error prohibited this obj from being saved:</h3>
+           <ul>
+            <% @admins_product.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+            <% end %>
+           </ul>
+          </div>
+        <% end %>
+      <%= attachment_image_tag @admins_product, :image, :fill, 200, 200, format: 'jpeg', fallback: "freecake.jpeg" %>
+      <%= f.attachment_field :image %>
     </div>
    <div class="form-group">
     <div class="col-md-9">
-
         <%= f.label "商品名" %><%= f.text_field :product_name, class: "form-control" %>
         <%= f.label "商品説明" %><%= f.text_area :product_description , class: "form-control" %>
-         <%= f.label "ジャンル" %><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, class: "form-control" %><br>
-         <%= f.label "税抜価格" %><%= f.number_field :tax_excluded, class: "form-horizontal" %>円<br>
-         <%= f.label "販売ステータス" %><%= f.select :sale_status, Product.sale_statuses_i18n.keys.map { |k| [Product.sale_statuses_i18n[k], k]}, class: "form-control" %></h3>
-         <%= f.submit '変更を保存', class: "btn btn-primary pull-right" %>
-         <% end %>
+        <%= f.label "ジャンル" %><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, class: "form-control" %><br>
+        <%= f.label "税抜価格" %><%= f.number_field :tax_excluded, class: "form-horizontal" %>円<br>
+        <%= f.label "販売ステータス" %><%= f.select :sale_status, Product.sale_statuses_i18n.keys.map { |k| [Product.sale_statuses_i18n[k], k]}, class: "form-control" %></h3>
+        <%= f.submit '変更を保存', class: "btn btn-primary pull-right" %>
+      <% end %>
     </div>
    </div>
   </div>
