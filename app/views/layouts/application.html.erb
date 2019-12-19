@@ -4,64 +4,61 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-    <nav>
-     <ul class="left nav navbar-nav navbar-left">
-      <li><%= link_to "長野ケーキ" %></li>
-        <% if user_signed_in? %>
-          <li class="">
-            <%= link_to current_user.family_name_kanji %>
-          </li>
-          <li class="">
-            <%= link_to current_user.first_name_kanji %>
-          </li>
-        <% end %>
-     </ul>
-    </nav>
-         <nav>
-          <ul class="nav navbar-nav navbar-right">
-             <% if user_signed_in? %>
-
-               <li class="">
-                  <%= link_to ' 商品一覧',products_top_path %>
-               </li>
-               <li class="">
-                  <%= link_to ' マイページ',users_path %>
-               </li>
-               <li class="">
-                 <%= link_to ' カート', carts_path, data: {"turbolinks" => false} %>
-               </li>
-               <li class="">
-                 <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
-               </li>
-             <% else %>
-               <li class="">
-                 <%= link_to ' 商品一覧',products_top_path %>
-               </li>
-               <li class="">
-                 <%= link_to ' Sign up', new_user_registration_path %>
-               </li>
-               <li class="">
-                  <%= link_to 'Login', new_user_session_path %>
-               </li>
-             <% end %>
-            </ul>
-          </nav>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <nav>
+         <ul class="left nav navbar-nav navbar-left">
+          <%= link_to root_path do %>
+          <%= image_tag "nagano.png", :size =>'200x55' %>
+          <% end %>
+         </ul>
+        </nav>
+       <nav>
+        <ul class="nav navbar-nav navbar-right">
+           <% if user_signed_in? %>
+                     <li class="">
+          <%= link_to current_user.family_name_kanji %>
+        </li>
+        <li class="">
+          <%= link_to current_user.first_name_kanji %>
+        </li>
+             <li class="">
+                <%= link_to ' 商品一覧',products_top_path %>
+             </li>
+             <li class="">
+                <%= link_to ' マイページ',users_path %>
+             </li>
+             <li class="">
+               <%= link_to ' カート', carts_path, data: {"turbolinks" => false} %>
+             </li>
+             <li class="">
+               <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+             </li>
+           <% else %>
+             <li class="">
+               <%= link_to ' 商品一覧',products_top_path %>
+             </li>
+             <li class="">
+               <%= link_to ' Sign up', new_user_registration_path %>
+             </li>
+             <li class="">
+                <%= link_to 'Login', new_user_session_path %>
+             </li>
+           <% end %>
+          </ul>
+        </nav>
+    </div>
+  </header>
+  <div class="main">
+    <div class="container">
+      <div class="row">
       </div>
-    </header>
-      <div class="main">
-        <div class="container">
-          <div class="row">
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
 
     <%= yield %>
   </body>
