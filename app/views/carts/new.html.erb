@@ -1,62 +1,47 @@
-
 <div class= "container">
   <h3>購入情報入力</h3>
-
-
-
-<h4>支払い方法</h4><br>
-
-    <%= form_with url: carts_confirm_path(current_user.id),data: { remote: false }, method: :get do |f| %>
+  <h4>支払い方法</h4><br>
+  <%= form_with url: carts_confirm_path(current_user.id),data: { remote: false }, method: :get do |f| %>
      <% if @new_destination.errors.any? %>
-        <div id="error_explanation" class="alert alert-danger">
-         <h3><%= @new_destination.errors.count %>error prohibited this obj from being saved:</h3>
-         <ul>
-          <% @new_destination.errors.full_messages.each do |message| %>
-           <li><%= message %></li>
-          <% end %>
-         </ul>
-        </div>
-     <% end %>
-
-
-<h4>現金払い</h4>
-  <label>
-    <%= radio_button_tag("[order][payment_method]","cash",checked: true) %>
-  </label>
-    <h4>クレジットカード</h4>
-  <label>
-    <%= radio_button_tag("[order][payment_method]","card") %>
-
-  </label>
-
-<h2>お届け先</h2>
+      <div id="error_explanation" class="alert alert-danger">
+       <h3><%= @new_destination.errors.count %>error prohibited this obj from being saved:</h3>
+       <ul>
+        <% @new_destination.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+       </ul>
+      </div>
+    <% end %>
+  <h4>現金払い</h4>
     <label>
-        <%= radio_button_tag("address_set","user_address",checked: true) %>ご自身の住所
+      <%= radio_button_tag("[order][payment_method]","cash",checked: true) %>
     </label>
-          <p>〒<span><%= @user.postal_code %>
+      <h4>クレジットカード</h4>
+    <label>
+      <%= radio_button_tag("[order][payment_method]","card") %>
+    </label>
+  <h2>お届け先</h2>
+    <label>
+      <%= radio_button_tag("address_set","user_address",checked: true) %>ご自身の住所
+    </label>
+      <p>〒<span><%= @user.postal_code %>
       <%= @user.user_address %><br>
       <%= @user.family_name_kanji %>
-        <%= @user.first_name_kanji %></span></p>
-
+      <%= @user.first_name_kanji %></span></p>
     <label>
-        <%= radio_button_tag("address_set","delivery_address" ) %>登録済住所から選択
+      <%= radio_button_tag("address_set","delivery_address" ) %>登録済住所から選択
     </label>
-    <%= f.collection_select :user_id, current_user.deliveries,:id, :deli_postal_address_and_name %><br>
-
+      <%= f.collection_select :user_id, current_user.deliveries,:id, :deli_postal_address_and_name %><br>
     <label>
-        <%= radio_button_tag("address_set","new_delivery_address") %>新しいお届け先
+      <%= radio_button_tag("address_set","new_delivery_address") %>新しいお届け先
     </label>
 
     <p>郵便番号
-        <%= text_field_tag("[delivery][delivery_postal_code]",nil) %></p>
+      <%= text_field_tag("[delivery][delivery_postal_code]",nil) %></p>
     <p>住所
-        <%= text_field_tag("[delivery][delivery_address]",nil) %>
-    </p>
+      <%= text_field_tag("[delivery][delivery_address]",nil) %></p>
     <p>宛名
-        <%= text_field_tag("[delivery][delivery_name]",nil) %>
-
-    </p>
-    <%= f.submit "確認画面へ進む" %>
-
+      <%= text_field_tag("[delivery][delivery_name]",nil) %></p>
+      <%= f.submit "確認画面へ進む" %>
   <% end %>
 </div>
