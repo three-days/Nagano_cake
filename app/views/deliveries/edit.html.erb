@@ -13,15 +13,15 @@
                       <% end %>
                   </ul>
                 </div>
-            <% end %>
-            <div class="form-group">
-                  <%= f.label "郵便番号" %><%= f.text_field :delivery_postal_code, class: "form-control" %>
-                  <%= f.label "住所" %><%= f.text_field :delivery_address , class: "form-control" %>
-                  <%= f.label "宛名" %>
-                  <%= f.label "郵便番号" %><%= f.text_field :delivery_name, class: "form-control" %>
-                  <%= f.submit '変更を保存', class: "btn btn-primary pull-right" %>
-            <% end %>
-        </div>
+        <% end %>
+      <div class="form-group">
+        <%= f.label "郵便番号" %><%= f.text_field :delivery_postal_code, class: "form-control" %>
+        <%= f.label "住所" %><%= f.text_field :delivery_address , class: "form-control" %>
+        <%= f.label "宛名" %>
+        <%= f.label "郵便番号" %><%= f.text_field :delivery_name, class: "form-control" %>
+         <%= f.submit '変更を保存', class: "btn btn-primary pull-right" %>
+      <% end %>
       </div>
+    </div>
   </div>
 </div>

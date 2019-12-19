@@ -1,9 +1,6 @@
 <div class="container">
-
   <h1><strong>商品一覧画面</strong></h1>
-
     <%= link_to "+", new_admins_product_path, class: "btn btn-primary btn-circle pull-right" %>
-
       <table class="table">
         <thead>
           <tr>
@@ -14,18 +11,17 @@
             <th>ステータス</th>
           </tr>
         </thead>
-
         <tbody>
-      <% @admins_products.each do |p| %>
-       <tr>
-        <td><%= p.id %></td>
-        <td><%= link_to p.product_name, admins_product_path(p.id) %></td>
-        <td><%= p.tax_excluded %></td>
-        <td><%= p.genre.genre_name %></td>
-        <td><%= p.sale_status_i18n %></td>
-       </tr>
-      <% end %>
-    <%= paginate @admins_products, class: "paginate" %>
-</p>
-
+          <% @admins_products.each do |p| %>
+           <tr>
+            <td><%= p.id %></td>
+            <td><%= link_to p.product_name, admins_product_path(p.id) %></td>
+            <td><%= p.tax_excluded %></td>
+            <td><%= p.genre.genre_name %></td>
+            <td><%= p.sale_status_i18n %></td>
+           </tr>
+          <% end %>
+        </tbody>
+      </table>
+  <%= paginate @admins_products, class: "paginate" %>
 </div>

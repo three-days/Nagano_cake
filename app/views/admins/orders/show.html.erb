@@ -25,7 +25,7 @@
                 </ul>
             </div>
           <% end %>
-          <h3>注文ステータス       <%= f.select :order_status, Order.order_statuses_i18n.keys.map { |k| [Order.order_statuses_i18n[k], k]} %>
+          <h3>注文ステータス   <%= f.select :order_status, Order.order_statuses_i18n.keys.map { |k| [Order.order_statuses_i18n[k], k]} %>
           <%= f.submit '更新', class: "btn btn-primary" %>
           </h3>
         <% end %>
@@ -37,7 +37,7 @@
               <th>数量</th>
               <th>小計</th>
               <th>制作ステータス</th>
-              </tr>
+            </tr>
           </thead>
           <tbody>
             <% @order_products.each do |p| %>
@@ -46,8 +46,7 @@
               <td><%= p.tax_included %></td>
               <td><%= p.number  %></td>
               <td><%= p.tax_included * p.number  %></td>
-
-              <%= form_for @order_product, :url => { :controller => :order_products, :action => :update } do |f| %>
+              <%= form_for(p, url: admins_order_product_path(p.id)) do |f| %>
                 <td><%= f.select :production_status, OrderProduct.production_statuses_i18n.keys.map { |k| [OrderProduct.production_statuses_i18n[k], k]} %></td>
                 <td><%= f.submit '更新', class: "btn btn-primary" %></td>
               <% end %>
@@ -66,7 +65,6 @@
         <h3><%= @admins_order.postage %>円</h3>
         <h3><%= @admins_order.total_charge %>円</h3>
       </div>
-
     </div>
 </div>
 
