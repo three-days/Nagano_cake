@@ -1,64 +1,55 @@
 <div class="container">
-
-<!-- 左側ジャンル検索画面 -->
-
-  <div class="row">
-     <div class="col-md-3">
-        <table class="table table-bordered">
-           <thead>
-             <tr>
-               <th>ジャンル検索</th>
-             </tr>
-           </thead>
-           <tbody>
-               <% @genres.each do |genre| %>
-                   <td>
-                      <%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
-                          <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
-                          <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
-                          <!-- products/top?genre_id=1 -->
-
-            </tbody>
-                <% end %>
-            </table>
-            </div>
-
-
-        <!-- 右側商品詳細 -->
-　　　　　　　　　<!--カート送信ボタンのコード -->
-
-              <div class="col-md-3">
-                     <div>
-                      <%= attachment_image_tag @product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '200x200' %>
-                     </div>
-              </div>
-
-                  <dl>
-                   <dt>
-                     <h2 class="text-center"><%= @product.product_name %></h2>
-                   </dt>
-                 </dl>
-
-                 <div class="col-md-6">
-                    <ul class="list-unstyled">
-                      <li><%= @product.product_description %></li>
-                      <li>
-                        <h3><%= @product.tax_excluded %>円</h3>
-                      </li>
-
-                <% if user_signed_in? %>
-                <!-- ログインしていたらカートボタン表示 -->
-                    <%= form_for( Cart.new(product_id: @product.id)) do|f|  %>
-                    <li>
-                      <%= f.select :product_number, [*1..100] ,class:"form-control" %>
-                      <%= f.hidden_field :product_id %>
-                      <%= f.submit "カートに入れる", class: "btn btn-primary" %>
-                    </li>
-                <% end %>
-                <% end %>
-
-                    </ul>
-                 </div>
-
-    </div>
+ <!-- 左側ジャンル検索画面 -->
+ <div class="row">
+  <div class="col-md-3">
+    <table class="table table-bordered">
+     <thead>
+       <tr>
+         <th>ジャンル検索</th>
+       </tr>
+     </thead>
+    　 <tbody>
+         <% @genres.each do |genre| %>
+           <td>
+              <%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %>
+           </td>
+             <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
+             <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
+             <!-- products/top?genre_id=1 -->
+       </tbody>
+         <!-- 何故か/tbodyの↓にエンドを置かないと崩れる -->
+         <% end %>
+    </table>
+  </div>
+   <!-- 右側商品詳細 -->
+   <!--カート送信ボタンのコード -->
+  <div class="col-md-3">
+     <div>
+      <%= attachment_image_tag @product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '200x200' %>
+     </div>
+  </div>
+  <div class="col-md-6">
+    <dl>
+     <dt>
+       <h2 class="text-center"><%= @product.product_name %></h2>
+     </dt>
+    </dl>
+    <ul class="list-unstyled">
+      <li><%= @product.product_description %></li>
+      <li>
+        <h3><%= @product.tax_excluded %>円</h3>
+      </li>
+     <% if user_signed_in? %>
+     <!-- ログインしていたらカートボタン表示 -->
+      <%= form_for( Cart.new(product_id: @product.id)) do|f|  %>
+      <li>
+        <%= f.select :product_number, [*1..100] ,class:"form-control" %>
+        <%= f.hidden_field :product_id %>
+        <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+        <% end %>
+      </li>
+    </ul>
+    <% end %>
+  </div>
+ </div>
 </div>
