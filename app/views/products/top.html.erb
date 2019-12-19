@@ -1,46 +1,45 @@
 <div class="container">
-
-    <p>検索</p>
-    <%= form_tag(products_top_path,:method => 'get' ) do %>
-      <%= text_field_tag :search %>
-      <%= submit_tag 'Search', :product_name => nil %>
-    <% end %>
+  <div class="row">
+    <div class="col-md-3">
+      <p></p>
+      <%= form_tag(products_top_path,:method => 'get' ) do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'Search', :product_name => nil %>
+      <% end %>
+      <p></p>
+    </div>
+  </div>
 
   <div class="row">
-
-
-        <div class="col-md-3">
-          <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>ジャンル検索</th>
-
-            </tr>
-          </thead>
-
-          <tbody>
-              <% @genres.each do |genre| %>
-                  <td><%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
-                  <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
-                  <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
-                  <!-- products/top?genre_id=1 -->
-          </tbody>
-
-    <% end %>
-        </table>
-        </div>
-        <div class="col-md-8">
-            <div class="flex_test-box">
-　　　　　　　　　<!--カート送信ボタンのコード -->
-            <% @products.each do |product| %>
-                <div class="flex_test-item">
-                 <%= link_to product_path(product) do %>
-                 <%= attachment_image_tag product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '100x100' %>
-                 <% end %>
-                 </div>
+    <div class="col-md-3">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @genres.each do |genre| %>
+                <td><%= link_to genre.genre_name, products_top_path(genre_id: genre.id) %></td>
+                <!-- 上のリンクpath以降は省略形、フルだと_path(:genre_id => genre.id) -->
+                <!-- コントローラーのparamsから[:genre_id]を受け取ってurlの後ろにジャンルIDをつけて飛ばせる -->
+                <!-- products/top?genre_id=1 -->
+        </tbody>
             <% end %>
-            </div>
+      </table>
+    </div>
+    <div class="col-md-9">
+        <div class="flex_test-box">
+　　　　　　　　　<!--カート送信ボタンのコード -->
+        <% @products.each do |product| %>
+            <div class="flex_test-item">
+             <%= link_to product_path(product) do %>
+             <%= attachment_image_tag product, :image, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size: '200x200' %>
+             <% end %>
+             </div>
+        <% end %>
         </div>
+    </div>
   </div>
 </div>
 

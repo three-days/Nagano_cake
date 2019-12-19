@@ -3,7 +3,7 @@ class Delivery < ApplicationRecord
 
   validates :delivery_address, presence: true
   validates :delivery_name, presence: true
-  validates :delivery_postal_code, presence: true ,format: {with: /\A\d{7}\z/}
+  validates :delivery_postal_code, presence: true,format: {with: /\A\d{7}\z/}
 
 
   def deli_postal_address_and_name

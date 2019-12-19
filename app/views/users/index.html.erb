@@ -36,16 +36,14 @@
 			<th>メールアドレス</th>
 			<td><%= @user.email %></td>
 		</tr>
-
+    <tr>
+		<th>配送先</th>
+		  <td><%= link_to '一覧を見る',delivery_path(current_user.id), data: {"turbolinks" => false},class: "btn btn-default" %></td>
+    </tr>
+    <tr>
+      <th>配送先</th>  
+      <th><%= link_to '一覧を見る',orders_path,class: " btn btn-default" %></th>
+    </tr>
 </table>
-
-		<tr>
-			<th><p>配送先</p></th>
-			<td><%= link_to '一覧を見る',delivery_path(current_user.id),class: " btn btn-default" %></td>
-		</tr>
-		<tr>
-			<th><p>注文履歴</p></th>
-			<th><%= link_to '一覧を見る',orders_path,class: " btn btn-default" %></th>
-		</tr>
 </div>
 
