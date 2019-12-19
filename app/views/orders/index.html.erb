@@ -32,23 +32,7 @@
 		</th>
 		</tr>
 <%= order.order_status_i18n %>
-
-      <tbody>
-				<% @orders.each do |order| %>
-					<tr>
-						<td><%= link_to order.purchase_date.strftime("%Y-%m-%d %H:%M"), order_path(order.id)  %></td>
-						<td>
-							<%= order.destination_postal_code %><br>
-							<%= order.destination_address %><br>
-		        	<%= order.destination_name %></td>
-		        <td><% order.order_products.each do |order_product| %>
-							<%= order_product.product.product_name %><br>
-						<% end %></td>
-						<td><%= order.total_charge %></td>
-						<td><%= order.order_status_i18n %></td>
-						<td><%= link_to '表示する',order_path(order) %></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
+	</tbody>
+	<% end %>
+	</table>
 </div>
