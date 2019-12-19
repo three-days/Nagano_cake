@@ -1,27 +1,27 @@
-<div class="container">
 <!-- 配送先編集ページ -->
- <h2>配送先編集</h2>
-  <div class="row">
-    <div class="col-md-9">
-      <%= form_for @delivery, :url => { :controller => :deliveries, :action => :update } do |f| %>
-        <% if @delivery.errors.any? %>
-        <div id="error_explanation" class="alert alert-danger">
-         <h3><%= @delivery.errors.count %>error prohibited this obj from being saved:</h3>
-         <ul>
-          <% @delivery.errors.full_messages.each do |message| %>
-           <li><%= message %></li>
-          <% end %>
-         </ul>
+<div class="container">
+  <h2>配送先編集</h2>
+      <div class="row">
+        <div class="col-md-9">
+          <%= form_for @delivery, :url => { :controller => :deliveries, :action => :update } do |f| %>
+            <% if @delivery.errors.any? %>
+                <div id="error_explanation" class="alert alert-danger">
+                  <h3><%= @delivery.errors.count %>error prohibited this obj from being saved:</h3>
+                  <ul>
+                      <% @delivery.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                  </ul>
+                </div>
+            <% end %>
+            <div class="form-group">
+                  <%= f.label "郵便番号" %><%= f.text_field :delivery_postal_code, class: "form-control" %>
+                  <%= f.label "住所" %><%= f.text_field :delivery_address , class: "form-control" %>
+                  <%= f.label "宛名" %>
+                  <%= f.label "郵便番号" %><%= f.text_field :delivery_name, class: "form-control" %>
+                  <%= f.submit '変更を保存', class: "btn btn-primary pull-right" %>
+            <% end %>
         </div>
-        <% end %>
-      <div class="form-group">
-        <%= f.label "郵便番号" %><%= f.text_field :delivery_postal_code, class: "form-control" %>
-        <%= f.label "住所" %><%= f.text_field :delivery_address , class: "form-control" %>
-        <%= f.label "宛名" %>
-        <%= f.label "郵便番号" %><%= f.text_field :delivery_name, class: "form-control" %>
-         <%= f.submit '変更を保存', class: "btn btn-primary pull-right" %>
-      <% end %>
-    </div>
-   </div>
+      </div>
   </div>
 </div>

@@ -1,49 +1,63 @@
 <!-- 会員側のマイページ -->
 <div class="container">
-<h2>マイページ</h2>
+	<h2>マイページ</h2>
 		<div class="btn-group" role="group">
-		<h3>登録情報</h3>
-		 <%= link_to '編集する',edit_user_path(current_user.id),class: "btn btn-default" %>
-		 <%= link_to 'パスワードを変更する',edit_user_registration_path,class: " btn btn-default" %>
+			<h3>登録情報</h3>
+				<%= link_to '編集する',edit_user_path(current_user.id),class: "btn btn-default" %>
+				<%= link_to 'パスワードを変更する',edit_user_registration_path,class: " btn btn-default" %>
 		</div>
-		 <!-- <div class="border" style="padding:10px;"> -->
-	<table class="table table-bordered">
-		<tr>
-			<th>氏名</th>
-			<td><%= @user.family_name_kanji %>
-				<%= @user.first_name_kanji %>
-			</td>
-		</tr>
-		<tr>
-			<th>カナ</th>
-			<td><%= @user.family_name_kana %>
-				<%= @user.first_name_kana %>
-			</td>
-		</tr>
-		<tr>
-			<th>郵便番号</th>
-			<td><%= @user.postal_code %></td>
-		</tr>
-		<tr>
-			<th>住所</th>
-			<td><%= @user.user_address %></td>
-		</tr>
-		<tr>
-			<th>電話番号</th>
-			<td><%= @user.tele_number %></td>
-		</tr>
-		<tr>
-			<th>メールアドレス</th>
-			<td><%= @user.email %></td>
-		</tr>
-    <tr>
-		<th>配送先</th>
-		  <td><%= link_to '一覧を見る',delivery_path(current_user.id), data: {"turbolinks" => false},class: "btn btn-default" %></td>
-    </tr>
-    <tr>
-      <th>配送先</th>  
-      <th><%= link_to '一覧を見る',orders_path,class: " btn btn-default" %></th>
-    </tr>
-</table>
+			 <!-- <div class="border" style="padding:10px;"> -->
+		<table class="table table-bordered">
+			<tr>
+				<th>氏名</th>
+				<td>
+					<%= @user.family_name_kanji %>
+					<%= @user.first_name_kanji %>
+				</td>
+			</tr>
+			<tr>
+				<th>カナ</th>
+				<td>
+					<%= @user.family_name_kana %>
+					<%= @user.first_name_kana %>
+				</td>
+			</tr>
+			<tr>
+				<th>郵便番号</th>
+				<td>
+					<%= @user.postal_code %>
+				</td>
+			</tr>
+			<tr>
+				<th>住所</th>
+				<td>
+					<%= @user.user_address %>
+				</td>
+			</tr>
+			<tr>
+				<th>電話番号</th>
+				<td>
+					<%= @user.tele_number %>
+				</td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td>
+					<%= @user.email %>
+				</td>
+			</tr>
+	    	<tr>
+				<th>配送先</th>
+			  	<td>
+			  		<%= link_to '一覧を見る',delivery_path(current_user.id), data: {"turbolinks" => false},class: "btn btn-default" %>
+			  	</td>
+	   		</tr>
+	    	<tr>
+	      		<th>配送先</th>
+	      		<th>
+	      			<%= link_to '一覧を見る',orders_path,class: " btn btn-default" %>
+	      		</th>
+	   		</tr>
+		</table>
 </div>
 
