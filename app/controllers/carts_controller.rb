@@ -5,11 +5,8 @@ class CartsController < ApplicationController
     @user = current_user
     @deliveries = current_user.deliveries
     @delivery = Delivery.new
-# 　　↓フォームタグの仮置したいための変数
     @order = Order.new
-
     @new_destination = Delivery.new
-
 # nil? では出来ない模様。blank? だと、 nil? と empty? の合わせ技となる。
 # https://qiita.com/somewhatgood@github/items/b74107480ee3821784e6
       if @carts.blank?
@@ -21,7 +18,6 @@ class CartsController < ApplicationController
   end
   def show
   	@carts = Cart.all
-  	# @carts = current_user.carts
   end
 
   def create
@@ -34,22 +30,6 @@ class CartsController < ApplicationController
     end
     @cart.save
     redirect_to carts_path
-
-
-    # オーダーセーブ仮
-    # @order = Order.new(order_params)
-    # respond_to do |format|
-    #   if params[:back]
-    #     format.html { render :new }
-    #   elsif @order.save
-    #     format.html { redirect_to :thanks }
-    #   else
-    #     format.html { render :new }
-
-    #   end
-    # end
-
-
   end
 
   def update
@@ -62,9 +42,7 @@ class CartsController < ApplicationController
   def confirm
     @carts = current_user.carts
     @user = current_user
-
     @order = Order.new(order_params)
-
       if params[:address_set] == "user_address"
         @order.destination_postal_code = current_user.postal_code
         @order.destination_address = current_user.user_address
@@ -84,27 +62,11 @@ class CartsController < ApplicationController
         else
           render :new
         end
-
       end
-
       if @carts.blank?
         redirect_to products_top_path
       end
-
-#Delivery.saveできない状態のままになっています。
-#一度deliveryに飛びsaveさせてから戻ってくるやり方。ダサいけど確実。
-#deliveryに飛んでsaveさせるにしても、renderで内部のデータを保持したまま遷移させるやり方が一つ。
-#画面内でdelivery_paramsを駆使しながらああだこうだやってやる方法もある。私は諦めました。
-
-
-
-
     end
-
-    # @deliveries = current_user.deliveries
-
-  def confirm_check
-  end
 
   def destroy
     @cart = Cart.find(params[:id])
